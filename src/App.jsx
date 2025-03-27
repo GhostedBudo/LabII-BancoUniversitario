@@ -16,7 +16,6 @@ function App() {
     <main>
     <Hero />
     <Services />
-
     </main>
     {/* Footer position is bottom */}
 
