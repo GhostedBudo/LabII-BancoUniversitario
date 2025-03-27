@@ -1,15 +1,17 @@
 import './App.css'
-import Home from './components/Institutional/Home/Home'
+import Hero from './components/Institutional/Hero/Hero'
 import Services from './components/Institutional/Services/Services'
 import Footer from './components/Institutional/Footer/Footer'
+import Header from './components/Institutional/Header/Header'
 
 function App() {
   
 
   return (
     <>
+    <Header/>
+    <Hero />
     <Services />
-    <Home />
     {/* Footer position is bottom */}
     <Footer></Footer>
     </>
