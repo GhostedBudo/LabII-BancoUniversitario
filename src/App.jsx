@@ -9,10 +9,18 @@ function App() {
 
   return (
     <>
-    <Header/>
+
+      <Header/>
+
+  
+    <main>
     <Hero />
     <Services />
+
+    </main>
     {/* Footer position is bottom */}
+
+
     <Footer></Footer>
     </>
   )
