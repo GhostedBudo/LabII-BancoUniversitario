@@ -44,12 +44,13 @@ const About = () => {
         <h1>Sobre Nosotros</h1>
         {/* Segundo contenedor */}
         <div className={styles.box2}> 
-            {/* tercer contenedor */}
+            {/* Tercer contenedor */}
             <nav className={styles.navbar}>
                 <h2 onClick={() => { changeItem('Mision')  }}>Mision</h2>
                 <h2 onClick={() => { changeItem('Vision')  }}>Vision</h2>
                 <h2 onClick={() => { changeItem('Objetivos')  }}>Objetivos</h2>
             </nav>
+
             {/* Cuarto contenedor */}
             <div className={styles.box4} style={{backgroundImage: 'url(' + currentItem.backgroundUrl + ')' }}>
                 <h2>{currentItem.title}</h2>
