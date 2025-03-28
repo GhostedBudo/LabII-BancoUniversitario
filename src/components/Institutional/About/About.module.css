@@ -1,0 +1,42 @@
+.box1 {
+ 
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.box2 {
+    
+    height: 600px;
+    background-image: url('../../../assets/img/FondoMobil.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1px;
+
+    
+}
+
+.navbar {
+    padding-top: 70px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box4 {
+    display: flex;
+    justify-content: center;
+    padding: 1px;
+    color: white; 
+    height: 70%;
+    width: 70%;
+    background-size: cover;
+
+}
+
+.box4 p {
+    text-align: justify;
+    margin: 1rem;
+}
