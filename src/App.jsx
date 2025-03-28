@@ -1,4 +1,4 @@
-import './App.css'
+
 import Hero from './components/Institutional/Hero/Hero'
 import Services from './components/Institutional/Services/Services'
 import Footer from './components/Institutional/Footer/Footer'

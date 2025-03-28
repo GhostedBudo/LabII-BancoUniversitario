@@ -14,28 +14,20 @@
     background-size: cover;
     background-repeat: no-repeat;
     padding: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 
 }
 
 .navbar {
     padding-top: 70px;
+    padding-bottom: 5%;
+    width: 90%;
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    
 }
 
-.box4 {
-    display: flex;
-    justify-content: center;
-    padding: 1px;
-    color: white; 
-    height: 70%;
-    width: 70%;
-    background-size: cover;
-
-}
-
-.box4 p {
-    text-align: justify;
-    margin: 1rem;
-}
