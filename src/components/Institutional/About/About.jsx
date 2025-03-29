@@ -27,7 +27,7 @@ const About = () => {
         backgroundUrl: objetivoImage
     }
 
-    const [currentItem, setCurrentItem] = useState(vision);
+    const [currentItem, setCurrentItem] = useState(mision);
 
     const changeItem = (item) => {
         switch (item) {
@@ -52,7 +52,9 @@ const About = () => {
             </nav>
 
             
-            <ValueCard info={currentItem}/>
+            <ValueCard 
+            key={currentItem.title}
+            info={currentItem}/>
 
             
         </div>
