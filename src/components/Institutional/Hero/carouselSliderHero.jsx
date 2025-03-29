@@ -13,18 +13,18 @@ const CarouselSliderHero = () => {
       id: 1,
       image: Woman,
       title: "Comprometidos con tus finanzas",
-      description: "Ahora puedes acceder y administrar todas tus transacciones desde un solo lugar.",
+      description: "Ahora puedes acceder\n y administrar todas\n tus transacciones \ndesde un solo lugar.",
     },
     {
       id: 2,
       image: Graduates,
-      title: "Becas Universitarias",
-      description: "Elimina las barreras financieras y enfocate en  tu crecimiento y aprendizaje.Aprovecha esta oportunidad para explorar nuevas fronteras y construir el futuro que deseas.",
+      title: "Becas\nUniversitarias",
+      description: "Elimina las barreras financieras y enfocate en  tu crecimiento y aprendizaje. \n\nAprovecha esta oportunidad para explorar nuevas fronteras y construir el futuro que deseas.",
     },
     {
       id: 3,
       image: Bank,
-      title: "Retiro de fondos",
+      title: "Retiro de\n fondos",
       description: "Accede a tu mundo sin límites: retira efectivo de forma rápida y segura y aprovecha cada oportunidad que la vida universitaria te ofrece",
     },
   ];
@@ -35,7 +35,7 @@ const CarouselSliderHero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [slides.length]);
 

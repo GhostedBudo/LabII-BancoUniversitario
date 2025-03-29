@@ -15,8 +15,12 @@ function App() {
     <Header/>
     <main>
     <Hero />
-    <div>CarouselHeroSlider</div>
+   
     <CarouselSliderHero />
+
+
+
+    
     <Services />
     </main>
     {/* Footer position is bottom */}
