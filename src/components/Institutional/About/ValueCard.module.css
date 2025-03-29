@@ -1,22 +1,49 @@
 .box4 {
 
-    color: white; 
-    height: 70%;
-    width: 70%;
-    background-size: cover;
+    height: 60%;
+    width: 70%; 
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+
+   
+}
+
+
+
+.box4 .bg {
+   grid-area: 1 /1;
+   height: 100%;
+   width: 100%;
+   background-size: contain;
+  
 
 }
 
-.box4 p {
+.box4 h2 {
+    color: white;
     text-align: center;
-
+    position: relative;
+   
+    
 }
 
 .dialog {
-    margin: 0;
-    position: static;
+    position: absolute;
+    grid-area: 1 /1 ;
+      margin: 0;
     height: 100%;
     width: 100%;
-    background-color: #085F63;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(8, 95, 99, 0.9));
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+}
+
+.dialog p {
+    text-align: justify;
+    padding: 1rem;
 }

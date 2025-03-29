@@ -17,17 +17,25 @@ const ValueCard = ({info}) => {
 
     return (
         <>
-            <div
+        <div className={styles.box4}>
+            <div className='bg'
             onClick={toggleDialog}
-             className={styles.box4} style={{ backgroundImage: 'url(' + info.backgroundUrl + ')' }}>
+             style={{ backgroundImage: 'url(' + info.backgroundUrl + ')',
+                backgroundSize: 'cover'
+              }}>
+
                 <h2>{info.title}</h2>
-                {/* <img src={currentItem.backgroundUrl} alt="imagen" /> */}
-                <div id='dialog' className={styles.dialog}  onClick={toggleDialog}>
+                
+            </div>
+
+            <div id='dialog' className={styles.dialog}  onClick={toggleDialog}>
                     <p>
                         {info.content}
                     </p>
-                </div>
             </div>
+
+
+        </div>
         </>
     )  
 }
