@@ -12,7 +12,7 @@ const CarouselSliderHero = () => {
     {
       id: 1,
       image: Woman,
-      title: "Comprometidos con tus finanzas",
+      title: "Comprometidos con tus\n finanzas",
       description: "Ahora puedes acceder\n y administrar todas\n tus transacciones \ndesde un solo lugar.",
     },
     {
@@ -45,7 +45,7 @@ const CarouselSliderHero = () => {
         <div
           key={slide.id}
           className={`slide ${index === currentSlide ? "active" : ""}`}
-          style={{ backgroundImage: `url(${slide.image})` }}
+          style={{ backgroundImage: `url(${slide.image})` , backgroundSize: "auto 100%"}}
         >
           <div className="slide-content">
             <h1>{slide.title}</h1>
