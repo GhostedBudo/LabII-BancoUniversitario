@@ -21,13 +21,23 @@
 
 }
 
+.valueCardsContainer {
+    display: flex;
+    position: relative;
+    outline: solid red 1px;
+    width: 100%;
+    height: 60%;
+
+    justify-content: space-around;
+}
 .navbar {
     padding-top: 70px;
     padding-bottom: 5%;
     width: 90%;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 8rem;
     
 }
 
