@@ -1,15 +1,88 @@
 .footer {
-    background-color: #085f63;
+    background-color: #085F63;
     color: white;
     text-align: center;
-    padding: 20px;
+    background-position: 100%;
   }
   
+  /* SLIDER CON DEGRADADO */
+  .sliderWrapper {
+    background: linear-gradient(180deg, #eeeeee, #49BEB7);
+    margin-bottom: 50px; /*Distanciado con el objeto o texto debajo de el*/
+  }
+  
+  .sliderContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 45px;
+    padding: 1%;
+  }
+  
+  .sliderTrack { /*Aqui se controla a-contenido.b-espaciado.c- tiempo de animacion*/
+    display: flex;
+    width: 200%; /* Duplicamos el contenido */
+    animation: slide 10s linear infinite;
+    gap: 50px; /* Espaciado entre imágenes */
+  }
+  
+  .sliderTrack img {
+    width: auto;
+    height: 40px; /*Cambio de tamaño de imagen de carrusel*/
+  }
+  
+  /* ANIMACIÓN DEL SLIDER */
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* IMAGEN EN RECUADRO BLANCO CON BORDES REDONDEADOS */
+  .imageContainer {
+    background: rgba(255, 255, 255, 0.79);
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  .imageContainer img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* SECCIÓN DE CONTACTOS */
+  .contactSection {
+    margin-top: 50px; /*Distanciado con el objeto o texto encima de el - a partir de Contactos*/
+  }
+  
+  .contactTitle { /*TITULO*/
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  /* CONTACTOS INFO */
   .contactInfo {
-    font-size: 14px;
+    font-size: 0.9rem;
     margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    padding-left: 40px;
+    text-align: left;
   }
   
+  /* ICONOS REDES SOCIALES */
   .socialIcons {
     display: flex;
     justify-content: center;
@@ -18,41 +91,24 @@
   }
   
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     transition: transform 0.3s ease;
+    padding: 10%;
   }
   
   .icon:hover {
     transform: scale(1.1);
   }
-  
-  /* Slider */
-  .sliderContainer {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    height: 80px;
+  .socialnetuser{
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
   }
-  
-  .sliderTrack {
-    display: flex;
-    width: 200%; /* Duplicamos el contenido */
-    animation: slide 10s linear infinite;
-  }
-  
-  .sliderTrack img {
-    width: auto;
-    height: 80px;
-    margin-right: 10px;
-  }
-  
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+  /* COPYRIGHT */
+  .copyright {
+    padding-bottom: 20px;
+    font-size: 12px;
+    margin-top: 10px;
   }
   
