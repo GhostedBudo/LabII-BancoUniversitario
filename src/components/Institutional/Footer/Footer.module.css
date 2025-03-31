@@ -1,0 +1,58 @@
+.footer {
+    background-color: #085f63;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .contactInfo {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .icon:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Slider */
+  .sliderContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 80px;
+  }
+  
+  .sliderTrack {
+    display: flex;
+    width: 200%; /* Duplicamos el contenido */
+    animation: slide 10s linear infinite;
+  }
+  
+  .sliderTrack img {
+    width: auto;
+    height: 80px;
+    margin-right: 10px;
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
