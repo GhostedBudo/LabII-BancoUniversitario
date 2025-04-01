@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ValueCard.module.css";
-const ValueCard = ({ info }) => {
+const ValueCard = ({ info, isActive }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -13,7 +13,7 @@ const ValueCard = ({ info }) => {
 
   return (
     <>
-      <div className={styles.box4}>
+      <div className={`${styles.box4} ${isActive ? styles.active : ""}`}>
         <div
           className={styles.bg}
           onClick={toggleDialog}

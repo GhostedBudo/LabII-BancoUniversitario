@@ -1,12 +1,13 @@
 .box4 {
-  height: 100%;
-  width: 300px;
+  width: 18rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: relative;
-  gap: 30px;
   overflow: hidden;
+
+  grid-area: 1/1;
+  border-radius: 20px;
 }
 
 .bg {
@@ -20,10 +21,12 @@
   color: white;
   text-align: center;
   position: relative;
+
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .dialog {
-
   position: absolute;
   grid-area: 1 /1;
   margin: 0;
@@ -32,9 +35,8 @@
   background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(8, 95, 99, 0.8));
   color: white;
   display: none;
-  padding-top: 1rem;
   flex-direction: column;
-  align-content: center;
+  justify-content: center;
 }
 
 .dialog p {
@@ -42,42 +44,50 @@
   padding: 1rem;
   padding-top: 2rem;
   font-weight: bold;
-  font-size: 1.1rem
-  
+  font-size: 2vh;
 }
-
-
-
-
 /* Animaciones */
 .slideUp {
-    display: flex;
-    animation: slideUp 0.5s ease-out forwards;
+  display: flex;
+  animation: slideUp 0.5s ease-out forwards;
 }
 
 .slideDown {
-    display: flex;
-    animation: slideDown 0.5s ease-in forwards;
+  display: flex;
+  animation: slideDown 0.5s ease-in forwards;
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideDown {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(100%);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.active {
+  z-index: 1;
+}
+
+.no_active {
+}
+
+@media screen and (min-width: 1024px) {
+  .box4 {
+    width: 22rem;
+  }
 }

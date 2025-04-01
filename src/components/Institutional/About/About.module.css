@@ -1,23 +1,21 @@
 .box1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: start;
 }
 
 .box2 {
-    
-    min-height: 600px;
-    background-image: url('../../../assets/img/FondoMobil.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-
+  height: 70%;
+  background-image: url("../../../assets/img/FondoMobil.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -32,10 +30,52 @@
     justify-content: space-around;
 }
 .navbar {
-
-    color: white;
-    display: flex;
-    justify-content: space-around;
-    
+  width: 90%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
 }
 
+.navbar h2 {
+  cursor: pointer;
+}
+
+.cards {
+  width: 100%;
+  height: 65%;
+  display: grid;
+  justify-content: center;
+}
+
+/* Three cards responsive behaviour */
+
+/* TABLET  */
+/* @media screen  and (min-width: 768px ) {
+
+    .cards {
+        width: 30%;
+        border: solid red 1px;
+    }
+} */
+
+/* Desktop */
+
+@media screen and (min-width: 834px) {
+  .navbar {
+    display: none;
+  }
+
+  .cards {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    margin: 0 4rem;
+  }
+
+  .box2 {
+    background-image: url("../../../assets/img/FondoWeb.png");
+  }
+}
