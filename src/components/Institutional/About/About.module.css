@@ -1,15 +1,14 @@
 .box1 {
- 
-    padding: 1px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    max-width: 100%;
 }
 
 .box2 {
     
-    height: 600px;
+    min-height: 600px;
     background-image: url('../../../assets/img/FondoMobil.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,23 +20,22 @@
 
 }
 
+
+/* mobile */
+
 .valueCardsContainer {
     display: flex;
     position: relative;
     outline: solid red 1px;
-    width: 100%;
-    height: 60%;
-
+ 
+    min-height: 65%;
     justify-content: space-around;
 }
 .navbar {
-    padding-top: 70px;
-    padding-bottom: 5%;
-    width: 90%;
+
     color: white;
     display: flex;
     justify-content: space-around;
-    gap: 8rem;
     
 }
 
