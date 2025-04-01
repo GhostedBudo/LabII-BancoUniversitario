@@ -17,6 +17,16 @@ const Footer = () => {
             <img src="/src/assets/icon/icon200.png" alt="UCLA DCYT" />
             <img src="/src/assets/icon/iconUnexpo.png" alt="UNEXPO" />
             <img src="/src/assets/icon/iconUnellez.png" alt="UNELLEZ" />
+            {/* Clonamos otra vez las imágenes para efecto de loop */}
+            <img src="/src/assets/icon/iconUcla.png" alt="UCLA" />
+            <img src="/src/assets/icon/icon200.png" alt="UCLA DCYT" />
+            <img src="/src/assets/icon/iconUnexpo.png" alt="UNEXPO" />
+            <img src="/src/assets/icon/iconUnellez.png" alt="UNELLEZ" />
+
+            <img src="/src/assets/icon/iconUcla.png" alt="UCLA" />
+            <img src="/src/assets/icon/icon200.png" alt="UCLA DCYT" />
+            <img src="/src/assets/icon/iconUnexpo.png" alt="UNEXPO" />
+            <img src="/src/assets/icon/iconUnellez.png" alt="UNELLEZ" />
           </div>
         </div>
       </div>
@@ -38,7 +48,6 @@ const Footer = () => {
     </ul>
   </div>
 </div>
-
 
       {/* Redes sociales */}
       <div className={styles.socialIcons}>
