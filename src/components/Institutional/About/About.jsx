@@ -43,7 +43,7 @@ const About = () => {
     <div className={styles.box1}>
       {/* Primer contenedor */}
 
-      <h1>Sobre Nosotros</h1>
+      <h1 className={styles.sobreNosotros}>Sobre Nosotros</h1>
       {/* Segundo contenedor */}
       <div className={styles.box2}>
         {/* Tercer contenedor */}

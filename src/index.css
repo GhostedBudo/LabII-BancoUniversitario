@@ -3,23 +3,23 @@
   src: url('./assets/font/Montserrat_Alternates_Regular.ttf');
 }
 
+*  {
+  box-sizing: border-box;
+  
+}
+
 body {
   margin: 0;
-  display: flex;
   font-family: "Monserrat", sans-serif;
+  
 }
 
-#root {
-  width: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+.main {
 
-}
-
-main {
-
-  width: 100%;
+  min-width: 412px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: space-around;
+
+
 }

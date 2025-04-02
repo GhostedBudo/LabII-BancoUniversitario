@@ -1,39 +1,28 @@
 .box4 {
-  width: 18rem;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  position: relative;
-  overflow: hidden;
-
   grid-area: 1/1;
-  border-radius: 20px;
 }
 
 .bg {
+  border-radius: 10px;
   grid-area: 1 /1;
   height: 100%;
-  width: 100%;
-  background-size: contain;
+  background-size: cover;
 }
 
 .box4 h2 {
   color: white;
-  text-align: center;
-  position: relative;
-
-  font-size: 2rem;
   font-weight: bold;
 }
 
 .dialog {
-  position: absolute;
+  border-radius: 10px;
+  display: none;
   grid-area: 1 /1;
-  margin: 0;
-  height: 100%;
-  width: 100%;
   background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(8, 95, 99, 0.8));
-  color: white;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -42,9 +31,10 @@
 .dialog p {
   text-align: center;
   padding: 1rem;
-  padding-top: 2rem;
+  color: white;
+  padding-top: 3rem;
   font-weight: bold;
-  font-size: 2vh;
+  
 }
 /* Animaciones */
 .slideUp {
@@ -83,11 +73,7 @@
   z-index: 1;
 }
 
-.no_active {
+.noActive {
+  display: none;
 }
 
-@media screen and (min-width: 1024px) {
-  .box4 {
-    width: 22rem;
-  }
-}

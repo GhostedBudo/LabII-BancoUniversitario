@@ -1,4 +1,4 @@
-
+import './index.css'
 import Hero from './components/Institutional/Hero/Hero'
 import Services from './components/Institutional/Services/Services'
 import Footer from './components/Institutional/Footer/Footer'
@@ -11,19 +11,19 @@ function App() {
   return (
     <>
 
+    <div className='main'>
       <Header/>
 
 
-    <main>
     <Hero />
     <Services />
     <About />
 
-    </main>
     {/* Footer position is bottom */}
 
 
     <Footer></Footer>
+    </div>
     </>
   )
 }

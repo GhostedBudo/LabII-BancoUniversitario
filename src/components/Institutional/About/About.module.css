@@ -3,38 +3,28 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: start;
+}
+
+.sobreNosotros {
+  padding-bottom: 1.5rem;
 }
 
 .box2 {
+  padding: 4rem 0;
   height: 70%;
   background-image: url("../../../assets/img/FondoMobil.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  padding: 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-
-/* mobile */
-
-.valueCardsContainer {
-    display: flex;
-    position: relative;
-    outline: solid red 1px;
- 
-    min-height: 65%;
-    justify-content: space-around;
-}
 .navbar {
-  width: 90%;
   color: white;
   display: flex;
-  justify-content: space-between;
-  padding: clamp(0.5rem, 2vw, 1.5rem);
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 3rem;
 }
 
 .navbar h2 {
@@ -42,10 +32,27 @@
 }
 
 .cards {
-  width: 100%;
-  height: 65%;
+  margin-top: 2rem;
+  min-width: 100%;
   display: grid;
   justify-content: center;
+  height: 100%;
+
+  background: red;
+}
+
+
+@media (min-width: 768) {
+  .dialog p {
+    
+  }
+}
+
+@media (min-width: 1024) {
+  .cards {
+    display: flex;
+    
+  }
 }
 
 /* Three cards responsive behaviour */
@@ -61,7 +68,7 @@
 
 /* Desktop */
 
-@media screen and (min-width: 834px) {
+/* @media screen and (min-width: 834px) {
   .navbar {
     display: none;
   }
@@ -78,4 +85,4 @@
   .box2 {
     background-image: url("../../../assets/img/FondoWeb.png");
   }
-}
+} */
