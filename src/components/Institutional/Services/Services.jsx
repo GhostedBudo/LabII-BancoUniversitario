@@ -1,11 +1,5 @@
 import React from 'react'
 import styles from './Services.module.css'
-import imgTransfer from '../../../assets/img/Serv1.png'
-import imgDep from '../../../assets/img/Serv2.png'
-import imgCons from '../../../assets/img/Serv3.png'
-import imgPagoMat from '../../../assets/img/Serv4.png'
-import imgCobro from '../../../assets/img/Serv5.png'
-import imgRetiro from '../../../assets/img/Serv6.png'
 import iconTransfer from '../../../assets/img/capTrans1.png'
 import iconDep from '../../../assets/img/capDep1.png'
 import iconConsMov from '../../../assets/img/capTransMov1.png'
@@ -35,7 +29,7 @@ const Services = () => {
         <div className={styles.contConsMov}>
           <h1 className={styles.titConsMov}>Consultas de Movimientos</h1>
           <img src={iconConsMov} className={styles.iConsMov} alt="" />
-        </div>
+       </div>
       </div>
 
       <div className={styles.imgServices2}>
