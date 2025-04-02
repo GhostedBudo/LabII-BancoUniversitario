@@ -1,5 +1,7 @@
 .box4 {
-  width: 100%;
+  min-width: 15rem;
+  max-width: 20rem;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -9,20 +11,21 @@
 .bg {
   border-radius: 10px;
   grid-area: 1 /1;
-  height: 100%;
   background-size: cover;
 }
 
 .box4 h2 {
   color: white;
   font-weight: bold;
+  margin-top: 3rem;
+  font-size: xx-large;
 }
 
 .dialog {
   border-radius: 10px;
   display: none;
   grid-area: 1 /1;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(8, 95, 99, 0.8));
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(8, 95, 99, 0.9));
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +37,7 @@
   color: white;
   padding-top: 3rem;
   font-weight: bold;
+  font-size: 1.2rem;
   
 }
 /* Animaciones */

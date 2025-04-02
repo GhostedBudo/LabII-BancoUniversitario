@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  
 }
 
 .sobreNosotros {
@@ -11,7 +12,7 @@
 
 .box2 {
   padding: 4rem 0;
-  height: 70%;
+  height: 100%;
   background-image: url("../../../assets/img/FondoMobil.png");
   background-size: cover;
   display: flex;
@@ -29,60 +30,34 @@
 
 .navbar h2 {
   cursor: pointer;
+  font-size: x-large;
 }
 
 .cards {
   margin-top: 2rem;
-  min-width: 100%;
   display: grid;
   justify-content: center;
   height: 100%;
+  gap: 1rem;
+  /* width: auto; */
 
-  background: red;
 }
 
-
-@media (min-width: 768) {
-  .dialog p {
-    
-  }
-}
-
-@media (min-width: 1024) {
+@media screen and (min-width: 768px) {
   .cards {
     display: flex;
-    
-  }
-}
-
-/* Three cards responsive behaviour */
-
-/* TABLET  */
-/* @media screen  and (min-width: 768px ) {
-
-    .cards {
-        width: 30%;
-        border: solid red 1px;
-    }
-} */
-
-/* Desktop */
-
-/* @media screen and (min-width: 834px) {
-  .navbar {
-    display: none;
-  }
-
-  .cards {
-    width: 100%;
-    height: 80%;
-    display: flex;
+    width: 80%;
     justify-content: space-around;
-    gap: 1em;
-    margin: 0 4rem;
+    overflow: hidden;
   }
 
   .box2 {
+
     background-image: url("../../../assets/img/FondoWeb.png");
+    background-size: cover;
   }
-} */
+}
+
+
+
+
