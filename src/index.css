@@ -3,9 +3,7 @@
   src: url('./assets/font/Montserrat_Alternates_Regular.ttf');
 }
 
-* {
-  box-sizing: border-box;
+body {
   margin: 0;
-  padding: 0;
   font-family: "Monserrat", sans-serif;
 }
