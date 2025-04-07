@@ -1,25 +1,13 @@
 @font-face {
   font-family: "Monserrat";
   src: url('./assets/font/Montserrat_Alternates_Regular.ttf');
-}
-
-*  {
-  box-sizing: border-box;
   
 }
 
 body {
   margin: 0;
   font-family: "Monserrat", sans-serif;
-  
 }
 
-.main {
-
-  min-width: 412px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 
 
-}

@@ -1,18 +1,18 @@
 .box1 {
-  height: 100%;
+  height: fit-content;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  
 }
-
 .sobreNosotros {
   padding-bottom: 1.5rem;
 }
 
 .box2 {
-  padding: 4rem 0;
-  height: 100%;
+
+  flex-grow: 1;
+ 
+  
   background-image: url("../../../assets/img/FondoMobil.png");
   background-size: cover;
   display: flex;
@@ -20,33 +20,20 @@
   align-items: center;
 }
 
-.navbar {
-  color: white;
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-  gap: 3rem;
-}
-
-.navbar h2 {
-  cursor: pointer;
-  font-size: x-large;
-}
-
 .cards {
-  margin-top: 2rem;
+
   display: grid;
   justify-content: center;
   height: 100%;
   gap: 1rem;
-  /* width: auto; */
+  width: auto;
 
 }
 
 @media screen and (min-width: 768px) {
   .cards {
     display: flex;
-    width: 80%;
+    /* width: 80%; */
     justify-content: space-around;
     overflow: hidden;
   }

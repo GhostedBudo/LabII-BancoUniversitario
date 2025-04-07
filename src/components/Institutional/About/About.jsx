@@ -1,4 +1,4 @@
-import styles from "./About.module.css";
+import styles from "./NewAbout.module.css";
 import { useState } from "react";
 
 import objetivoImage from "../../../assets/img/imagenEstudiantes.png";
@@ -32,46 +32,40 @@ const About = () => {
     },
   ];
 
-  const changeItem = (item) => {
-    setCurrentItem(item);
-  };
   const itemsList = items.map((i) => (
     <ValueCard isActive={currentItem === i.title} key={i.title} info={i} />
   ));
 
   return (
-    <div className={styles.box1}>
-      {/* Primer contenedor */}
-
+    <div className={styles.primaryContainer}>
       <h1 className={styles.sobreNosotros}>Sobre Nosotros</h1>
-      {/* Segundo contenedor */}
-      <div className={styles.box2}>
-        {/* Tercer contenedor */}
-        <nav className={styles.navbar}>
-          <h2
-            onClick={() => {
-              changeItem("Mision");
-            }}
-          >
-            Mision
-          </h2>
-          <h2
-            onClick={() => {
-              changeItem("Vision");
-            }}
-          >
-            Vision
-          </h2>
-          <h2
-            onClick={() => {
-              changeItem("Objetivos");
-            }}
-          >
-            Objetivos
-          </h2>
-        </nav>
 
+      <div className={styles.bg}>
+      
         <div className={styles.cards}>{itemsList}</div>
+        <div className={styles.sliderDots}>
+          <input
+            type="radio"
+            name="aboutItems" // Unique name for the group
+            id="radioMision"
+            onClick={() => setCurrentItem("Mision")}
+            checked={currentItem === "Mision"} // Add checked property
+          />
+          <input
+            type="radio"
+            name="aboutItems" // Unique name for the group
+            id="radioVision"
+            onClick={() => setCurrentItem("Vision")}
+            checked={currentItem === "Vision"} // Add checked property
+          />
+          <input
+            type="radio"
+            name="aboutItems" // Unique name for the group
+            id="radioObjetivos"
+            onClick={() => setCurrentItem("Objetivos")}
+            checked={currentItem === "Objetivos"} // Add checked property
+          />
+        </div>
       </div>
     </div>
   );

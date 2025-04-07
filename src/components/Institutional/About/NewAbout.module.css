@@ -1,0 +1,42 @@
+.primaryContainer {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  text-align: center;
+  
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-self: center;
+  
+}
+
+.cards > * {
+  grid-area: 1/1;
+}
+
+.bg {
+  display: grid;
+  padding: 1rem;
+  grid-template-rows: 1fr auto;
+  width: 100%;
+  /* height: 100%; */
+  background: url("../../../assets/img/FondoMobil.png");
+  background-size: cover;
+}
+
+
+@media screen and (min-width: 768px) {
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    justify-self: unset;
+  }
+
+  .sliderDots {
+    display: none;
+  }
+}
