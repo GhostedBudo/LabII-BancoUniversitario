@@ -78,7 +78,6 @@
     margin-bottom: 20px;
     line-height: 1.5;
     font-weight: bold;
-    padding-left: 40px;
     text-align: left;
   }
   
@@ -111,7 +110,7 @@
     font-size: 12px;
     margin-top: 10px;
   }
-  @media (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     .footer {
         position: relative;
        }
@@ -188,7 +187,7 @@
          margin-bottom: 0;
          line-height: 1.5;
          font-weight: bold;
-         padding-left: 3%;
+         padding-left: 0;
          text-align: left;
        }
        
@@ -204,7 +203,7 @@
          height: 60px;
          transition: transform 0.3s ease;
          position: relative;
-         bottom: 200%;
+         bottom: 190%;
        }
        
        .icon:hover {
@@ -213,7 +212,7 @@
        .socialnetuser {
          position: absolute;
          right: 2%; /* Ajusta según necesites */
-         bottom: 37%;
+         bottom: 32%;
          font-weight: bold;
          font-size: 1rem;
      }
@@ -225,7 +224,7 @@
        } 
    
 }
-@media (min-width: 1024px) {
+@media only screen and (min-width: 1024px){
     .footer {
         position: relative;
        }
@@ -238,7 +237,7 @@
          width: 100%;
          overflow: hidden;
          position: relative;
-         height: 50px;
+         height: 40px;
          padding: 1%;
          display: flex;
          align-items: center;
@@ -253,7 +252,7 @@
        
        .sliderTrack img {
          width: auto;
-         height: 50px; /*Cambio de tamaño de imagen de carrusel*/
+         height: 60px; /*Cambio de tamaño de imagen de carrusel*/
        }
        
        /* ANIMACIÓN DEL SLIDER */
@@ -274,8 +273,8 @@
          display: flex;
          justify-content: flex-start;
          align-items: center;
-         margin: 10px; /*Estte lo desplaza hacia la derecha (+) o izquierda (-)*/
-         width: 45%;
+         margin: 10px; /*Este lo desplaza hacia la derecha (+) o izquierda (-)*/
+         width: 35%;
          max-width: 400px;
        }
        
@@ -302,7 +301,7 @@
          margin-bottom: 0;
          line-height: 1.5;
          font-weight: bold;
-         padding-left: 3%;
+         padding-left: 1%;
          text-align: left;
        }
        
@@ -315,11 +314,11 @@
        }
        
        .icon {
-         width: 60px;
-         height: 60px;
+         width: 70px;
+         height: 70px;
          transition: transform 0.3s ease;
          position: relative;
-         bottom: 200%;
+         bottom: 180%;
        }
        
        .icon:hover {
@@ -327,8 +326,8 @@
        }
        .socialnetuser {
          position: absolute;
-         right: 3.5%; /* Ajusta según necesites */
-         bottom: 34%;
+         right: 6%; /* Ajusta según necesites */
+         bottom: 33%;
          font-weight: bold;
          font-size: 1rem;
      }
@@ -339,15 +338,8 @@
          margin-top: 1px;
        } 
     }
-@media (min-width: 1440px) {
-    .footer {
-       position: relative;
-      }
-      /* SLIDER CON DEGRADADO */
-      .sliderWrapper {
-        background: linear-gradient(180deg, #eeeeee, #49BEB7);
-        margin-bottom: 50px; /*Distanciado con el objeto o texto debajo de el*/
-      }
+    @media only screen and (min-width: 1440px)
+    {
       
       .sliderContainer {
         width: 100%;
@@ -369,16 +361,6 @@
       .sliderTrack img {
         width: auto;
         height: 80px; /*Cambio de tamaño de imagen de carrusel*/
-      }
-      
-      /* ANIMACIÓN DEL SLIDER */
-      @keyframes slide {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
       }
       
       /* IMAGEN EN RECUADRO BLANCO CON BORDES REDONDEADOS */
@@ -418,7 +400,7 @@
         margin-bottom: 0;
         line-height: 1.5;
         font-weight: bold;
-        padding-left: 5%;
+        padding-left: 3%;
         text-align: left;
       }
       
@@ -443,7 +425,7 @@
       .socialnetuser {
         position: absolute;
         right: 4.5%; /* Ajusta según necesites */
-        bottom: 38%;
+        bottom: 35%;
         font-weight: bold;
         font-size: 1.6rem;
     }
