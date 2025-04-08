@@ -1,49 +1,53 @@
 .primaryContainer {
-  width: 100%;
-  height: 80vh;
-  display: grid;
-  grid-template-rows: auto 1fr;
+
+  color: black;
   text-align: center;
+  min-width: 500px;
   
+}
+
+.bg {
+ 
+  background-image: url('../../../assets/img/FondoMobil.png');
+  background-size: cover;
+  min-width: 100%;
 }
 
 .slider {
-  border: solid red 1px;
-  display: flex;
-  justify-content: center;
   
-}
-
-.hidden {
-  visibility: hidden;
+  display: grid; 
+  grid-template-columns: auto 1fr auto;
 }
 
 .cards {
+
   display: grid;
   grid-template-columns: 1fr;
-  justify-self: center;
-  
+  gap: 20px;
+  padding: 0 20px;
 }
 
 .cards > * {
   grid-area: 1/1;
-}
-
-.bg {
-  display: grid;
-  grid-template-rows: 1fr auto;
   width: 100%;
-  /* height: 100%; */
-  background: url("../../../assets/img/FondoMobil.png");
-  background-size: cover;
+  max-width:500px;
+  justify-self: center;
+ 
+  
 }
 
-
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .cards {
-    display: flex;
-    justify-content: space-around;
-    justify-self: unset;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+  .cards > * {
+    grid-area: auto;
+    
+  }
+
+  .arrow {
+    display: none;
   }
 
   .sliderDots {

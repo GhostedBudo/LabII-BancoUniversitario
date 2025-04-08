@@ -6,8 +6,7 @@ import misionImage from "../../../assets/img/imgenGraduando.png";
 import visionImage from "../../../assets/img/imagenCuenta.png";
 
 import ValueCard from "./ValueCard";
-import ChevronLeft from "./chevron/ChevronLeft";
-import ChevronRight from "./chevron/ChevronRight";
+
 
 const About = () => {
   const [currentItem, setCurrentItem] = useState("Mision");
@@ -46,13 +45,9 @@ const About = () => {
 
       <div className={styles.bg}>
         <div className={styles.slider}>
-          <ChevronLeft
-            color={"black"}
-            hidden={currentItem == "Mision"}
-            
-          />
+        <button className={styles.arrow}>{`<`}</button>
           <div className={styles.cards}>{itemsList}</div>
-          <ChevronRight color={"black"}  />
+        <button className={styles.arrow}>{`>`}</button>
         </div>
 
         <div className={styles.sliderDots}>
