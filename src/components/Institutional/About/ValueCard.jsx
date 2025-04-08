@@ -4,7 +4,6 @@ const ValueCard = ({ info, isActive }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [shouldAnimate, setShouldAnimate] = useState(false)
 
-
   useEffect(
     () => {
       setShouldAnimate(false)

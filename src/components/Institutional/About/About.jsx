@@ -6,6 +6,8 @@ import misionImage from "../../../assets/img/imgenGraduando.png";
 import visionImage from "../../../assets/img/imagenCuenta.png";
 
 import ValueCard from "./ValueCard";
+import ChevronLeft from "./chevron/ChevronLeft";
+import ChevronRight from "./chevron/ChevronRight";
 
 const About = () => {
   const [currentItem, setCurrentItem] = useState("Mision");
@@ -36,13 +38,23 @@ const About = () => {
     <ValueCard isActive={currentItem === i.title} key={i.title} info={i} />
   ));
 
+  
+
   return (
     <div className={styles.primaryContainer}>
       <h1 className={styles.sobreNosotros}>Sobre Nosotros</h1>
 
       <div className={styles.bg}>
-      
-        <div className={styles.cards}>{itemsList}</div>
+        <div className={styles.slider}>
+          <ChevronLeft
+            color={"black"}
+            hidden={currentItem == "Mision"}
+            
+          />
+          <div className={styles.cards}>{itemsList}</div>
+          <ChevronRight color={"black"}  />
+        </div>
+
         <div className={styles.sliderDots}>
           <input
             type="radio"
