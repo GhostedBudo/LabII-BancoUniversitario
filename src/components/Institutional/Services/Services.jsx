@@ -7,6 +7,13 @@ import iconEduc from '../../../assets/img/capEduc1.png'
 import iconCobBec from '../../../assets/img/capTarifa1.png'
 import iconRet from '../../../assets/img/capRet1.png'
 
+import cardTransfer from '../../../assets/img/cardTransfer.png'
+import cardDep from '../../../assets/img/cardDep.png'
+import cardConsMov from '../../../assets/img/cardConsMov.png'
+import cardMatr from '../../../assets/img/cardMatr.png'
+import cardCobBec from '../../../assets/img/cardCobBec.png'
+import cardRet from '../../../assets/img/cardRet.png'
+
 
 const Services = () => {
   return (
@@ -16,37 +23,23 @@ const Services = () => {
     <div className={styles.conteiner} >
        
       <div className={styles.imgServices1}> 
-         <div className={styles.contTransfer}>
-          <h1 className={styles.titTransfer}>Transferencias sin comisiones entre Estudiantes</h1>
-          <img src={iconTransfer} className={styles.iTransfer} alt="" />
-        </div>
+      
+          <img src={cardTransfer} className={styles.contTransfer} alt="" />
 
-        <div className={styles.contDep}>
-          <h1 className={styles.titDep}>Depositos en Efectivo</h1>
-          <img src={iconDep} className={styles.iDep} alt="" />
-        </div>
+          <img src={cardDep} className={styles.contDep}  alt="" />
 
-        <div className={styles.contConsMov}>
-          <h1 className={styles.titConsMov}>Consultas de Movimientos</h1>
-          <img src={iconConsMov} className={styles.iConsMov} alt="" />
-       </div>
+          <img src={cardConsMov} className={styles.contConsMov} alt="" />
+        
       </div>
 
       <div className={styles.imgServices2}>
-        <div className={styles.contEduc}>
-          <img src={iconEduc} className={styles.iEduc} alt="" />
-          <h1 className={styles.titEduc}>Pago de Matricula</h1>
-        </div>
 
-        <div className={styles.contCobBec}>
-          <img src={iconCobBec} className={styles.iCobBec} alt="" />
-          <h1 className={styles.titCobBec}>Cobro de Beca Estudiantil</h1>
-        </div>
+        <img src={cardMatr} className={styles.contMatr} alt="" />
+        
+        <img src={cardCobBec} className={styles.contCobBec} alt="" />
 
-        <div className={styles.contRet}>
-          <img src={iconRet} className={styles.iRet} alt="" />
-          <h1 className={styles.titRet}>Retiro en Efectivo</h1>
-        </div>
+        <img src={cardRet} className={styles.contRet} alt="" />
+       
       </div>
     </div>
      

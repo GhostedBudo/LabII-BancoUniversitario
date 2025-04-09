@@ -1,309 +1,249 @@
 .conteiner {
-    height: auto;
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .titServ {
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 3rem;  
+    font-size: 2rem;  
     margin-bottom: 0;
 }
 
 .imgServices1 {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2%;
-    margin-left: 4%;
-    margin-right: 4%;
-    gap: 6rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .imgServices2 {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 4%;
-    margin-right: 4%;
-    gap: 6rem;
 }
 
 /*Servicio de Transferencias sin comision entre Estudiantes*/
 .contTransfer {
-    width: 32rem;
-    height: 32rem;
-    background: linear-gradient(to top, white, 40%, #49BEB7);
-    border-radius: 1rem; 
+    width: 90%;
+    height: auto;
+    border-radius: 0.7rem; 
     margin: 0;
 }
 
-.contTransfer:hover {
-    transform: scale(1.05);
-    transition: transform 1s ease-in-out;
-}
-
-.titTransfer{
-    display: flex;
-    text-align: center;
-    color: white;
-    font-size: 1.4rem;
-    margin-top: 2rem;
-}
-
-.iTransfer{
-    display: block;
-    margin: auto;
-    height: 60%;
-}
 
 /*Servicio de Deposito en Efectivo*/
 .contDep{
-    width: 24rem;
-    height: 24rem;
-    background: linear-gradient(to top, white, 40%, #49BEB7);
-    border-radius: 1rem;
-}
-
-.contDep:hover {
-    transform: scale(1.05);
-    transition: transform 1s ease-in-out;
-}
-
-.titDep{
-    text-align: center;
-    color: white;
-    font-size: 1.4rem;
+    width: 70%;
+    height: auto;
+    border-radius: 0.6rem;
     margin-top: 2rem;
-    margin-bottom: 0;
-    padding-left: 6rem;
-    padding-right: 6rem;
 }
 
-.iDep{
-    display: block;
-    margin: auto;
-    height: 75%;
-}
 
 /*Servicio de Consulta de Movimientos*/
 .contConsMov{
-    width: 18rem;
-    height: 18rem;
-    background: linear-gradient(to top, white, 40%, #49BEB7);
-    border-radius: 1rem; 
-}
-
-.contConsMov:hover {
-    transform: scale(1.05);
-    transition: transform 1s ease-in-out;
-}
-
-.titConsMov{
-    text-align: center;
-    color: white;
-    font-size: 1.4rem;
+    width: 50%;
+    height: auto;
+    border-radius: 0.5rem; 
     margin-top: 2rem;
-    margin-bottom: 1rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
 }
 
-.iConsMov{
-    display: block;
-    margin: auto;
-    height: 45%;
-}
 
 /*Servicio de Pago de Matricula*/
-.contEduc{
-    width: 18rem;
-    height: 18rem;
-    background: linear-gradient(to top, #49BEB7, 40%, white);
-    border-radius: 1rem; 
-}
-
-.contEduc:hover {
-    transform: scale(1.05);
-    transition: transform 1s ease-in-out;
-}
-
-.titEduc{
-    text-align: center;
-    color: white;
-    font-size: 1.4rem;
-    margin-top: 1rem;
-    margin-bottom: 0;
-    padding-left: 4rem;
-    padding-right: 4rem;
-}
-
-.iEduc{
-    display: block;
-    margin: auto;
+.contMatr{
+    width: 50%;
+    height: auto;
+    border-radius: 0.5rem;
     margin-top: 4rem;
-    height: 45%;
 }
+
 
 /*Servicio de Cobro de Beca Estudiantil*/
 .contCobBec{
-    width: 24rem;
-    height: 24rem;
-    background: linear-gradient(to top, #49BEB7, 40%, white);
-    border-radius: 1rem; 
+    width: 70%;
+    height: auto;
+    border-radius: 0.6rem;
+    margin-top: 2rem; 
 }
 
-.contCobBec:hover {
-    transform: scale(1.05);
-    transition: transform 1s ease-in-out;
-}
-
-.titCobBec{
-    text-align: center;
-    color: white;
-    font-size: 1.4rem;
-    margin-top: 2rem;
-    margin-bottom: 0;
-    padding-left: 6rem;
-    padding-right: 6rem;
-}
-
-.iCobBec{
-    display: block;
-    margin: auto;
-    margin-top: 4rem;
-    height: 50%;
-}
 
 /*Servicio Retiro en Efectivo*/
 .contRet{
-    width: 32rem;
-    height: 32rem;
-    background: linear-gradient(to top, #49BEB7, 40%, white);
-    border-radius: 1rem; 
+    width: 90%;
+    height: auto;
+    border-radius: 0.7rem; 
 }
-
-.contRet:hover {
-    transform: scale(1.05);
-    transition: transform 1s ease-in-out;
-}
-
-.titRet{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.4rem;
-    margin-top: 0;
-    margin-bottom: 4rem;
-}
-
-.iRet{
-    display: block;
-    margin: auto;
-    margin-top: 4rem;
-    height: 70%;
-}
-
 
 
 /* Media query for table screen*/
-@media only screen and (min-width: 413px) and (max-width: 768px){
-    .iconTransfer{
-        border-radius: 0.7rem;
-        width: 30%;
-    }
-    
-    .iconDep{
-        border-radius: 0.6rem;
-        width: 22%;
-    }
-    
-    .iconConsMov{
-        border-radius: 0.5rem;
-        width: 12%;
-    }
-    
-    .iconEduc{
-        border-radius: 0.5rem;
-        width: 12%;
-    }
-    
-    .iconCobBec{
-        border-radius: 0.6rem;
-        width: 22%;
-    }
-    
-    .iconRet{
-        border-radius: 0.7rem;
-        width: 30%;
-    }
-}
-
-/*Media query for mobile screen*/
-@media only screen and (max-width: 412px) {
+@media only screen and (min-width: 413px) and (max-width:768px) {
     .conteiner {
-        height:auto;
         width: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        padding: 2rem;
-        padding-top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .imgServices1 {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        gap: 2rem;
+    }
+    
+    .imgServices2 {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin-top: 0;
+        margin-bottom: 0;
+        gap: 2rem;
     }
 
-    .imgServices1{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin: 0;
-        width: 90%;
-    }
-
-    .imgServices2{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin: 0;
-        width: 90%;
+    .contTransfer {
+        width: 85%;
+        height: auto;
+        border-radius: 0.7rem;
     }
 
     .contDep{
-        width: 24rem;
-        height: 24rem;
-        background: linear-gradient(to top, white, 40%, #49BEB7);
-        border-radius: 1rem;
-        margin-bottom: 8rem;
+        width: 65%;
+        height: auto;
+        border-radius: 0.6rem;
     }
 
-    .contEduc{
-        width: 18rem;
-        height: 18rem;
-        background: linear-gradient(to top, #49BEB7, 40%, white);
-        border-radius: 1rem; 
-        margin-top: 10rem;
+    .contConsMov{
+        width: 45%;
+        height: auto;
+        margin-top: 4rem;
+    }
+
+    .contMatr{
+        width: 45%;
+        height: auto;
+        margin-top: 5rem;
     }
 
     .contCobBec{
-        width: 24rem;
-        height: 24rem;
-        background: linear-gradient(to top, #49BEB7, 40%, white);
-        border-radius: 1rem; 
-        margin-top: 10rem;
+        width: 65%;
+        height: auto;
+        border-radius: 0.6rem;
     }
-    
+
     .contRet{
-        width: 32rem;
-        height: 32rem;
-        background: linear-gradient(to top, #49BEB7, 40%, white);
-        border-radius: 1rem; 
-        margin-top: 4rem;
+        width: 85%;
+        height: auto;
+        border-radius: 0.7rem; 
+    }
+
+    
+}
+
+
+/* Media query for desktop screen*/
+@media only screen and (min-width:768px) {
+    .conteiner {
+        display: grid;
+        grid-template-columns: 1fr;
     }
     
-  }
+    .imgServices1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        margin-top: 1rem;
+        justify-content: space-around;
+        padding: 2rem;
+    }
+    
+    .imgServices2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        padding: 2rem;
+    } 
+
+    .titServ{
+        font-size: 3rem;
+    }
+
+    .contTransfer{
+        width: 90%;
+        height: auto;
+        margin-left: 20%;
+    }
+
+    .contDep{
+        width: 70%;
+        height: auto;
+        margin-left: 38%;
+        
+    }
+
+    .contConsMov{
+        width: 50%;
+        height: auto;
+        margin-left: 18%;
+    }
+
+    .contMatr{
+        width: 50%;
+        height: auto;
+        margin-right: 18%;
+        margin-top: 0;
+    }
+
+    .contCobBec{
+        width: 70%;
+        height: auto;
+        margin-right: 38%;
+        margin-top: 0;
+    }
+
+    .contRet{
+        width: 90%;
+        height: auto;
+        margin-right: 20%;
+    }
+
+    /*Click hover*/
+    .contTransfer:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contDep:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contConsMov:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contMatr:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+    
+    .contCobBec:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contRet:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+    
+}
+
