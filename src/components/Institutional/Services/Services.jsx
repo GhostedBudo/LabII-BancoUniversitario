@@ -1,11 +1,5 @@
 import React from 'react'
 import styles from './Services.module.css'
-import iconTransfer from '../../../assets/img/capTrans1.png'
-import iconDep from '../../../assets/img/capDep1.png'
-import iconConsMov from '../../../assets/img/capTransMov1.png'
-import iconEduc from '../../../assets/img/capEduc1.png'
-import iconCobBec from '../../../assets/img/capTarifa1.png'
-import iconRet from '../../../assets/img/capRet1.png'
 
 import cardTransfer from '../../../assets/img/cardTransfer.png'
 import cardDep from '../../../assets/img/cardDep.png'

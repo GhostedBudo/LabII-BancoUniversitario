@@ -1,0 +1,12 @@
+.conteiner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.titNuestPr{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;  
+    margin-bottom: 0;
+}
