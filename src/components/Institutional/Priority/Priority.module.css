@@ -1,12 +1,224 @@
 .conteiner {
-    width: 100%;
+    width: 90%;
+    margin: auto;
+    padding: 4rem 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
-.titNuestPr{
+.titNuestPr {
     display: flex;
     justify-content: center;
-    font-size: 2rem;  
+    text-align: center;
+    font-size: 1.6rem;  
     margin-bottom: 0;
+    margin-top: 3rem;
 }
+
+.contPriority {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr auto;
+    justify-items: center;
+    align-items: stretch;
+    gap: 3rem;
+    grid-row: 2;
+}
+
+.cardTarj, .cardTarjBank {
+    width: 90%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+
+.contConf {
+    width: 90%;
+    height: auto;
+    background: linear-gradient(#085F63, 20%, #10C1C9);
+    opacity: 0.85;
+    border-radius: 1rem;
+}
+
+.contSeg {
+    width: 90%;
+    height: auto;
+    background: linear-gradient(#085F63, 20%, #10C1C9);
+    opacity: 0.85;
+    border-radius: 1rem;
+    grid-row: 4;
+}
+
+.titConf, .titSeg {
+    color: white;
+    font-size: 2rem;
+    margin: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.textConf, .textSeg {
+    color: white;
+    font-size: 160%;
+    margin: 0.5rem;
+    margin-top: 2rem;
+}
+
+.cardUniv{
+    width: 90%;
+    height: auto;
+    border-radius: 1rem;
+    margin: 5%;
+    
+}
+
+
+/*Media query for tablet screen*/
+@media screen and (min-width: 768px) {
+    .conteiner {
+        width: 90%;
+        margin: auto;
+        padding: 4rem 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+        
+    .titNuestPr {
+        display: flex;
+        justify-content: center;
+        font-size: 2rem;  
+        margin-bottom: 0;
+    }
+        
+    .contPriority {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        align-items: stretch;
+        gap: 3rem;
+        grid-row: 2;
+    }
+        
+    .cardTarj, .cardTarjBank {
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+    }
+        
+        
+    .contConf {
+        width: 100%;
+        height: auto;
+        background: linear-gradient(#085F63, 20%, #10C1C9);
+        opacity: 0.85;
+        border-radius: 1rem;
+    }
+        
+    .contSeg {
+        width: 100%;
+        height: auto;
+        background: linear-gradient(#085F63, 20%, #10C1C9);
+        opacity: 0.85;
+        border-radius: 1rem;
+        grid-row: 2;
+    }
+        
+    .titConf, .titSeg {
+        color: white;
+        font-size: 1.8rem;
+        margin: 0.5rem;
+        margin-top: 1rem;
+    }
+        
+    .textConf, .textSeg {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0.5rem;
+        margin-top: 1.5rem;
+    }
+        
+    .cardUniv{
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        margin: 0;
+    }
+}
+    
+
+/* Media query for desktop screen*/
+@media screen and (min-width:1024px)  {
+    .conteiner {
+        width: 85%;
+        margin: auto;
+        padding: 4rem 0;
+        display: grid;
+        grid-template-columns: 3.5fr 2fr;
+        gap: 4rem;
+        }
+        
+    .titNuestPr {
+        display: flex;
+        justify-content: center;
+        font-size: 3rem;  
+        margin-bottom: 0;
+    }
+        
+    .contPriority {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        align-items: stretch;
+        gap: 3rem;
+        grid-row: 1;
+    }
+        
+    .cardTarj, .cardTarjBank {
+        width: 95%;
+        height: auto;
+        border-radius: 1rem;
+    }
+         
+    .contConf {
+        width: 95%;
+        height: auto;
+        background: linear-gradient(#085F63, 20%, #10C1C9);
+        opacity: 0.85;
+        border-radius: 1rem;
+    }
+        
+    .contSeg {
+        width: 95%;
+        height: auto;
+        background: linear-gradient(#085F63, 20%, #10C1C9);
+        opacity: 0.85;
+        border-radius: 1rem;
+        grid-row: 2;
+    }
+        
+    .titConf, .titSeg {
+        color: white;
+        font-size: 2rem;
+        margin: 0.8rem;
+        margin-top: 1rem;
+    }
+        
+    .textConf, .textSeg {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0.8rem;
+        margin-top: 1rem;
+    }
+        
+    .cardUniv{
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        margin: 0;
+    }
+
+}
+
