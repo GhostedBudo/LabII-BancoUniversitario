@@ -1,0 +1,440 @@
+.footer {
+    background-color: #085F63;
+    color: white;
+    text-align: center;
+    background-position: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* SLIDER CON DEGRADADO */
+  .sliderWrapper {
+    background: linear-gradient(180deg, #eeeeee, #49BEB7);
+    margin-bottom: 50px; /*Distanciado con el objeto o texto debajo de el*/
+  }
+  
+  .sliderContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 45px; /*tamaño de la barra que abarca las imagenes*/
+    padding: 1%;
+  }
+  
+  .sliderTrack { /*Aqui se controla a-contenido.b-espaciado.c- tiempo de animacion*/
+    display: flex;
+    width: 200%; /* Duplicamos el contenido */
+    animation: slide 10s linear infinite;
+    gap: 50px; /* Espaciado entre imágenes */
+  }
+  
+  .sliderTrack img {
+    width: auto;
+    height: 40px; /*Cambio de tamaño de imagen de carrusel*/ 
+  }
+  
+  /* ANIMACIÓN DEL SLIDER */
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* IMAGEN EN RECUADRO BLANCO CON BORDES REDONDEADOS */
+  .imageContainer {
+    background: rgba(255, 255, 255, 0.79);
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  .imageContainer img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* SECCIÓN DE CONTACTOS */
+  .contactSection {
+    margin-top: 50px; /*Distanciado con el objeto o texto encima de el - a partir de Contactos*/
+  }
+  
+  .contactTitle { /*TITULO*/
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  /* CONTACTOS INFO */
+  .contactInfo {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* ICONOS REDES SOCIALES */
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .icon {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+    padding: 10%;
+  }
+  
+  .icon:hover {
+    transform: scale(1.1);
+  }
+  .socialnetuser{
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  /* COPYRIGHT */
+  .copyright {
+    padding-bottom: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  @media only screen and (min-width: 768px) {
+    .footer {
+        position: relative;
+       }
+       /* SLIDER CON DEGRADADO */
+       .sliderWrapper {
+         margin-bottom: 3%; /*Distanciado con el objeto o texto debajo de el*/
+       }
+       
+       .sliderContainer {
+         width: 100%;
+         overflow: hidden;
+         position: relative;
+         height: 50px;
+         padding: 1%;
+         display: flex;
+         align-items: center;
+       }
+       
+       .sliderTrack { /*Aqui se controla a-contenido.b-espaciado.c- tiempo de animacion*/
+         display: flex;
+         width: 200%; /* Duplicamos el contenido */
+         animation: slide 10s linear infinite;
+         gap: 100px; /* Espaciado entre imágenes */ 
+       }
+       
+       .sliderTrack img {
+         width: auto;
+         height: 50px; /*Cambio de tamaño de imagen de carrusel*/
+       }
+       
+       /* ANIMACIÓN DEL SLIDER */
+       @keyframes slide {
+         from {
+           transform: translateX(0);
+         }
+         to {
+           transform: translateX(-50%);
+         }
+       }
+       
+       /* IMAGEN EN RECUADRO BLANCO CON BORDES REDONDEADOS */
+       .imageContainer {
+         background: rgba(255, 255, 255, 0.79);
+         padding: 10px;
+         border-radius: 15px;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         margin: 10px; /*Estte lo desplaza hacia la derecha (+) o izquierda (-)*/
+         width: 45%;
+         max-width: 400px;
+       }
+       
+       .imageContainer img {
+         width: 90%;
+         height: auto;
+       }
+       
+       /* SECCIÓN DE CONTACTOS */
+       .contactSection {
+         margin-top: 2%; /*Distanciado con el objeto o texto encima de el - a partir de Contactos*/
+       }
+       
+       .contactTitle { /*TITULO*/
+         font-size: 2rem;
+         font-weight: bold;
+         text-align: left;
+         padding-left: 2%;
+       }
+       
+       /* CONTACTOS INFO */
+       .contactInfo {
+         font-size: 0.75rem;
+         margin-bottom: 0;
+         line-height: 1.5;
+         font-weight: bold;
+         padding-left: 0;
+         text-align: left;
+       }
+       
+       /* ICONOS REDES SOCIALES */
+       .socialIcons {
+         display: flex;
+         justify-content: right;
+         margin-bottom: 0;
+       }
+       
+       .icon {
+         width: 60px;
+         height: 60px;
+         transition: transform 0.3s ease;
+         position: relative;
+         bottom: 190%;
+       }
+       
+       .icon:hover {
+         transform: scale(1.1);
+       }
+       .socialnetuser {
+         position: absolute;
+         right: 2%; /* Ajusta según necesites */
+         bottom: 32%;
+         font-weight: bold;
+         font-size: 1rem;
+     }
+       /* COPYRIGHT */
+       .copyright {
+         padding-bottom: 10px;
+         font-size: 0.8rem;
+         margin-top: 1px;
+       } 
+   
+}
+@media only screen and (min-width: 1024px){
+    .footer {
+        position: relative;
+       }
+       /* SLIDER CON DEGRADADO */
+       .sliderWrapper {
+         margin-bottom: 3%; /*Distanciado con el objeto o texto debajo de el*/
+       }
+       
+       .sliderContainer {
+         width: 100%;
+         overflow: hidden;
+         position: relative;
+         height: 40px;
+         padding: 1%;
+         display: flex;
+         align-items: center;
+       }
+       
+       .sliderTrack { /*Aqui se controla a-contenido.b-espaciado.c- tiempo de animacion*/
+         display: flex;
+         width: 200%; /* Duplicamos el contenido */
+         animation: slide 10s linear infinite;
+         gap: 100px; /* Espaciado entre imágenes */ 
+       }
+       
+       .sliderTrack img {
+         width: auto;
+         height: 60px; /*Cambio de tamaño de imagen de carrusel*/
+       }
+       
+       /* ANIMACIÓN DEL SLIDER */
+       @keyframes slide {
+         from {
+           transform: translateX(0);
+         }
+         to {
+           transform: translateX(-50%);
+         }
+       }
+       
+       /* IMAGEN EN RECUADRO BLANCO CON BORDES REDONDEADOS */
+       .imageContainer {
+         background: rgba(255, 255, 255, 0.79);
+         padding: 10px;
+         border-radius: 15px;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         margin: 10px; /*Este lo desplaza hacia la derecha (+) o izquierda (-)*/
+         width: 35%;
+         max-width: 400px;
+       }
+       
+       .imageContainer img {
+         width: 90%;
+         height: auto;
+       }
+       
+       /* SECCIÓN DE CONTACTOS */
+       .contactSection {
+         margin-top: 2%; /*Distanciado con el objeto o texto encima de el - a partir de Contactos*/
+       }
+       
+       .contactTitle { /*TITULO*/
+         font-size: 2rem;
+         font-weight: bold;
+         text-align: left;
+         padding-left: 2%;
+       }
+       
+       /* CONTACTOS INFO */
+       .contactInfo {
+         font-size: 0.9rem;
+         margin-bottom: 0;
+         line-height: 1.5;
+         font-weight: bold;
+         padding-left: 1%;
+         text-align: left;
+       }
+       
+       /* ICONOS REDES SOCIALES */
+       .socialIcons {
+         display: flex;
+         justify-content: right;
+         margin-bottom: 0;
+         margin-right: 2%;
+       }
+       
+       .icon {
+         width: 70px;
+         height: 70px;
+         transition: transform 0.3s ease;
+         position: relative;
+         bottom: 180%;
+       }
+       
+       .icon:hover {
+         transform: scale(1.1);
+       }
+       .socialnetuser {
+         position: absolute;
+         right: 6%; /* Ajusta según necesites */
+         bottom: 33%;
+         font-weight: bold;
+         font-size: 1rem;
+     }
+       /* COPYRIGHT */
+       .copyright {
+         padding-bottom: 10px;
+         font-size: 0.8rem;
+         margin-top: 1px;
+       } 
+    }
+    @media only screen and (min-width: 1440px)
+    {
+      
+      .sliderContainer {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 80px;
+        padding: 1%;
+        display: flex;
+        align-items: center;
+      }
+      
+      .sliderTrack { /*Aqui se controla a-contenido.b-espaciado.c- tiempo de animacion*/
+        display: flex;
+        width: 200%; /* Duplicamos el contenido */
+        animation: slide 10s linear infinite;
+        gap: 200px; /* Espaciado entre imágenes */ 
+      }
+      
+      .sliderTrack img {
+        width: auto;
+        height: 80px; /*Cambio de tamaño de imagen de carrusel*/
+      }
+      
+      /* IMAGEN EN RECUADRO BLANCO CON BORDES REDONDEADOS */
+      .imageContainer {
+        background: rgba(255, 255, 255, 0.79);
+        padding: 10px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 50px; /*Estte lo desplaza hacia la derecha (+) o izquierda (-)*/
+        width: 50%;
+        max-width: 400px;
+      }
+      
+      .imageContainer img {
+        width: 100%;
+        height: auto;
+      }
+      
+      /* SECCIÓN DE CONTACTOS */
+      .contactSection {
+        margin-top: 50px; /*Distanciado con el objeto o texto encima de el - a partir de Contactos*/
+      }
+      
+      .contactTitle { /*TITULO*/
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: left;
+        padding-left: 3%;
+      }
+      
+      /* CONTACTOS INFO */
+      .contactInfo {
+        font-size: 1.4rem;
+        margin-bottom: 0;
+        line-height: 1.5;
+        font-weight: bold;
+        padding-left: 3%;
+        text-align: left;
+      }
+      
+      /* ICONOS REDES SOCIALES */
+      .socialIcons {
+        display: flex;
+        justify-content: right;
+        padding-right: 2%;
+      }
+      
+      .icon {
+        width: 100px;
+        height: 100px;
+        transition: transform 0.3s ease;
+        position: relative;
+        bottom: 205%;
+      }
+      
+      .icon:hover {
+        transform: scale(1.1);
+      }
+      .socialnetuser {
+        position: absolute;
+        right: 4.5%; /* Ajusta según necesites */
+        bottom: 35%;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+      /* COPYRIGHT */
+      .copyright {
+        padding-bottom: 20px;
+        font-size: 1.3rem;
+        margin-top: 10px;
+      }
+   
+}

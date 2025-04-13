@@ -1,28 +1,27 @@
-import './App.css'
-import Hero from './components/Institutional/Hero/Hero'
-import Services from './components/Institutional/Services/Services'
-import Footer from './components/Institutional/Footer/Footer'
-import Header from './components/Institutional/Header/Header'
+import React from "react";
+import "./index.css";
+import Services from "./components/Institutional/Services/Services";
+import Footer from "./components/Institutional/Footer/Footer";
+import Header from "./components/Institutional/Header/Header";
+import CarouselSliderHero from "./components/Institutional/Hero/carouselSliderHero";
+import About from "./components/Institutional/About/About";
+import Priority from "./components/Institutional/Priority/Priority";
 
 function App() {
-  
-
   return (
     <>
+      <Header />
 
-      <Header/>
+      <div className="main">
+        <CarouselSliderHero />
+        <Services />
+        <About />
+        <Priority />
+      </div>
 
-  
-    <main>
-    <Hero />
-    <Services />
-    </main>
-    {/* Footer position is bottom */}
-
-
-    <Footer></Footer>
+      <Footer></Footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
