@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./CarouselSliderHero.module.css";
+import styles from "./carouselSliderHero.module.css";
 import Woman from "../../../assets/img/mujer-plano-medio-trabajando-agencia-viajes_52683-136430.jpg";
 import Graduates from "../../../assets/img/grupo-diversos-graduados-tirando-gorras-cielo_53876-56031.jpg";
 import Bank from "../../../assets/img/gente-retira-dinero-usando-maquina_53876-15925.jpg";
