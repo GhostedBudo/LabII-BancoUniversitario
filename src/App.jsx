@@ -5,6 +5,7 @@ import Services from './components/Institutional/Services/Services'
 import Footer from './components/Institutional/Footer/Footer'
 import Header from './components/Institutional/Header/Header'
 import CarouselSliderHero from './components/Institutional/Hero/carouselSliderHero'
+import About from './components/Institutional/About/About'
 
 function App() {
   
@@ -13,8 +14,9 @@ function App() {
     <>
    
     <Header/>
-    <main>
-    <Hero />
+   
+    <div className='main'>
+    
    
     <CarouselSliderHero />
 
@@ -22,10 +24,15 @@ function App() {
 
     
     <Services />
-    </main>
+   
+
+  
+    <About />
+
     {/* Footer position is bottom */}
 
 
+    </div>
     <Footer></Footer>
     </>
   )
