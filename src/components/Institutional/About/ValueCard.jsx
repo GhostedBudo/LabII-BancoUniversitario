@@ -19,7 +19,7 @@ const ValueCard = ({ info, isActive }) => {
 
   return (
     <>
-      <div
+      <li
         className={`${styles.cardBody} ${
           isActive ? styles.active : styles.inactive
         }`}
@@ -47,7 +47,7 @@ const ValueCard = ({ info, isActive }) => {
             <p>{info.content}</p>
           </div>
         </div>
-      </div>
+      </li>
     </>
   );
 };

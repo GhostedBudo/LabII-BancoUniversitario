@@ -1,5 +1,5 @@
 import styles from "./NewAbout.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import objetivoImage from "../../../assets/img/imagenEstudiantes.png";
 import misionImage from "../../../assets/img/imgenGraduando.png";
@@ -7,9 +7,12 @@ import visionImage from "../../../assets/img/imagenCuenta.png";
 
 import ValueCard from "./ValueCard";
 
-
 const About = () => {
-  const [currentItem, setCurrentItem] = useState("Mision");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef(null);
+
+
+
   const items = [
     {
       title: "Mision",
@@ -34,10 +37,25 @@ const About = () => {
   ];
 
   const itemsList = items.map((i) => (
-    <ValueCard isActive={currentItem === i.title} key={i.title} info={i} />
+    <ValueCard isActive={true} key={i.title} info={i} />
   ));
 
   
+
+  const handleScroll = (direction) => {
+    const newIndex = activeIndex + direction;
+    if (newIndex < 0 || newIndex >= items.length) return;
+
+    const cardWidth = containerRef.current?.children[0]?.offsetWidth || 300;
+    const scrollAmount = cardWidth * newIndex;
+
+    containerRef.current?.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+
+    setActiveIndex(newIndex);
+  };
 
   return (
     <div className={styles.primaryContainer}>
@@ -45,9 +63,50 @@ const About = () => {
 
       <div className={styles.bg}>
         <div className={styles.slider}>
-        <button className={styles.arrow}>{`<`}</button>
-          <div className={styles.cards}>{itemsList}</div>
-        <button className={styles.arrow}>{`>`}</button>
+          <div className={styles.cards} ref={containerRef}>
+            {itemsList}
+          </div>
+
+          <div className={styles.buttons}>
+            <button
+              className={styles.arrowleft}
+              onClick={() => handleScroll(-1)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5 8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+            <button
+              className={styles.arrowright}
+              onClick={() => handleScroll(1)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div className={styles.sliderDots}>
@@ -55,22 +114,22 @@ const About = () => {
             type="radio"
             name="aboutItems" // Unique name for the group
             id="radioMision"
-            onClick={() => setCurrentItem("Mision")}
-            checked={currentItem === "Mision"} // Add checked property
+            onClick={() => setActiveIndex(0)}
+            checked={activeIndex === 0} // Add checked property
           />
           <input
             type="radio"
             name="aboutItems" // Unique name for the group
             id="radioVision"
-            onClick={() => setCurrentItem("Vision")}
-            checked={currentItem === "Vision"} // Add checked property
+            onClick={() => console.log('help')}
+            checked={activeIndex === 1} // Add checked property
           />
           <input
             type="radio"
             name="aboutItems" // Unique name for the group
             id="radioObjetivos"
-            onClick={() => setCurrentItem("Objetivos")}
-            checked={currentItem === "Objetivos"} // Add checked property
+            onClick={() => console.log('help')}
+            checked={activeIndex === 2} // Add checked property
           />
         </div>
       </div>

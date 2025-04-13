@@ -23,6 +23,7 @@
   .cardContent .bg {
     border-radius: 10px;
     width: 100%;
+    
   }
 
   .cardTitle {
@@ -43,9 +44,10 @@
     text-align: center;
     padding: 1rem;
     color: white;
-    padding-top: 3rem;
     font-weight: bold;
     font-size: 1.2rem;
+
+    margin: 0 1rem;
   }
 
   .dialog .noAnimation {
