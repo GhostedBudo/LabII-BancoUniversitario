@@ -14,7 +14,7 @@ function App() {
 
       <div className="main">
         <CarouselSliderHero />
-        <Services />
+        <Services id="services" />
         <About />
         <Priority />
       </div>
