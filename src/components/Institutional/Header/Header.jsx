@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from "react"
 import styles from "./Header.module.css"
-import logo from "../../../assets/img/logo-no-background.png";
+import logo from "../../../assets/img/logo-no-background.png"; 
+import userIcon from "../../../assets/icon/iconUsuarioVerde.png"
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
@@ -41,18 +43,7 @@ function Header() {
             </div>
             <div className={styles.userIcon}>
               <div className={styles.userCircle}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
+                <img src={userIcon} alt="Usuario" className={styles.userImage} />
               </div>
             </div>
           </div>
@@ -86,33 +77,24 @@ function Header() {
           <div className={styles.logoContainer}>
             <img src={logo} alt="Banco Universitario" className={styles.logo} />
           </div>
-          <nav className={styles.desktopNav}>
-            <ul>
-              <li>
-                <a href="#services">Servicios</a>
-              </li>
-              <li>
-                <a href="#about">Nosotros</a>
-              </li>
-              <li>
-                <a href="#contact">Contactos</a>
-              </li>
-            </ul>
-          </nav>
-          <div className={styles.accessButton}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <span>Acceso</span>
+          <div className={styles.desktopRightSection}>
+            <nav className={styles.desktopNav}>
+              <ul>
+                <li>
+                  <a href="#servicios">Servicios</a>
+                </li>
+                <li>
+                  <a href="#nosotros">Nosotros</a>
+                </li>
+                <li>
+                  <a href="#contactos">Contactos</a>
+                </li>
+              </ul>
+            </nav>
+            <div className={styles.accessButton}>
+              <img src={userIcon} alt="Usuario" className={styles.accessButtonIcon} />
+              <span>Acceso</span>
+            </div>
           </div>
         </div>
       )}
