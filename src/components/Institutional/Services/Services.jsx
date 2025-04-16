@@ -14,7 +14,7 @@ const Services = () => {
     <>
     <h1 className={styles.titServ}>Servicios</h1>
 
-    <div className={styles.conteiner} >
+    <div id='services' className={styles.conteiner} >
        
       <div className={styles.imgServices1}> 
       

@@ -1,81 +1,105 @@
-import React from 'react'
-import styles from './Header.module.css'
-import { useState, useEffect } from 'react'
-import logoImg from "../../../assets/img/logo-no-background.png"
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
+import { useState, useEffect } from "react"
+import styles from "./Header.module.css"
+import logo from "../../../assets/img/logo-no-background.png";
+function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
     }
 
-    window.addEventListener("scroll", handleScroll)
+    // Set initial value
+    handleResize()
+
+    // Add event listener
+    window.addEventListener("resize", handleResize)
+
+    // Clean up
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
     }
   }, [])
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
-    }
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles['header-container']}>
-        <div className={styles["logo-container"]}>
-          <img src={logoImg} alt="Banco Universitario" />
-        </div>
+    <header className={styles.header}>
+      {isMobile ? (
+        <>
+          <div className={styles.mobileHeader}>
+            <button className={styles.hamburgerMenu} onClick={toggleMobileMenu}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div className={styles.logoContainer}>
+              <img src={logo} alt="Banco Universitario" className={styles.logo} />
+            </div>
+            <div className={styles.userIcon}>
+              <div className={styles.userCircle}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+          </div>
 
-        <div className={`${styles["nav-container"]} ${isMobileMenuOpen ? styles["mobile-open"] : ""}`}>
-          <nav className={styles["main-nav"]}>
+          {isMobileMenuOpen && (
+            <div className={styles.mobileMenu}>
+              <nav className={styles.mobileNav}>
+                <ul>
+                  <li>
+                    <a href="#servicios" onClick={toggleMobileMenu}>
+                      Servicios
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#nosotros" onClick={toggleMobileMenu}>
+                      Nosotros
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contactos" onClick={toggleMobileMenu}>
+                      Contactos
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className={styles.desktopHeader}>
+          <div className={styles.logoContainer}>
+            <img src={logo} alt="Banco Universitario" className={styles.logo} />
+          </div>
+          <nav className={styles.desktopNav}>
             <ul>
               <li>
-                <a
-                  href="#services"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("services")
-                  }}
-                >
-                  Servicios
-                </a>
+                <a href="#services">Servicios</a>
               </li>
               <li>
-                <a
-                  href="#nosotros"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("nosotros")
-                  }}
-                >
-                  Nosotros
-                </a>
+                <a href="#about">Nosotros</a>
               </li>
               <li>
-                <a
-                  href="#contactos"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("contactos")
-                  }}
-                >
-                  Contactos
-                </a>
+                <a href="#contact">Contactos</a>
               </li>
             </ul>
           </nav>
-
-          <button className={styles["acceso-btn"]}>
+          <div className={styles.accessButton}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -88,17 +112,10 @@ const Header = () => {
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            Acceso
-          </button>
+            <span>Acceso</span>
+          </div>
         </div>
-
-        <button className={styles["mobile-menu-btn"]} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div className={styles["header-divider"]}></div>
+      )}
     </header>
   )
 }
