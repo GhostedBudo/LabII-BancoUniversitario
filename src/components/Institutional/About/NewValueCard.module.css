@@ -1,6 +1,4 @@
-  .active {
-    z-index: 1;
-  }
+
 
   .cardBody {
     color: white;
@@ -12,6 +10,7 @@
   }
 
   .cardContent {
+    padding: 1rem 0;
     overflow: hidden;
     display: grid;
   }
@@ -24,67 +23,26 @@
     border-radius: 10px;
     width: 100%;
     
+    
+    
+  }
+
+  .text {
+    padding: 1rem;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(8, 95, 99, 0.3);
+    
   }
 
   .cardTitle {
-    font-size: x-large;
+    font-size: xx-large;
   }
 
-  .dialog {
-    border-radius: 10px;
-    display: none;
-    grid-area: 1 /1;
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(8, 95, 99, 0.9));
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-  }
 
-  .dialog p {
-    text-align: center;
-    padding: 1rem;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-
-    margin: 0 1rem;
-  }
-
-  .dialog .noAnimation {
-    display: none;
-  }
-  /* Animaciones */
-  .slideUp {
-    display: flex;
-    animation: slideUp 0.5s ease-out forwards;
-  }
-
-  .slideDown {
-    display: flex;
-    animation: slideDown 0.5s ease-in forwards;
-  }
-
-  @keyframes slideUp {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-  }
 
   @media screen and (max-width: 768px) {
     .cardBody.inactive {
