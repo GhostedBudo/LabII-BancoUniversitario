@@ -1,5 +1,5 @@
 import styles from "./NewAbout.module.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import objetivoImage from "../../../assets/img/imagenEstudiantes.png";
 import misionImage from "../../../assets/img/imgenGraduando.png";
@@ -11,8 +11,6 @@ const About = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
 
-
-
   const items = [
     {
       title: "Mision",
@@ -20,14 +18,12 @@ const About = () => {
         "Somos una confiable institución financiera comprometida con los estudiantes universitarios, brindando soluciones financieras ágiles y eficientes. Nuestra misión es facilitar la gestión de sus recursos y contribuir al crecimiento económico y personal de nuestros clientes.",
       backgroundUrl: misionImage,
     },
-
     {
       title: "Vision",
       content:
         "Queremos ser la principal opción financiera para estudiantes universitarios en el país. Deseamos ser reconocidos por nuestros servicios innovadores, la calidad de atención al cliente y nuestro compromiso con la educación y el desarrollo social.",
       backgroundUrl: visionImage,
     },
-
     {
       title: "Objetivos",
       content:
@@ -36,25 +32,30 @@ const About = () => {
     },
   ];
 
-  const itemsList = items.map((i) => (
-    <ValueCard isActive={true} key={i.title} info={i} />
+  const itemsList = items.map((i, index) => (
+    <ValueCard isActive={activeIndex === index} key={i.title} info={i} />
   ));
 
-  
+  // Update scroll position when activeIndex changes
+  useEffect(() => {
+    if (containerRef.current) {
+      const scrollPosition = activeIndex * containerRef.current.offsetWidth;
+      containerRef.current.scrollTo({
+        left: scrollPosition,
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex]);
 
   const handleScroll = (direction) => {
     const newIndex = activeIndex + direction;
     if (newIndex < 0 || newIndex >= items.length) return;
-
-    const cardWidth = containerRef.current?.children[0]?.offsetWidth || 300;
-    const scrollAmount = cardWidth * newIndex;
-
-    containerRef.current?.scrollTo({
-      left: scrollAmount,
-      behavior: "smooth",
-    });
-
     setActiveIndex(newIndex);
+  };
+
+  // Direct navigation with dots
+  const goToSlide = (index) => {
+    setActiveIndex(index);
   };
 
   return (
@@ -71,18 +72,19 @@ const About = () => {
             <button
               className={styles.arrowleft}
               onClick={() => handleScroll(-1)}
+              disabled={activeIndex === 0}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
-                class="size-6"
+                className="size-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M15.75 19.5 8.25 12l7.5-7.5"
                 />
               </svg>
@@ -90,18 +92,19 @@ const About = () => {
             <button
               className={styles.arrowright}
               onClick={() => handleScroll(1)}
+              disabled={activeIndex === items.length - 1}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
-                class="size-6"
+                className="size-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="m8.25 4.5 7.5 7.5-7.5 7.5"
                 />
               </svg>
@@ -110,27 +113,17 @@ const About = () => {
         </div>
 
         <div className={styles.sliderDots}>
-          <input
-            type="radio"
-            name="aboutItems" // Unique name for the group
-            id="radioMision"
-            onClick={() => setActiveIndex(0)}
-            checked={activeIndex === 0} // Add checked property
-          />
-          <input
-            type="radio"
-            name="aboutItems" // Unique name for the group
-            id="radioVision"
-            onClick={() => console.log('help')}
-            checked={activeIndex === 1} // Add checked property
-          />
-          <input
-            type="radio"
-            name="aboutItems" // Unique name for the group
-            id="radioObjetivos"
-            onClick={() => console.log('help')}
-            checked={activeIndex === 2} // Add checked property
-          />
+          {items.map((_, index) => (
+            <input
+              key={index}
+              type="radio"
+              name="aboutItems"
+              id={`radio${items[index].title}`}
+              onClick={() => goToSlide(index)}
+              checked={activeIndex === index}
+              readOnly
+            />
+          ))}
         </div>
       </div>
     </div>
