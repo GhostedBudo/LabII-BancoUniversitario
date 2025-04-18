@@ -1,5 +1,5 @@
 .primaryContainer {
-
+  font-size: x-large;
   color: black;
   text-align: center;
   padding: 20px 0;
@@ -13,12 +13,13 @@
   min-width: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  
+  padding-bottom: 1rem;
 }
 
 .slider {
   display: grid;
   grid-template-columns: 1fr;
+  
   
 }
 
@@ -36,8 +37,8 @@
 
 .buttons button {
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   background: #a4aaab;
   border: none;
   border-radius: 100%;
@@ -52,16 +53,13 @@
   
 }
 
-
-
 .cards {
   grid-area: 1/1; 
-  
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   justify-items: center;
-  padding: 0;
+  padding: 0 1rem;
   gap: 1rem;
 }
 
@@ -84,7 +82,10 @@
   border-radius: 50%;
   background: #2e4243;
   cursor: pointer;
+
+
 }
+
 
 .sliderDots input[type="radio"]:checked {
   background: #14c2cb;

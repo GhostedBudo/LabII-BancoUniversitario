@@ -1,93 +1,53 @@
-.box4 {
-  height: 100%;
-  min-width: 412px;
-  max-width: 412px;
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.3);
 
 
-
-  /* For overlapping */
-  grid-area: 1/1;
-}
-
-.cardContent {
-  display: grid;
-  width: inherit;
-  padding: 0 2rem;
-}
-
-.bg {
-  border-radius: 10px;
-  grid-area: 1 /1;
-  height: 100%;
-}
-
-.box4 > h2 {
-  color: white;
-  font-weight: bold;
-  
-  font-size: xx-large;
-}
-
-.dialog {
-  border-radius: 10px;
-  display: none;
-  grid-area: 1 /1;
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(8, 95, 99, 0.9));
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.dialog p {
-  text-align: center;
-  padding: 1rem;
-  color: white;
-  padding-top: 3rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-/* Animaciones */
-.slideUp {
-  display: flex;
-  animation: slideUp 0.5s ease-out forwards;
-}
-
-.slideDown {
-  display: flex;
-  animation: slideDown 0.5s ease-in forwards;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
+  .cardBody {
+    color: white;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    text-align: center;
+    padding-bottom: 20px;
+    height: 80vh;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
-@keyframes slideDown {
-  from {
-    transform: translateY(0);
-    opacity: 1;
+  .cardContent {
+    padding: 1rem 0;
+    overflow: hidden;
+    display: grid;
   }
-  to {
-    transform: translateY(100%);
-    opacity: 0;
+
+  .cardContent > * {
+    grid-area: 1/1;
   }
-}
 
-.active {
-  z-index: 1;
-}
+  .cardContent .bg {
+    border-radius: 10px;
+    width: 100%;
+    
+    
+    
+  }
 
-.noActive {
-  display: none;
-}
+  .text {
+    padding: 1rem;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(8, 95, 99, 0.3);
+    
+  }
+
+  .cardTitle {
+    font-size: xx-large;
+  }
+
+
+
+  @media screen and (max-width: 768px) {
+    .cardBody.inactive {
+      /* display: none; */
+      opacity: 0;
+    }
+  }
+

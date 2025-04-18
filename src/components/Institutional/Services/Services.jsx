@@ -12,9 +12,9 @@ import cardRet from '../../../assets/img/cardRet.png'
 const Services = () => {
   return (
     <>
-    <h1 className={styles.titServ}>Servicios</h1>
+    <h1 id='services' className={styles.titServ}>Servicios</h1>
 
-    <div className={styles.conteiner} >
+    <div  className={styles.conteiner} >
        
       <div className={styles.imgServices1}> 
       

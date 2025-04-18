@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id="contact">
       {/* Contenedor del slider con degradado */}
       <div className={styles.sliderWrapper}>
         <div className={styles.sliderContainer}>

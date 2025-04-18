@@ -1,0 +1,184 @@
+
+/* Header styles */.header {
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  font-weight: 700;
+}
+
+/* Logo styles */
+.logo {
+  height: 40px;
+}
+
+/* Desktop header styles */
+.desktopHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: white;
+}
+
+.desktopRightSection {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.desktopNav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.desktopNav a {
+  text-decoration: none;
+  color: #006666;
+  font-weight: 500;
+  font-size: x-large;
+}
+
+.desktopNav a:hover {
+  text-decoration: underline;
+}
+
+.accessButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #4ecdc4;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.accessButtonIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Mobile header styles */
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+}
+
+.hamburgerMenu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  width: 35px; /* Match width with userIcon */
+}
+
+.hamburgerMenu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #006666;
+}
+
+.userIcon {
+  cursor: pointer;
+  width: 35px; /* Set fixed width to match hamburger menu */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userCircle {
+  width: 35px;
+  height: 35px;
+  background-color: #4ecdc4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userImage {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile menu styles */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.closeMenu {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #006666;
+}
+
+.mobileNav {
+  padding: 20px 0;
+  background: linear-gradient(to bottom, #4ecdc4, white);
+  width: 100%;
+}
+
+.mobileNav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.mobileNav li {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileNav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Add space after header to prevent overlap */
+.contentWrapper {
+  padding-top: 20px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
