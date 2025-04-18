@@ -1,32 +1,31 @@
-
-import { useState, useEffect } from "react"
-import styles from "./Header.module.css"
-import logo from "../../../assets/img/logo-no-background.png"; 
-import userIcon from "../../../assets/icon/iconUsuarioVerde.png"
+import { useState, useEffect } from "react";
+import styles from "./Header.module.css";
+import logo from "../../../assets/img/logo-no-background.png";
+import userIcon from "../../../assets/icon/iconUsuarioVerde.png";
 function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
+      setIsMobile(window.innerWidth < 768);
+    };
 
     // Set initial value
-    handleResize()
+    handleResize();
 
     // Add event listener
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize);
 
     // Clean up
     return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <header className={styles.header}>
@@ -39,11 +38,21 @@ function Header() {
               <span></span>
             </button>
             <div className={styles.logoContainer}>
-              <img src={logo} alt="Banco Universitario" className={styles.logo} />
+              <a href="#home">
+                <img
+                  src={logo}
+                  alt="Banco Universitario"
+                  className={styles.logo}
+                />
+              </a>
             </div>
             <div className={styles.userIcon}>
               <div className={styles.userCircle}>
-                <img src={userIcon} alt="Usuario" className={styles.userImage} />
+                <img
+                  src={userIcon}
+                  alt="Usuario"
+                  className={styles.userImage}
+                />
               </div>
             </div>
           </div>
@@ -75,7 +84,13 @@ function Header() {
       ) : (
         <div className={styles.desktopHeader}>
           <div className={styles.logoContainer}>
-            <img src={logo} alt="Banco Universitario" className={styles.logo} />
+            <a href="#home">
+              <img
+                src={logo}
+                alt="Banco Universitario"
+                className={styles.logo}
+              />
+            </a>
           </div>
           <div className={styles.desktopRightSection}>
             <nav className={styles.desktopNav}>
@@ -92,14 +107,18 @@ function Header() {
               </ul>
             </nav>
             <div className={styles.accessButton}>
-              <img src={userIcon} alt="Usuario" className={styles.accessButtonIcon} />
+              <img
+                src={userIcon}
+                alt="Usuario"
+                className={styles.accessButtonIcon}
+              />
               <span>Acceso</span>
             </div>
           </div>
         </div>
       )}
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

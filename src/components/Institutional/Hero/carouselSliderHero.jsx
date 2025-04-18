@@ -36,7 +36,7 @@ const CarouselSliderHero = () => {
   }, [slides.length]);
 
   return (
-    <div className={styles["carousel-container"]}>
+    <div id="home" className={styles["carousel-container"]}>
       {slides.map((slide, index) => (
         <div
           key={slide.id}
