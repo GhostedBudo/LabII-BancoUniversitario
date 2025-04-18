@@ -1,4 +1,4 @@
-import styles from "./NewAbout.module.css";
+import styles from "./About.module.css";
 import { useState, useRef, useEffect } from "react";
 
 import objetivoImage from "../../../assets/img/imagenEstudiantes.png";
@@ -59,8 +59,8 @@ const About = () => {
   };
 
   return (
-    <div className={styles.primaryContainer}>
-      <h1 className={styles.sobreNosotros}>Sobre Nosotros</h1>
+    <div   className={styles.primaryContainer}>
+      <h1 id="about" className={styles.sobreNosotros}>Sobre Nosotros</h1>
 
       <div className={styles.bg}>
         <div className={styles.slider}>

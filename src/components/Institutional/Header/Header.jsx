@@ -53,17 +53,17 @@ function Header() {
               <nav className={styles.mobileNav}>
                 <ul>
                   <li>
-                    <a href="#servicios" onClick={toggleMobileMenu}>
+                    <a href="#services" onClick={toggleMobileMenu}>
                       Servicios
                     </a>
                   </li>
                   <li>
-                    <a href="#nosotros" onClick={toggleMobileMenu}>
+                    <a href="#about" onClick={toggleMobileMenu}>
                       Nosotros
                     </a>
                   </li>
                   <li>
-                    <a href="#contactos" onClick={toggleMobileMenu}>
+                    <a href="#contact" onClick={toggleMobileMenu}>
                       Contactos
                     </a>
                   </li>
@@ -81,13 +81,13 @@ function Header() {
             <nav className={styles.desktopNav}>
               <ul>
                 <li>
-                  <a href="#servicios">Servicios</a>
+                  <a href="#services">Servicios</a>
                 </li>
                 <li>
-                  <a href="#nosotros">Nosotros</a>
+                  <a href="#about">Nosotros</a>
                 </li>
                 <li>
-                  <a href="#contactos">Contactos</a>
+                  <a href="#contact">Contactos</a>
                 </li>
               </ul>
             </nav>

@@ -1,4 +1,4 @@
-import styles from "./NewValueCard.module.css";
+import styles from "./ValueCard.module.css";
 const ValueCard = ({ info, isActive }) => {
   
   return (
