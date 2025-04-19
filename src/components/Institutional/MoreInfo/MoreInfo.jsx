@@ -3,7 +3,7 @@ import styles from "./MoreInfo.module.css";
 
 const MoreInfo = () => {
   return (
-    <div className={styles.main}>
+    <div id="moreinfo" className={styles.main}>
       <div className={styles.title}>
         <h1>Educacion Financiera</h1>
       </div>

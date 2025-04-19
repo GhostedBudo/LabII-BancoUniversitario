@@ -18,7 +18,7 @@ function App() {
         <Services id="services" />
         <About />
         <Priority />
-        <MoreInfo />
+        {/* <MoreInfo /> */}
       </div>
 
       <Footer></Footer>

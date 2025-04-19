@@ -43,7 +43,10 @@ const Priority = () => {
             para mejorar la administración de tus finanzas personales
           </p>
 
+          <a href="#moreinfo">
+
           <button className={styles.infoButton}>+ Informacion</button>
+          </a>
           </div>
         </div>
       </div>
