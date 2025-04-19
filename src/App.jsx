@@ -6,6 +6,7 @@ import Header from "./components/Institutional/Header/Header";
 import CarouselSliderHero from "./components/Institutional/Hero/carouselSliderHero";
 import About from "./components/Institutional/About/About";
 import Priority from "./components/Institutional/Priority/Priority";
+import MoreInfo from "./components/Institutional/MoreInfo/MoreInfo";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Services id="services" />
         <About />
         <Priority />
+        <MoreInfo />
       </div>
 
       <Footer></Footer>
