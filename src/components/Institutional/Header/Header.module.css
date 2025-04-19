@@ -69,15 +69,11 @@ svg {
   border: none;
   background: none;
 
+
 }
 
 .accessButton svg path {
   fill: #49BEB7;
-  
-}
-
-.accessButton svg path:hover {
-  fill: #085f63;
   
 }
 
@@ -88,7 +84,7 @@ svg {
 
 .accessButton:hover {
   background-color: #085f63;
-  color: white;
+
   cursor: pointer;
 }
 
@@ -98,6 +94,7 @@ svg {
 
 .accessText {
   display: none;
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -139,6 +136,7 @@ svg {
     font-size: large;
     padding: 3px 10px;
     gap: 3px;
+
   }
 
   .accessButton svg path {
@@ -148,6 +146,8 @@ svg {
 
 
   .accessText {
+    text-decoration: none;
+    color: white;
     display: block;
   }
 }

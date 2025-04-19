@@ -3,9 +3,9 @@ import styles from "./MoreInfo.module.css";
 
 const MoreInfo = () => {
   return (
-    <div id="moreinfo" className={styles.main}>
+    <div id="education" className={styles.main}>
       <div className={styles.title}>
-        <h1>Educacion Financiera</h1>
+        <h1 >Educacion Financiera</h1>
       </div>
       <div className={styles.infoBackground}>
         <div className={styles.firstText}>

@@ -2,13 +2,12 @@ import React from "react";
 import styles from "./Priority.module.css";
 import cardTarj from "../../../assets/img/ImagenTarj2.png";
 import cardTarjBank from "../../../assets/img/ImagenTarj.png";
-import cardUniv from "../../../assets/img/graduacion.jpg";
-import cardUnivGrad from "../../../assets/img/cardUnivGrad.png";
+import { Link } from "react-router-dom";
 
 const Priority = () => {
   return (
     <>
-      <h1 className={styles.titNuestPr}>Nuestra prioridad: tu seguridad</h1>
+      <h1 id="priority" className={styles.titNuestPr}>Nuestra prioridad: tu seguridad</h1>
 
       <div className={styles.conteiner}>
         <div className={styles.contPriority}>
@@ -43,10 +42,10 @@ const Priority = () => {
             para mejorar la administración de tus finanzas personales
           </p>
 
-          <a href="#moreinfo">
+          <Link to="/moreinfo#education">
 
           <button className={styles.infoButton}>+ Informacion</button>
-          </a>
+          </Link>
           </div>
         </div>
       </div>

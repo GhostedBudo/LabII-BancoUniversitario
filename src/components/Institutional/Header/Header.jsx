@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import logo from "../../../assets/img/logo-no-background.png";
-
+import { Link } from "react-router-dom";
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const burgerIcon = (
@@ -41,16 +41,16 @@ function Header() {
         </div>
 
         <div className={styles.logoContainer}>
-          <a href="#home">
+          <Link to="/#home">
             <img src={logo} alt="Banco Universitario" />
-          </a>
+          </Link>
         </div>
 
         <div className={styles.navbar}>
-          <a href="#services">Servicios</a>
-          <a href="#about">Nosotros</a>
-          <a href="#priority">Prioridades</a>
-          <a href="#contact">Contactos</a>
+          <Link to="/#services"> <span>Servicios</span></Link>
+          <Link to="/#about"><span>Nosotros</span></Link>
+          <Link to="/#priority"><span>Prioridades</span></Link>
+          <Link to="/#contact"><span>Contacto</span></Link>
         </div>
 
         <div className={styles.access}>
@@ -66,16 +66,16 @@ function Header() {
                 clipRule="evenodd"
               />
             </svg>
-            <a className={styles.accessText}>Acceso</a>
+            <Link className={styles.accessText}>Acceso</Link>
           </button>
         </div>
       </header>
 
       <div className={`${menuOpen ? styles.dropDown : styles.inactive}`}>
-        <a href="#services">Servicios</a>
-        <a href="#about">Nosotros</a>
-        <a href="#priority">Prioridades</a>
-        <a href="#contact">Contactos</a>
+        <Link to="#services">Servicios</Link>
+        <Link to="#about">Nosotros</Link>
+        <Link to="#priority">Prioridades</Link>
+        <Link to="#contact">Contactos</Link>
       </div>
     </div>
   );
