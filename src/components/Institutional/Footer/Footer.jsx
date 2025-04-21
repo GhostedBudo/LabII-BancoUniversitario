@@ -1,5 +1,13 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import ucla from "../../../assets/img/iconUcla.png";
+import ucladcyt from "../../../assets/img/icon200.png";
+import unexpo from "../../../assets/img/iconUnexpo.png";
+import unellez from "../../../assets/img/iconUnellez.png";
+import logoBancoUniversitario from "../../../assets/img/logo-no-background.png";
+import facebook from "../../../assets/img/iconFacebook.png";
+import instagram from "../../../assets/img/iconInstagram.png";
+import x from "../../../assets/img/iconX.png";
 
 const Footer = () => {
   return (
@@ -8,32 +16,32 @@ const Footer = () => {
       <div className={styles.sliderWrapper}>
         <div className={styles.sliderContainer}>
           <div className={styles.sliderTrack}>
-            <img src="/src/assets/icon/iconUcla.png" alt="UCLA" />
-            <img src="/src/assets/icon/icon200.png" alt="UCLA DCYT" />
-            <img src="/src/assets/icon/iconUnexpo.png" alt="UNEXPO" />
-            <img src="/src/assets/icon/iconUnellez.png" alt="UNELLEZ" />
+            <img src={ucla} alt="UCLA" />
+            <img src={ucladcyt}alt="UCLA DCYT" />
+            <img src={unexpo} alt="UNEXPO" />
+            <img src={unellez} alt="UNELLEZ" />
             {/* Duplicamos imágenes para efecto de loop */}
-            <img src="/src/assets/icon/iconUcla.png" alt="UCLA" />
-            <img src="/src/assets/icon/icon200.png" alt="UCLA DCYT" />
-            <img src="/src/assets/icon/iconUnexpo.png" alt="UNEXPO" />
-            <img src="/src/assets/icon/iconUnellez.png" alt="UNELLEZ" />
+            <img src={ucla} alt="UCLA" />
+            <img src={ucladcyt}alt="UCLA DCYT" />
+            <img src={unexpo} alt="UNEXPO" />
+            <img src={unellez} alt="UNELLEZ" />
             {/* Clonamos otra vez las imágenes para efecto de loop */}
-            <img src="/src/assets/icon/iconUcla.png" alt="UCLA" />
-            <img src="/src/assets/icon/icon200.png" alt="UCLA DCYT" />
-            <img src="/src/assets/icon/iconUnexpo.png" alt="UNEXPO" />
-            <img src="/src/assets/icon/iconUnellez.png" alt="UNELLEZ" />
+            <img src={ucla} alt="UCLA" />
+            <img src={ucladcyt}alt="UCLA DCYT" />
+            <img src={unexpo} alt="UNEXPO" />
+            <img src={unellez} alt="UNELLEZ" />
 
-            <img src="/src/assets/icon/iconUcla.png" alt="UCLA" />
-            <img src="/src/assets/icon/icon200.png" alt="UCLA DCYT" />
-            <img src="/src/assets/icon/iconUnexpo.png" alt="UNEXPO" />
-            <img src="/src/assets/icon/iconUnellez.png" alt="UNELLEZ" />
+            <img src={ucla} alt="UCLA" />
+            <img src={ucladcyt}alt="UCLA DCYT" />
+            <img src={unexpo} alt="UNEXPO" />
+            <img src={unellez} alt="UNELLEZ" />
           </div>
         </div>
       </div>
 
       {/* Imagen dentro de un recuadro blanco con bordes redondeados */}
       <div className={styles.imageContainer}>
-        <img src="/src/assets/img/logo-no-background.png" alt="Logo Banco Universitario" />
+        <img src={logoBancoUniversitario} alt="Logo Banco Universitario" />
       </div>
 
       {/* Sección de Contactos */}
@@ -52,13 +60,13 @@ const Footer = () => {
       {/* Redes sociales */}
       <div className={styles.socialIcons}>
         <a href="https://facebook.com" target="_blank">
-          <img src="/src/assets/icon/iconFacebook.png" alt="Facebook" className={styles.icon} />
+          <img src={facebook} alt="Facebook" className={styles.icon} />
         </a>
         <a href="https://instagram.com" target="_blank">
-          <img src="/src/assets/icon/iconInstagram.png" alt="Instagram" className={styles.icon} />
+          <img src={instagram} alt="Instagram" className={styles.icon} />
         </a>
         <a href="https://twitter.com" target="_blank">
-          <img src="/src/assets/icon/iconX.png" alt="X" className={styles.icon} />
+          <img src={x} alt="X" className={styles.icon} />
         </a>
       </div>
 
