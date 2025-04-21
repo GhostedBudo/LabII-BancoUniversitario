@@ -1,0 +1,270 @@
+.footer {
+    background-color: #085F63;
+    color: white;
+    text-align: center;
+    background-position: 100%;
+    overflow-x: hidden;
+}
+
+.sliderWrapper {
+    background: linear-gradient(180deg, #eeeeee, #49BEB7);
+    margin-bottom: 50px;
+}
+
+.sliderContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 45px;
+    padding: 1%;
+}
+
+.sliderTrack {
+    display: flex;
+    width: 200%;
+    animation: slide 10s linear infinite;
+    gap: 50px;
+}
+
+.sliderTrack img {
+    width: auto;
+    height: 40px;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.imageContainer {
+    background: rgba(255, 255, 255, 0.79);
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 300px;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: auto;
+}
+
+.contactSection {
+    margin-top: 50px;
+}
+
+.contactTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.contactInfo {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: left;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+    padding: 10%;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.socialnetuser {
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.copyright {
+    padding-bottom: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .footer {
+        position: relative;
+    }
+    
+    .sliderWrapper {
+        margin-bottom: 3%;
+    }
+    
+    .sliderContainer {
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .sliderTrack {
+        gap: 100px;
+    }
+    
+    .sliderTrack img {
+        height: 50px;
+    }
+    
+    .imageContainer {
+        justify-content: flex-start;
+        margin: 10px;
+        width: 45%;
+        max-width: 400px;
+    }
+    
+    .imageContainer img {
+        width: 90%;
+    }
+    
+    .contactSection {
+        margin-top: 2%;
+    }
+    
+    .contactTitle {
+        font-size: 2rem;
+        padding-left: 2%;
+    }
+    
+    .contactInfo {
+        font-size: 0.75rem;
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    
+    .socialIcons {
+        justify-content: right;
+        margin-bottom: 0;
+    }
+    
+    .icon {
+        position: relative;
+        bottom: 190%;
+    }
+    
+    .socialnetuser {
+        position: absolute;
+        right: 2%;
+        bottom: 32%;
+        font-size: 1rem;
+    }
+    
+    .copyright {
+        padding-bottom: 10px;
+        font-size: 0.8rem;
+        margin-top: 1px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .sliderContainer {
+        height: 40px;
+    }
+    
+    .sliderTrack img {
+        height: 60px;
+    }
+    
+    .imageContainer {
+        width: 35%;
+    }
+    
+    .contactInfo {
+        font-size: 0.9rem;
+        padding-left: 1%;
+    }
+    
+    .socialIcons {
+        margin-right: 2%;
+    }
+    
+    .icon {
+        width: 70px;
+        height: 70px;
+        bottom: 180%;
+    }
+    
+    .socialnetuser {
+        right: 6%;
+        bottom: 33%;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .sliderContainer {
+        height: 80px;
+    }
+    
+    .sliderTrack {
+        gap: 200px;
+    }
+    
+    .sliderTrack img {
+        height: 80px;
+    }
+    
+    .imageContainer {
+        margin: 50px;
+        width: 50%;
+    }
+    
+    .imageContainer img {
+        width: 100%;
+    }
+    
+    .contactSection {
+        margin-top: 50px;
+    }
+    
+    .contactTitle {
+        font-size: 3rem;
+        padding-left: 3%;
+    }
+    
+    .contactInfo {
+        font-size: 1.4rem;
+        padding-left: 3%;
+    }
+    
+    .icon {
+        width: 100px;
+        height: 100px;
+        bottom: 205%;
+    }
+    
+    .socialnetuser {
+        right: 4.5%;
+        bottom: 35%;
+        font-size: 1.6rem;
+    }
+    
+    .copyright {
+        padding-bottom: 20px;
+        font-size: 1.3rem;
+        margin-top: 10px;
+    }
+}

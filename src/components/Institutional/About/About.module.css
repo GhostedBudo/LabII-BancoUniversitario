@@ -1,0 +1,119 @@
+.primaryContainer {
+  font-size: x-large;
+  color: black;
+  text-align: center;
+  padding: 20px 0;
+  
+}
+
+.bg {
+
+  background-image: url('../../../assets/img/FondoMobil.png');
+  background-size: cover;
+  min-width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 1rem;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 1fr;
+  
+  
+}
+
+.buttons {
+  grid-area: 1 / 1;
+  position: absolute;
+  
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+  width: 90%;
+}
+
+.buttons button {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  background: #a4aaab;
+  border: none;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  
+  
+  > svg {
+    stroke: white;
+    
+  }
+  
+}
+
+.cards {
+  grid-area: 1/1; 
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  justify-items: center;
+  padding: 0 1rem;
+  gap: 1rem;
+}
+
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
+.cards > * {
+ max-width: 400px;
+ width: 100%;
+ scroll-snap-align: center;
+}
+
+
+
+.sliderDots input[type="radio"] {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2e4243;
+  cursor: pointer;
+
+
+}
+
+
+.sliderDots input[type="radio"]:checked {
+  background: #14c2cb;
+}
+
+@media only screen and (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sliderDots {
+    opacity: 0;
+  }
+
+  .buttons {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 768px ) {
+  .cards {
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    
+  scroll-behavior: smooth;
+    
+  }
+
+  
+}

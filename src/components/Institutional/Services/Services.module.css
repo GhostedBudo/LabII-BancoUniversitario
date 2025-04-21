@@ -1,0 +1,249 @@
+.conteiner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.titServ {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;  
+    margin-bottom: 0;
+}
+
+.imgServices1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.imgServices2 {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*Servicio de Transferencias sin comision entre Estudiantes*/
+.contTransfer {
+    width: 90%;
+    height: auto;
+    border-radius: 0.7rem; 
+    margin: 0;
+}
+
+
+/*Servicio de Deposito en Efectivo*/
+.contDep{
+    width: 70%;
+    height: auto;
+    border-radius: 0.6rem;
+    margin-top: 2rem;
+}
+
+
+/*Servicio de Consulta de Movimientos*/
+.contConsMov{
+    width: 50%;
+    height: auto;
+    border-radius: 0.5rem; 
+    margin-top: 2rem;
+}
+
+
+/*Servicio de Pago de Matricula*/
+.contMatr{
+    width: 50%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 4rem;
+}
+
+
+/*Servicio de Cobro de Beca Estudiantil*/
+.contCobBec{
+    width: 70%;
+    height: auto;
+    border-radius: 0.6rem;
+    margin-top: 2rem; 
+}
+
+
+/*Servicio Retiro en Efectivo*/
+.contRet{
+    width: 90%;
+    height: auto;
+    border-radius: 0.7rem; 
+}
+
+
+/* Media query for table screen*/
+@media only screen and (min-width: 413px) and (max-width:768px) {
+    .conteiner {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .imgServices1 {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        gap: 2rem;
+    }
+    
+    .imgServices2 {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin-top: 0;
+        margin-bottom: 0;
+        gap: 2rem;
+    }
+
+    .contTransfer {
+        width: 85%;
+        height: auto;
+        border-radius: 0.7rem;
+    }
+
+    .contDep{
+        width: 65%;
+        height: auto;
+        border-radius: 0.6rem;
+    }
+
+    .contConsMov{
+        width: 45%;
+        height: auto;
+        margin-top: 4rem;
+    }
+
+    .contMatr{
+        width: 45%;
+        height: auto;
+        margin-top: 5rem;
+    }
+
+    .contCobBec{
+        width: 65%;
+        height: auto;
+        border-radius: 0.6rem;
+    }
+
+    .contRet{
+        width: 85%;
+        height: auto;
+        border-radius: 0.7rem; 
+    }
+
+    
+}
+
+
+/* Media query for desktop screen*/
+@media only screen and (min-width:768px) {
+    .conteiner {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
+    .imgServices1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        margin-top: 1rem;
+        justify-content: space-around;
+        padding: 2rem;
+    }
+    
+    .imgServices2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        padding: 2rem;
+    } 
+
+    .titServ{
+        font-size: 3rem;
+    }
+
+    .contTransfer{
+        width: 90%;
+        height: auto;
+        margin-left: 20%;
+    }
+
+    .contDep{
+        width: 70%;
+        height: auto;
+        margin-left: 38%;
+        
+    }
+
+    .contConsMov{
+        width: 50%;
+        height: auto;
+        margin-left: 18%;
+    }
+
+    .contMatr{
+        width: 50%;
+        height: auto;
+        margin-right: 18%;
+        margin-top: 0;
+    }
+
+    .contCobBec{
+        width: 70%;
+        height: auto;
+        margin-right: 38%;
+        margin-top: 0;
+    }
+
+    .contRet{
+        width: 90%;
+        height: auto;
+        margin-right: 20%;
+    }
+
+    /*Click hover*/
+    .contTransfer:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contDep:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contConsMov:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contMatr:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+    
+    .contCobBec:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+
+    .contRet:hover {
+        transform: scale(1.05);
+        transition: transform 1s ease-in-out;
+    }
+    
+}
+
