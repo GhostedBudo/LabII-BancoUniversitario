@@ -11,6 +11,7 @@ const CarouselSliderHero = () => {
       image: Woman,
       title: "Comprometidos con tus\n finanzas",
       description: "Ahora puedes acceder\n y administrar todas\n tus transacciones \ndesde un solo lugar.",
+      button: true // Nueva propiedad para indicar que este slide tiene botón
     },
     {
       id: 2,
@@ -49,6 +50,9 @@ const CarouselSliderHero = () => {
           <div className={styles["slide-content"]}>
             <h1>{slide.title}</h1>
             <p>{slide.description}</p>
+            {slide.button && (
+              <button className={styles.registerButton}>Regístrate ahora</button>
+            )}
           </div>
         </div>
       ))}
