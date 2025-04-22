@@ -49,11 +49,15 @@ const About = () => {
 
   const handleScroll = (direction) => {
     const newIndex = activeIndex + direction;
-    if (newIndex < 0 || newIndex >= items.length) return;
-    setActiveIndex(newIndex);
+    if (newIndex < 0) {
+      setActiveIndex(items.length - 1);
+    } else if (newIndex >= items.length) {
+      setActiveIndex(0);
+    } else {
+      setActiveIndex(newIndex);
+    }
   };
 
-  // Direct navigation with dots
   const goToSlide = (index) => {
     setActiveIndex(index);
   };
@@ -72,7 +76,7 @@ const About = () => {
             <button
               className={styles.arrowleft}
               onClick={() => handleScroll(-1)}
-              disabled={activeIndex === 0}
+             
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +96,7 @@ const About = () => {
             <button
               className={styles.arrowright}
               onClick={() => handleScroll(1)}
-              disabled={activeIndex === items.length - 1}
+              
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

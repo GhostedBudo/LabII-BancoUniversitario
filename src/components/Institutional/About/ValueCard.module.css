@@ -7,6 +7,7 @@
     text-align: center;
     padding-bottom: 20px;
     height: 80vh;
+    
   }
 
   .cardContent {
@@ -28,8 +29,9 @@
   }
 
   .text {
-    padding: 1rem;
-    font-size: x-large;
+
+    padding: 0 1rem;
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -39,7 +41,7 @@
   }
 
   .cardTitle {
-    font-size: xx-large;
+    font-size: 2em;
   }
 
 
@@ -49,5 +51,14 @@
       /* display: none; */
       opacity: 0;
     }
+
+    .text {
+
+      padding: 0 2rem;
+  
+      
+    }
+
+
   }
 

@@ -1,14 +1,11 @@
 .primaryContainer {
-  font-size: x-large;
   color: black;
   text-align: center;
   padding: 20px 0;
-  
 }
 
 .bg {
-
-  background-image: url('../../../assets/img/FondoMobil.png');
+  background-image: url("../../../assets/img/FondoMobil.png");
   background-size: cover;
   min-width: 100%;
   background-position: center;
@@ -19,14 +16,12 @@
 .slider {
   display: grid;
   grid-template-columns: 1fr;
-  
-  
 }
 
 .buttons {
   grid-area: 1 / 1;
   position: absolute;
-  
+
   display: flex;
   justify-content: space-between;
   align-self: center;
@@ -44,17 +39,14 @@
   border-radius: 100%;
   justify-content: center;
   align-items: center;
-  
-  
+
   > svg {
     stroke: white;
-    
   }
-  
 }
 
 .cards {
-  grid-area: 1/1; 
+  grid-area: 1/1;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
@@ -68,12 +60,10 @@
 }
 
 .cards > * {
- max-width: 400px;
- width: 100%;
- scroll-snap-align: center;
+  max-width: 400px;
+  width: 100%;
+  scroll-snap-align: center;
 }
-
-
 
 .sliderDots input[type="radio"] {
   appearance: none;
@@ -82,10 +72,7 @@
   border-radius: 50%;
   background: #2e4243;
   cursor: pointer;
-
-
 }
-
 
 .sliderDots input[type="radio"]:checked {
   background: #14c2cb;
@@ -103,17 +90,17 @@
   .buttons {
     visibility: hidden;
   }
+
+  .primaryContainer h1 {
+    font-size: 3rem;
+  }
 }
 
-@media only screen and (max-width: 768px ) {
+@media only screen and (max-width: 768px) {
   .cards {
-
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    
-  scroll-behavior: smooth;
-    
-  }
 
-  
+    scroll-behavior: smooth;
+  }
 }
