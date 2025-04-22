@@ -9,7 +9,8 @@
 }
 
 .infoBackground {
-    height: 80%;
+    margin: 2rem 4rem 5rem 4rem;
+   
     background-image: url("../../../assets/img/imageConf.png");
     background-size: cover;
     background-position: 40% center; /* Posición mejorada para móvil */
@@ -40,7 +41,8 @@
     font-size: 1.2rem; /* Tamaño ajustado */
     line-height: 1.4;
     font-weight: bold;
-    margin-right: 10% ;
+    margin-right: 10%;
+   
     
 }
 
