@@ -209,14 +209,14 @@
     }
     
     .socialnetuser {
-        right: 6%;
+        right: 6.5%;
         bottom: 33%;
     }
 }
 
 @media only screen and (min-width: 1440px) {
     .sliderContainer {
-        height: 80px;
+        height: 50px;
     }
     
     .sliderTrack {
@@ -224,7 +224,7 @@
     }
     
     .sliderTrack img {
-        height: 80px;
+        height: 70px;
     }
     
     .imageContainer {
@@ -257,7 +257,7 @@
     }
     
     .socialnetuser {
-        right: 4.5%;
+        right: 3%;
         bottom: 35%;
         font-size: 1.6rem;
     }
