@@ -28,8 +28,9 @@
   }
 
   .text {
-    padding: 1rem;
-    font-size: x-large;
+
+    padding: 3rem;
+    font-size: calc(0.7em + 0.5vw);
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -39,7 +40,7 @@
   }
 
   .cardTitle {
-    font-size: xx-large;
+    font-size: 2em;
   }
 
 

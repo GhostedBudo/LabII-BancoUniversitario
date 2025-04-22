@@ -82,11 +82,7 @@ svg {
  
 }
 
-.accessButton:hover {
-  background-color: #085f63;
 
-  cursor: pointer;
-}
 
 .inactive {
   display: none;
@@ -97,7 +93,14 @@ svg {
 
 }
 
+
+
 @media only screen and (min-width: 768px) {
+  .accessButton:hover {
+    background-color: #085f63;
+  
+    cursor: pointer;
+  }
   .mobileMenu {
     display: none;
   }
