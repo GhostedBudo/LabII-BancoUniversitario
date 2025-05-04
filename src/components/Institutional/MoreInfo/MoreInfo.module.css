@@ -6,11 +6,12 @@
     text-align: center;
     font-weight: bold;
     height: 100vh;
+
 }
 
 .infoBackground {
-    margin: 2rem 4rem 5rem 4rem;
-   
+    margin-top: 3%;
+    height: 80%;
     background-image: url("../../../assets/img/imageConf.png");
     background-size: cover;
     background-position: 40% center; /* Posición mejorada para móvil */
@@ -19,7 +20,7 @@
     align-items: center;
     justify-items: center; /* Centra el contenido horizontalmente */
     color: white;
-    padding: 1rem;
+    margin: 1rem 2rem 1rem 2rem; 
 }
 
 .infoBackground > * {
@@ -41,8 +42,7 @@
     font-size: 1.2rem; /* Tamaño ajustado */
     line-height: 1.4;
     font-weight: bold;
-    margin-right: 10%;
-   
+    margin-right: 10% ;
     
 }
 
@@ -59,6 +59,11 @@
 
 @media only screen and (min-width: 768px) {
 
+    .infoBackground {
+        padding-left: 5%;
+       
+    }
+
     .firstText {
         font-size: 1.5rem;
         width: 67%;
@@ -67,14 +72,14 @@
     
     .secondText {
         color: #085F63;
-        font-size: 1.35rem; 
-        width: 65%;
-        margin-right: 35%;
+        font-size: 1.49rem; 
+        width: 60%;
+        margin-right: 40%;
     }
     
     .thirdText {
         color: #000;
-        width: 43%;
+        width: 45%;
         font-size: 1.2rem;
         margin-right: 55%;
     }
@@ -86,6 +91,10 @@
 }
 
 @media only screen and (min-width: 1024px) {
+
+    .infoBackground {
+        padding: 1%;
+    }
     .firstText {
         font-size: 1.5rem;
         width: 60%;
@@ -94,9 +103,9 @@
     
     .secondText {
         color: #085F63;
-        font-size: 1.35rem; 
-        width: 55%;
-        margin-right: 40%;
+        font-size: 1.45rem; 
+        width: 50%;
+        margin-right: 45%;
     }
     
     .thirdText {
@@ -108,6 +117,10 @@
     
 }
 @media only screen and (min-width: 1440px) {
+    .infoBackground {
+        margin: 3rem;
+    }
+    
     .firstText {
         font-size: 1.5rem;
         width: 50%;
@@ -118,7 +131,7 @@
         color: #085F63;
         font-size: 1.5rem; 
         width: 50%;
-        margin-right: 45%;
+        margin-right: 46%;
     }
     
     .thirdText {
