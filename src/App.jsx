@@ -2,22 +2,46 @@ import React from "react";
 import "./index.css";
 import MoreInfo from "./components/Institutional/MoreInfo/MoreInfo";
 import Institutional from "./components/Institutional/Institutional";
-import Footer from "./components/Institutional/Footer/Footer";
-import Header from "./components/Institutional/Header/Header";
+import InstitutionalLayout from "./components/Institutional/InstitutionalLayout";
+
 import { Routes, Route } from "react-router-dom";
+
 import ScrollToAnchor from "./utils/components/ScrollToAnchor";
+import Login from "./components/OnlineBank/Login";
+import BankLayout from "./components/OnlineBank/BankLayout";
+import AuthLayout from "./components/OnlineBank/AuthLayout";
+
 function App() {
   return (
     <>
       <ScrollToAnchor />
-      <Header />
 
       <Routes>
-        <Route path="/" element={<Institutional />} />
-        <Route path="/moreinfo" element={<MoreInfo />} />
+        {/* Institutional */}
+
+        <Route element={<InstitutionalLayout />}>
+
+          <Route index path="/" element={<Institutional />} />
+          <Route path="moreinfo" element={<MoreInfo />} />
+
+        </Route>
+
+        {/* Login y Registro */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<div>Sign Up</div>} />
+        </Route>
+
+
+        {/* Banca en linea */}
+        <Route element={<BankLayout />}>
+          <Route index path="user" element={<div>Usuario</div>} />
+        </Route>
+
       </Routes>
 
-      <Footer />
+
+
     </>
   );
 }
