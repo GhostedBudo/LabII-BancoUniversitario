@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import ScrollToAnchor from "./utils/components/ScrollToAnchor";
 import Login from "./components/OnlineBank/Login/Login";
 import BankLayout from "./components/OnlineBank/BankLayout";
-import AuthLayout from "./components/OnlineBank/AuthLayout";
+import AuthLayout from "./components/OnlineBank/Header/HeaderAuth";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         </Route>
 
         {/* Login y Registro */}
-        <Route element={<AuthLayout />}>
+        <Route element={<Login />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<div>Sign Up</div>} />
         </Route>
