@@ -7,7 +7,7 @@ import InstitutionalLayout from "./components/Institutional/InstitutionalLayout"
 import { Routes, Route } from "react-router-dom";
 
 import ScrollToAnchor from "./utils/components/ScrollToAnchor";
-import Login from "./components/OnlineBank/Login";
+import Login from "./components/OnlineBank/Login/Login";
 import BankLayout from "./components/OnlineBank/BankLayout";
 import AuthLayout from "./components/OnlineBank/AuthLayout";
 
