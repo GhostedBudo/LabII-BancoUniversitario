@@ -1,0 +1,100 @@
+/* Login.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .login-container {
+    background-image: url('../../assets/img/fondoLogin1.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  
+  .form-section {
+    
+    padding: 40px;
+    border-radius: 10px;
+    color: #fff;
+    width: 350px;
+    
+  }
+  
+  .form-section h2, .form-section h3 {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .form-section h3 {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group input {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+    outline: none;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    
+  }
+  
+  .btn-login {
+    background-color: #004d4d;
+    color: white;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .btn-login:hover {
+    background-color: #003333;
+  }
+  
+  .register-text {
+    margin-top: 20px;
+    text-align: ;
+    font-size: 14px;
+  }
+  
+  .register-text a {
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #00ffff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .error {
+    color: #ffdede;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .image-section {
+    display: none; /* ya no es necesario mostrar la imagen aparte */
+  }
+  
