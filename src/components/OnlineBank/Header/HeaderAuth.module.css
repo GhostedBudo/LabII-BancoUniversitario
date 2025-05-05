@@ -1,4 +1,4 @@
-.main-header {
+.header {
     width: 100%;
     background-color: white;
     display: flex;
@@ -12,18 +12,14 @@
     height: 7%;
   }
   
-  .logo-container {
+  .logo{
     position: absolute;
     left: 20px;
     display: flex;
     align-items: center;
-  }
-  
-  .logo {
     height: 40px;
     width: auto;
   }
-  
   .title {
     margin: 0;
     font-size: 24px;
