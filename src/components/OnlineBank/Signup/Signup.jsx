@@ -82,7 +82,7 @@ const Signup = () => {
 
     return (
         <>
-            <HeaderAuth />
+            {/* <HeaderAuth /> */}
             <div className={styles["login-container"]}>
                 <div className={styles["form-section"]}>
                     <h2>Bienvenido</h2>

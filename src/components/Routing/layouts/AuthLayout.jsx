@@ -1,10 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-
+import HeaderAuth from '../../OnlineBank/Header/HeaderAuth'
 const AuthLayout = () => {
   return (
     <>
-    <div> Header AuthLayout</div>
+     <HeaderAuth />
     <Outlet />
     </>
   )

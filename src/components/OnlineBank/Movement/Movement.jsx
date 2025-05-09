@@ -16,8 +16,12 @@ const Movement = () => {
                 });
     
                 const json = await response.json(); 
-                setUserData(data)
-                console.log(userData)
+                if (json.data && Array.isArray(json.data)) {
+                    setUserData(json.data);
+                } else {
+                    console.error('Formato de datos inesperado:', json.data);
+                    setUserData([]);
+                }
             } catch (error) {
                 console.log(error)
             }
@@ -26,11 +30,13 @@ const Movement = () => {
     }, [])
 
 
-  
+    const movements =  userData.map((m, i) => <div key={m.id}>{`${m.id} - ${m.amount}bs - ${m.created_at}`}</div>);
 
    
     return (
-        <div></div>
+        <>
+            {movements}
+        </>
     )
 }
 

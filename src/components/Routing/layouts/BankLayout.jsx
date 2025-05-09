@@ -3,8 +3,9 @@ import { Outlet } from 'react-router-dom'
 const BankLayout = () => {
   return (
     <>
-    <div> Bank AuthLayout</div>
+    <div> Bank Header</div>
     <Outlet />
+    <div>Bank footer</div>
     </>
   )
 }
