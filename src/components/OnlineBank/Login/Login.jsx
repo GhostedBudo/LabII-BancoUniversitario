@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import styles from './Login.module.css';
 import fondoLogin from "../../../assets/img/fondoLogin1.png";
 import HeaderAuth from "../Header/HeaderAuth";
+import useAuth from '../../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const {login, getToken} = useAuth(); 
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('hanu@gmail.com');
   const [password, setPassword] = useState('Abc123456789!');
   const [errors, setErrors] = useState({});
@@ -26,7 +31,6 @@ const Login = () => {
 
     if (Object.keys(validationErrors).length === 0) {
 
-      //alert('Inicio de sesión exitoso (simulado)');
       // inicio de sesion
       try {
 
@@ -45,8 +49,12 @@ const Login = () => {
         
         if (response.ok) {
           // Store JWT in localStorage
-          localStorage.setItem('authToken', data.token);
+          login(data.data.jwt);
+          
           console.log('Login successful:', data);
+          console.log(getToken());
+          //Navegar a la primera ruta protegida
+          navigate('/user')
         } else {
           console.error('Login failed:', data.message);
         }

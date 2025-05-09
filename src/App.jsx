@@ -11,6 +11,8 @@ import Login from "./components/OnlineBank/Login/Login";
 import BankLayout from "./components/Routing/layouts/BankLayout";
 import AuthLayout from "./components/Routing/layouts/AuthLayout";
 import PrivateRoute from "./components/Routing/PrivateRoute";
+import Signup from "./components/OnlineBank/Signup/Signup";
+import Movement from "./components/OnlineBank/Movement/Movement";
 
 function App() {
   return (
@@ -31,7 +33,7 @@ function App() {
         {/* Login y Registro */}
         <Route element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
-          <Route path="signup" element={<div>Sign Up</div>} />
+          <Route path="signup" element={<Signup />} />
         </Route>
 
 
@@ -40,7 +42,7 @@ function App() {
           <Route path="user"
             element={
               <PrivateRoute>
-                  <div>User Page</div>
+                  <Movement />
               </PrivateRoute>
             } />
         </Route>

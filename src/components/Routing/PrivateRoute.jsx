@@ -1,14 +1,11 @@
 import { Navigate, useLocation } from 'react-router-dom'
-
+import useAuth from '../../hooks/useAuth';
 const PrivateRoute = ({ children }) => {
   const location = useLocation()
-  //const isAuthenticated = !!localStorage.getItem('authToken') // Simple check
-    const isAuthenticated = false;
-  return isAuthenticated ? (
-    children
-  ) : (
-    <Navigate to="/login" state={{ from: location }} replace />
-  )
+  const {getToken} = useAuth();
+
+  return !!getToken ? children : <Navigate to="/signup" state={{ from: location }} replace />
+
 }
 
 export default PrivateRoute; 

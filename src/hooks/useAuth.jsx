@@ -1,37 +1,33 @@
+// useAuth.js
 import { useState, useEffect, useCallback } from 'react';
 
+// Helpers para sessionStorage 
+export function getJwtToken() {
+  return sessionStorage.getItem("jwt")
+}
+
+export function setJwtToken(token) {
+  sessionStorage.setItem("jwt", token)
+}
+
 const useAuth = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check authentication status when hook loads
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    setIsAuthenticated(!!token);
+    const token = getJwtToken();
+
   }, []);
 
-  // Login function
-  const login = useCallback((token) => {
-    localStorage.setItem('authToken', token);
-    setIsAuthenticated(true);
+  const login = useCallback((jwtToken) => {
+    setJwtToken(jwtToken);
   }, []);
 
-  // Logout function
   const logout = useCallback(() => {
-    localStorage.removeItem('authToken');
-    setIsAuthenticated(false);
+    setJwtToken("");
   }, []);
 
-  // Get current token
-  const getToken = useCallback(() => {
-    return localStorage.getItem('authToken');
-  }, []);
+  const getToken = useCallback(() => getJwtToken())
 
-  return {
-    isAuthenticated,
-    getToken,
-    login,
-    logout
-  };
+  return { login, logout, getToken };
 };
 
 export default useAuth;
