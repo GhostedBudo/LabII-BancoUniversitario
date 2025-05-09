@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
-import FooterInstitutional from "./Footer/Footer";
-import HeaderInstitutional from "./Header/Header";
+import FooterInstitutional from "../../Institutional/Footer/Footer";
+import HeaderInstitutional from "../../Institutional/Header/Header";
 
 const InstitutionalLayout = () => {
   return (
