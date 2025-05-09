@@ -3,7 +3,9 @@ import styles from './Login.module.css';
 import fondoLogin from "../../../assets/img/fondoLogin1.png";
 import HeaderAuth from "../Header/HeaderAuth";
 import useAuth from '../../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
   const {login, getToken} = useAuth(); 
@@ -101,7 +103,7 @@ const Login = () => {
           <p className={styles["register-text"]}>
             ¿No tienes cuenta?
             <br />
-            <a href="#">Regístrate</a>
+            <Link to="/signup">Regístrate</Link>
           </p>
         </div>
         <div className={styles["image-section"]}>

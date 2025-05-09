@@ -16,9 +16,6 @@ const Movement = () => {
                 });
     
                 const json = await response.json(); 
-                const data = await json.data;
-                
-              
                 setUserData(data)
                 console.log(userData)
             } catch (error) {
