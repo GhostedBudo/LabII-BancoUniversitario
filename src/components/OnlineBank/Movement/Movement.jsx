@@ -31,7 +31,6 @@ const Movement = () => {
         fetchUserData();
     }, [])
     
-  
     
     const movements = userData.map(m => {
 
@@ -58,6 +57,7 @@ const Movement = () => {
                     <div className={styles.balance}>
                         <div className={styles.cardAccountNumber}>
                             <span>Cuenta de Ahorro</span><br/>
+                            
                             <span>{!!userData ? userData[0]?.account_number : 'Loading...' }</span>
                         </div>
                         <div className={styles.cardAmount}>{!!userData ? userData[0]?.balance + 'bs' : 'Loading...' }</div>
