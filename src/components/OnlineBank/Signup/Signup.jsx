@@ -4,6 +4,15 @@ import fondoRegister from "../../../assets/img/FondoRegister.png";
 import HeaderAuth from "../Header/HeaderAuth";
 import { Link, useNavigate } from 'react-router-dom';
 
+// Importación de íconos
+import iconUsuario from '../../../assets/img/icons8-usuario.png';
+import iconCedula from '../../../assets/img/icons8-tarjeta-de-identificación.png'
+import iconFecha from '../../../assets/img/icons8-fecha.png'
+import iconTelefono from '../../../assets/img/icons8-teléfono-celular.png'
+import iconEmail from '../../../assets/img/icons8-nuevo-post.png'
+import iconPassword from '../../../assets/img/icons8-contraseña.png'
+import iconRepeat from '../../../assets/img/icons8-contraseña.png'
+
 const Signup = () => {
     const navigate = useNavigate(); 
 
@@ -78,14 +87,13 @@ const Signup = () => {
     return (
         <div className={styles["signup-container"]}>
             <div className={styles["form-section"]}>
-                <h2>Bienvenido</h2>
-                <h3>Registrarse</h3>
+                <h3>REGISTRO</h3>
                 <form onSubmit={handleSubmit}>
                     
                     <div className={styles["input-group"]}>
                         <label>Nombre</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-nombre.svg" alt="icon" />
+                            <img src={iconUsuario} alt="icono nombre" />
                             <input
                                 type="text"
                                 value={firstName}
@@ -98,7 +106,7 @@ const Signup = () => {
                     <div className={styles["input-group"]}>
                         <label>Apellido</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-apellido.svg" alt="icon" />
+                            <img src={iconUsuario} alt="icono apellido" />
                             <input
                                 type="text"
                                 value={lastName}
@@ -111,7 +119,7 @@ const Signup = () => {
                     <div className={styles["input-group"]}>
                         <label>Cédula</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-cedula.svg" alt="icon" />
+                            <img src={iconCedula} alt="icono cedula" />
                             <input
                                 type="text"
                                 value={documentNumber}
@@ -124,7 +132,7 @@ const Signup = () => {
                     <div className={styles["input-group"]}>
                         <label>Fecha de nacimiento</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-fecha.svg" alt="icon" />
+                            <img src={iconFecha} alt="icono fecha" />
                             <input
                                 type="text"
                                 value={birthDate}
@@ -138,7 +146,7 @@ const Signup = () => {
                     <div className={styles["input-group"]}>
                         <label>Teléfono</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-telefono.svg" alt="icon" />
+                            <img src={iconTelefono} alt="icono telefono" />
                             <input
                                 type="text"
                                 value={phoneNumber}
@@ -151,7 +159,7 @@ const Signup = () => {
                     <div className={styles["input-group"]}>
                         <label>Correo Electrónico</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-email.svg" alt="icon" />
+                            <img src={iconEmail} alt="icono correo" />
                             <input
                                 type="email"
                                 value={email}
@@ -165,7 +173,7 @@ const Signup = () => {
                     <div className={styles["input-group"]}>
                         <label>Contraseña</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-password.svg" alt="icon" />
+                            <img src={iconPassword} alt="icono password" />
                             <input
                                 type="password"
                                 value={password}
@@ -179,7 +187,7 @@ const Signup = () => {
                     <div className={styles["input-group"]}>
                         <label>Repetir Contraseña</label>
                         <div className={styles["input-icon"]}>
-                            <img src="ruta/icono-repeat.svg" alt="icon" />
+                            <img src={iconRepeat} alt="icono repetir" />
                             <input
                                 type="password"
                                 value={repeatPassword}
