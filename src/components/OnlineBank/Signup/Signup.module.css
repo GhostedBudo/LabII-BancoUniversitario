@@ -73,13 +73,13 @@
 .btn-login {
   background-color: #004d4d;
   color: white;
-  padding: 12px 0; /* Reducido de 14px */
+  padding: 12px 0;
   border: none;
-  border-radius: 100px; /*redondo de los bordes*/
+  border-radius: 100px;
   cursor: pointer;
-  font-size: 1.1rem; /* Reducido de 1.2rem */
-  width: 100%;
-  margin-top: 12px; /* Reducido de 15px */
+  font-size: 1.1rem;
+  width: 85%; /* Reducir el ancho */
+  margin-right: 10px; /* Alinear a la izquierda */
   transition: background-color 0.3s ease;
 }
 
@@ -88,20 +88,22 @@
 }
 
 .register-text {
-  margin-top: 22px; /* Reducido de 30px */
-  text-align: left;
-  font-size: 1rem; /* Reducido de 1.1rem */
+  width: 90%; /* Mismo ancho que el botón */
+  margin: 22px auto 0; /* Centrado automático */
+  text-align: center; /* Texto centrado */
+  font-size: 1rem;
   line-height: 1.4;
   color: #085F63;
   font-weight: bold;
 }
 
 .register-text a {
-  display: inline-block;
-  margin-top: 6px; /* Reducido de 8px */
+  display: block; /* Cambiado a block para mejor control */
+  margin-top: 6px;
   font-weight: bold;
   color: #ffffff;
-  font-size: 1.1rem; /* Reducido de 1.2rem */
+  font-size: 1.1rem;
+  text-align: center; /* Texto centrado */
 }
 
 .error {
