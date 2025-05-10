@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import useAuth from '../../../hooks/useAuth';
-
+import MovementEntry from './MovementEntry';
+import styles from "./Movement.module.css"
 const Movement = () => {
-    const {getToken} = useAuth(); 
+    const {getJwtToken} = useAuth(); 
     const [userData, setUserData] = useState([])
     useEffect(() => {
         const fetchUserData = async () => {
@@ -10,7 +11,7 @@ const Movement = () => {
             try {
                 const response = await fetch('/api/v1/client/movement?page=1&page_size=20', {
                     headers: {
-                        'Authorization': `Bearer ${getToken()}`,
+                        'Authorization': `Bearer ${getJwtToken()}`,
                         'Content-Type': 'application/json'
                     }
                 });
@@ -30,12 +31,36 @@ const Movement = () => {
     }, [])
 
 
-    const movements =  userData.map((m, i) => <div key={m.id}>{`${m.id} - ${m.amount}bs - ${m.created_at}`}</div>);
+    const movements = userData.map(m => {
+       
+        const entry = {
+            date: m.created_at, 
+            reference: m.id, 
+            description: m.description, 
+            amount: m.amount * m.multiplier, 
+        }
+
+        return <MovementEntry key={m.id} entry={entry} />
+
+    });
+
+    
 
    
     return (
         <>
-            {movements}
+            <div className={styles.accountContainer}>
+                Contenedor 1
+                <div className={styles.balance}> Contenedor 1.1 </div>
+                <div className={styles.account}> Contenedor 1.2 </div>
+            </div>
+
+            <div className={styles.movementsContainer}> 
+                <MovementEntry entry={{
+                    date: "Fecha", reference: "Referencia", description: "Descripcion", amount: "Monto"
+                }} />
+                {movements}
+            </div>
         </>
     )
 }

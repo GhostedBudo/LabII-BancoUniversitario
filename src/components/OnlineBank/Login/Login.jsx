@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  const {login, getToken} = useAuth(); 
+  const {login, getJwtToken} = useAuth(); 
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('hanu@gmail.com');
@@ -54,7 +54,7 @@ const Login = () => {
           login(data.data.jwt);
           
           console.log('Login successful:', data);
-          console.log(getToken());
+          console.log(getJwtToken());
           //Navegar a la primera ruta protegida
           navigate('/user')
         } else {

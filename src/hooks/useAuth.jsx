@@ -12,22 +12,27 @@ export function setJwtToken(token) {
 
 const useAuth = () => {
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const token = getJwtToken();
-
+    setIsAuthenticated(!!token)
+    setIsLoading(false);
   }, []);
 
-  const login = useCallback((jwtToken) => {
+  const login = (jwtToken) => {
     setJwtToken(jwtToken);
-  }, []);
+    setIsAuthenticated(true);
+    
+  };
 
-  const logout = useCallback(() => {
+  const logout = () => {
     setJwtToken("");
-  }, []);
+    setIsAuthenticated(false);
+  };
 
-  const getToken = useCallback(() => getJwtToken())
 
-  return { login, logout, getToken };
+  return { isAuthenticated, isLoading, login, logout, getJwtToken };
 };
 
 export default useAuth;

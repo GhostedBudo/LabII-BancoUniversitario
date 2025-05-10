@@ -16,6 +16,7 @@ import Institutional from "./components/Institutional/Institutional";
 import Login from "./components/OnlineBank/Login/Login";
 import Signup from "./components/OnlineBank/Signup/Signup";
 import Movement from "./components/OnlineBank/Movement/Movement";
+import Overview from "./components/OnlineBank/Overview/Overview";
 
 function App() {
   return (
@@ -41,13 +42,24 @@ function App() {
 
 
         {/* Banca en linea */}
-        <Route element={<BankLayout />}>
-          <Route path="user"
+        <Route path="user" element={<BankLayout />}>
+          
+          <Route index
             element={
               <PrivateRoute>
-                  <Movement />
+                <Overview />
               </PrivateRoute>
             } />
+
+          <Route path="movements"
+            element={
+              <PrivateRoute>
+                <Movement />
+              </PrivateRoute>
+            } />
+
+
+
         </Route>
 
       </Routes>

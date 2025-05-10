@@ -1,0 +1,12 @@
+.accountContainer {
+    border: solid red 1px;
+    min-height: 50%;
+}
+
+.balance {}
+
+.account {}
+
+.movementsContainer{ 
+    border:solid green 1px; 
+}

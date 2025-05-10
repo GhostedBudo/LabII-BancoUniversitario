@@ -1,0 +1,5 @@
+.flex {
+    display: grid;
+    grid-template-columns: 4fr 3fr 3fr 2fr ;
+    align-items: baseline;
+}

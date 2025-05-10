@@ -2,9 +2,11 @@ import { Navigate, useLocation } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth';
 const PrivateRoute = ({ children }) => {
   const location = useLocation()
-  const {getToken} = useAuth();
+  const {isAuthenticated, isLoading} = useAuth();
+  if (isLoading) return <div>Loading...</div>
+  
 
-  return !!getToken ? children : <Navigate to="/signup" state={{ from: location }} replace />
+  return isAuthenticated ? children : <Navigate to="/login" state={{ from: location }} replace />
 
 }
 

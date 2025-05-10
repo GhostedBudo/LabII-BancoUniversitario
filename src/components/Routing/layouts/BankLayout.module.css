@@ -1,0 +1,68 @@
+/* BankLayout.module.css */
+
+/* Main container setup */
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  /* Header styles */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 2px solid #d32f2f; /* Red border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Content area that grows to fill space */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Navbar 25% / Content 75% */
+    flex: 1; /* Takes remaining space */
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Navigation sidebar */
+  .navbar {
+    background-color: rgba(32, 32, 32, 0.1);
+    padding: 1rem;
+    position: sticky;
+    top: 70px; /* Header height + padding */
+    height: calc(100vh - 150px); /* Adjust based on header/footer height */
+    overflow-y: auto;
+  }
+  
+  /* Main content area */
+  .content {
+    background-color: rgba(32, 32, 32, 0.2);
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  
+  /* Footer styles */
+  .footer {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding: 1rem;
+    border-top: 2px solid #4CAF50; /* Green border */
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .contentContainer {
+      grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+      position: static;
+      height: auto;
+    }
+  }
