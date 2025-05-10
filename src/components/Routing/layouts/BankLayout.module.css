@@ -39,7 +39,7 @@
   
   /* Main content area */
   .content {
-    background-color: rgba(32, 32, 32, 0.2);
+  
     padding: 1rem;
     overflow-y: auto;
   }

@@ -1,12 +1,72 @@
 .accountContainer {
-    border: solid red 1px;
     min-height: 50%;
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
 
-.balance {}
+.titleBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-.account {}
+.balanceContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+}
+
+
+
+.balance {
+    background-color: rgb(32, 165, 174);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 70%;
+    border-radius: 5px;
+    padding: 1em;
+    
+}
+
+.cardAccountNumber {
+   
+}
+
+
+.cardAmount {
+    justify-self: end;
+    align-self: end;
+}
+
+.accountText {
+
+    align-self: start;
+    display: grid;
+
+    height: 100%;
+}
+
+
+.accountBtn {
+    display: grid;
+    justify-content: center;
+
+}
+
+
+
+.account {
+   
+    height: 70%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 1em;
+    gap: 1em;
+
+}
 
 .movementsContainer{ 
-    border:solid green 1px; 
+  
 }
