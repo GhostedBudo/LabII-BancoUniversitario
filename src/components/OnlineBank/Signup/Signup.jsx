@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import styles from '../Signup/Signup.module.css';
-import fondoRegister from "../../../assets/img/FondoRegister.png";
-import HeaderAuth from "../Header/HeaderAuth";
 import { Link, useNavigate } from 'react-router-dom';
 
 // Importación de íconos
@@ -209,6 +207,7 @@ const Signup = () => {
             <div className={styles["image-section"]}></div>
         </div>
     );
+    
 };
 
 export default Signup;

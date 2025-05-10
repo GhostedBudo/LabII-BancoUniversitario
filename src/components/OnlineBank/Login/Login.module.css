@@ -2,8 +2,8 @@
   background-image: url('../../../assets/img/fondoLogin1.png');
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
   width: 100%;
+  flex: 1;
   display: flex;
   align-items: center;
   padding: 0 8%; /* antes 5%, ahora más a la derecha */
