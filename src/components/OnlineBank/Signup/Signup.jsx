@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import styles from '../Signup/Signup.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-// Importación de íconos
 import iconUsuario from '../../../assets/img/icons8-usuario.png';
-import iconCedula from '../../../assets/img/icons8-tarjeta-de-identificación.png'
-import iconFecha from '../../../assets/img/icons8-fecha.png'
-import iconTelefono from '../../../assets/img/icons8-teléfono-celular.png'
-import iconEmail from '../../../assets/img/icons8-nuevo-post.png'
-import iconPassword from '../../../assets/img/icons8-contraseña.png'
-import iconRepeat from '../../../assets/img/icons8-contraseña.png'
+import iconCedula from '../../../assets/img/icons8-tarjeta-de-identificación.png';
+import iconFecha from '../../../assets/img/icons8-fecha.png';
+import iconTelefono from '../../../assets/img/icons8-teléfono-celular.png';
+import iconEmail from '../../../assets/img/icons8-nuevo-post.png';
+import iconPassword from '../../../assets/img/icons8-contraseña.png';
+import iconRepeat from '../../../assets/img/icons8-contraseña.png';
 
 const Signup = () => {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -34,6 +33,11 @@ const Signup = () => {
         e.preventDefault();
         const validationErrors = {};
 
+        if (!firstName) validationErrors.firstName = 'El nombre es obligatorio.';
+        if (!lastName) validationErrors.lastName = 'El apellido es obligatorio.';
+        if (!documentNumber) validationErrors.documentNumber = 'La cédula es obligatoria.';
+        if (!birthDate) validationErrors.birthDate = 'La fecha de nacimiento es obligatoria.';
+        /*if (!phoneNumber) validationErrors.phoneNumber = 'El teléfono es obligatorio.';*/
         if (!email) {
             validationErrors.email = 'El correo es obligatorio.';
         } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -65,19 +69,19 @@ const Signup = () => {
                         document_number: documentNumber,
                         birth_date: birthDate,
                         phone_number: phoneNumber,
-                    })
+                    }),
                 });
 
                 const data = await response.json();
 
                 if (response.ok) {
-                    console.log('Login successful:', data);
+                    console.log('Registro exitoso:', data);
                     navigate('/login');
                 } else {
-                    console.error('Login failed:', data.message);
+                    console.error('Fallo en el registro:', data.message);
                 }
             } catch (error) {
-                console.error('Network error:', error);
+                console.error('Error de red:', error);
             }
         }
     };
@@ -87,7 +91,6 @@ const Signup = () => {
             <div className={styles["form-section"]}>
                 <h3>REGISTRO</h3>
                 <form onSubmit={handleSubmit}>
-                    
                     <div className={styles["input-group"]}>
                         <label>Nombre</label>
                         <div className={styles["input-icon"]}>
@@ -99,6 +102,7 @@ const Signup = () => {
                                 placeholder="Nombre"
                             />
                         </div>
+                        {errors.firstName && <p className={styles.error}>{errors.firstName}</p>}
                     </div>
 
                     <div className={styles["input-group"]}>
@@ -112,6 +116,7 @@ const Signup = () => {
                                 placeholder="Apellido"
                             />
                         </div>
+                        {errors.lastName && <p className={styles.error}>{errors.lastName}</p>}
                     </div>
 
                     <div className={styles["input-group"]}>
@@ -125,6 +130,7 @@ const Signup = () => {
                                 placeholder="Cédula"
                             />
                         </div>
+                        {errors.documentNumber && <p className={styles.error}>{errors.documentNumber}</p>}
                     </div>
 
                     <div className={styles["input-group"]}>
@@ -139,6 +145,7 @@ const Signup = () => {
                                 maxLength={10}
                             />
                         </div>
+                        {errors.birthDate && <p className={styles.error}>{errors.birthDate}</p>}
                     </div>
 
                     <div className={styles["input-group"]}>
@@ -152,6 +159,7 @@ const Signup = () => {
                                 placeholder="Teléfono"
                             />
                         </div>
+                        {errors.phoneNumber && <p className={styles.error}>{errors.phoneNumber}</p>}
                     </div>
 
                     <div className={styles["input-group"]}>
@@ -207,7 +215,6 @@ const Signup = () => {
             <div className={styles["image-section"]}></div>
         </div>
     );
-    
 };
 
 export default Signup;

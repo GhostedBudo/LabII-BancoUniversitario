@@ -1,37 +1,50 @@
+/* REGLA GLOBAL para que nada desborde por padding/margin inesperado */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BLOQUEAMOS SCROLL EN TODA LA PÁGINA */
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .signup-container {
   background-image: url('../../../assets/img/FondoRegister.png');
   background-size: cover;
   background-position: center;
-  height: 100vh; 
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   padding: 0 3%; /* Reducido de 5% para mover hacia izquierda */
   box-sizing: border-box;
-  overflow: hidden;
-  position: relative;
+  /* Eliminado overflow: hidden y position: relative */
 }
 
 .form-section {
   color: #fff;
-  width: 90%; /* Ajustado para controlar mejor el ancho */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-right: 10%;
-  padding-top: 1%; /* MUEVE TODO HACIA ARRIBA O ABAJO (FORM) */
+  margin-right: 10%; /* MUEVE TODO EL CONTAINER A LA DERECHA */
+  padding: 20px 0; /* Espacio interno para que no toque bordes */
 }
+
 .form-section h3 {
   font-size: 2.4rem; /* Ajustado de 2.4rem */
-  margin-top: 1%; /* Ajustado de 15px */
-  margin-bottom: 1%; /* Reducido de 40px */
   font-weight: bolder;
-  text-align: center;
+  text-align: left;
   color: #085F63;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 .input-group {
-  margin-bottom: 8%; /* sEPARACION DE TODOS CON TODOS*/
+  margin-bottom: 14px; /* SEPARACION DE TODOS LOS TEXTBOX CON TODOS */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -40,27 +53,26 @@
 
 .input-group label {
   font-size: 1.1rem; /* LABELS DE TEXTBOX - TAMAÑO */
-  margin-bottom: 7px; /* SEPARACION TEXTO DE ARRIBA CON LAS TEXTBOX*/
+  margin-bottom: 7px; /* SEPARACION TEXTO DE ARRIBA CON LAS TEXTBOX */
   color: white;
   text-align: left;
-  width: 200%; /*Mueve la barra blanca horizontal y los elementos */
+  width: 200%; /* Mueve el texto de arriba */
 }
 
 .input-icon {
   display: flex;
   align-items: center;
-  width: 200%;
+  width: 200%; /* Mueve barra horizontal y elementos */
 }
 
-.input-icon img { /*TAMAÑO DE ICONOS*/
-  width: 40px; 
-  height: 40px;
-  margin-left: 1px; /* Mueve el text arriba de ellos */
+.input-icon img { /* TAMAÑO DE ICONOS */
+  width: 32px;
+  height: 32px;
 }
 
-.input-icon input { /*TAMAÑO DE TEXTOS GRISES Y BARRAS HORIZONTALES*/
-  font-size: 1.10rem; /* Ajustado de 1.1rem */
-  padding: 10px 8px; /* Reducido de 12px 8px */
+.input-icon input { /* TAMAÑO DE TEXTOS GRISES Y BARRAS HORIZONTALES */
+  font-size: 1.02rem; /* Ajustado de 1.1rem */
+  padding: 8px 6px; /* Reducido de 12px 8px */
   border: none;
   border-bottom: 1.8px solid white; /* Reducido de 2px */
   color: white;
@@ -90,7 +102,7 @@
 .register-text {
   width: 90%; /* Mismo ancho que el botón */
   margin: 22px auto 0; /* Centrado automático */
-  text-align: center; /* Texto centrado */
+  text-align: right; /* Texto alineado a la derecha */
   font-size: 1rem;
   line-height: 1.4;
   color: #085F63;
@@ -103,28 +115,44 @@
   font-weight: bold;
   color: #ffffff;
   font-size: 1.1rem;
-  text-align: center; /* Texto centrado */
+  text-align: right; /* Texto alineado a la derecha */
 }
 
 .error {
+  height: 16px; /* Fijamos la altura */
+  display: block;
   color: #ff0303;
-  font-size: 0.95rem; /* Ajustado de 1rem */
-  margin-top: 4px; /* Reducido de 6px */
+  font-size: 0.85rem;
+  margin-top: 1px;
   text-align: right;
 }
-
-.image-section {
-  position: absolute;
-  left: 3%; /* Reducido de 5% */
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%; /* Añadido para controlar mejor el espacio */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+/* CONTENEDOR PARA EL TEXTO 'REGISTRO' */
+.header-container {
+  width: 200%;
+  margin-bottom: 25px;
+  margin-left: 0; /* Puedes mover esto como gustes */
 }
 
-.image-section img {
-  max-width: 90%; /* Reducido de 100% */
-  max-height: 90%;
-  height: auto;
+/* CONTENEDOR PARA EL LINK DE LOGIN */
+.login-link-container {
+  width: 200%;
+  margin-top: 30px;
+  margin-left: 0; /* Puedes mover esto como gustes */
+}
+
+/* MANTENEMOS ESPACIO PARA ERRORES SIN QUE EMPUJEN CAMPOS */
+.error-message {
+  min-height: 16px; /* Previene empuje de layout */
+  display: block;
+  color: #ff0303;
+  font-size: 0.85rem;
+  margin-top: 1px;
+  text-align: right;
 }

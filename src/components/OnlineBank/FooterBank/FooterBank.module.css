@@ -4,8 +4,7 @@
   background: linear-gradient(0deg,#49BEB7 , white);
   display: flex;
   justify-content: center;
-  align-items: center;
- 
+  align-items: center;;
 }
 
 .text {
