@@ -1,12 +1,14 @@
 import React from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import styles from '../layouts/BankLayout.module.css'
+import HeaderOnlineBank from '../../OnlineBank/Header/HeaderOnlineBank';
+import FooterBank from '../../OnlineBank/FooterBank/FooterBank';
 const BankLayout = () => {
   return (
     <>
+    
     <div className={styles.mainContainer}>
-
-      <header className={styles.header}> Bank Header</header>
+    <HeaderOnlineBank />
       <div className={styles.container}>
         <nav className={styles.navbar}>
           Bank Lateral NavBar
@@ -34,7 +36,7 @@ const BankLayout = () => {
         </div>
 
       </div>
-      <footer className={styles.footer}>Bank footer</footer>
+      <FooterBank />
     </div>
     </>
   )

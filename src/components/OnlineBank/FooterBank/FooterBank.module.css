@@ -4,7 +4,9 @@
   background: linear-gradient(0deg,#49BEB7 , white);
   display: flex;
   justify-content: center;
-  align-items: center;;
+  align-items: center;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+   
 }
 
 .text {
