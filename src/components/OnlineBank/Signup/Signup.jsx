@@ -208,7 +208,7 @@ const Signup = () => {
                 </form>
 
                 <p className={styles["register-text"]}>
-                    ¿Ya tienes cuenta?<br />
+                    ¿Ya tienes cuenta?
                     <Link to="/login">Iniciar Sesión</Link>
                 </p>
             </div>

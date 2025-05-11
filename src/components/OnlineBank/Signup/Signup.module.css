@@ -21,7 +21,6 @@ html, body {
   justify-content: flex-end;
   padding: 0 3%; /* Reducido de 5% para mover hacia izquierda */
   box-sizing: border-box;
-  /* Eliminado overflow: hidden y position: relative */
 }
 
 .form-section {
@@ -40,11 +39,12 @@ html, body {
   text-align: left;
   color: #085F63;
   margin: 0;
-  margin-bottom: 20px;
+  align-self: center;
+  margin-left: 74%;
 }
 
 .input-group {
-  margin-bottom: 14px; /* SEPARACION DE TODOS LOS TEXTBOX CON TODOS */
+  margin-bottom: 8%; /* SEPARACION DE TODOS LOS TEXTBOX CON TODOS */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -85,14 +85,15 @@ html, body {
 .btn-login {
   background-color: #004d4d;
   color: white;
-  padding: 12px 0;
+  padding: 12px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   font-size: 1.1rem;
-  width: 85%; /* Reducir el ancho */
-  margin-right: 10px; /* Alinear a la izquierda */
+  width: 200%; /* Reducir el ancho */
   transition: background-color 0.3s ease;
+  align-self: flex-start; /* o center o flex-end */
+  margin-left: -250px; /* CAMBIA ESTO PARA MOVERLO */
 }
 
 .btn-login:hover {
@@ -107,6 +108,7 @@ html, body {
   line-height: 1.4;
   color: #085F63;
   font-weight: bold;
+  margin-right: 200px; /*MUEVE TODO EL TEXTO DEBAJO DE REGISTRARSE*/
 }
 
 .register-text a {
@@ -116,16 +118,10 @@ html, body {
   color: #ffffff;
   font-size: 1.1rem;
   text-align: right; /* Texto alineado a la derecha */
+  margin-right: 11px; /*Mueve texto de iniciar sesion*/
 }
 
-.error {
-  height: 16px; /* Fijamos la altura */
-  display: block;
-  color: #ff0303;
-  font-size: 0.85rem;
-  margin-top: 1px;
-  text-align: right;
-}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -133,26 +129,22 @@ footer {
   width: 100%;
   z-index: 10;
 }
-/* CONTENEDOR PARA EL TEXTO 'REGISTRO' */
-.header-container {
-  width: 200%;
-  margin-bottom: 25px;
-  margin-left: 0; /* Puedes mover esto como gustes */
+/* Estilo para input con error (campo en rojo) */
+.input-icon input.input-error {
+  border-bottom: 1.8px solid #ff0303;
 }
 
-/* CONTENEDOR PARA EL LINK DE LOGIN */
-.login-link-container {
-  width: 200%;
-  margin-top: 30px;
-  margin-left: 0; /* Puedes mover esto como gustes */
-}
-
-/* MANTENEMOS ESPACIO PARA ERRORES SIN QUE EMPUJEN CAMPOS */
-.error-message {
-  min-height: 16px; /* Previene empuje de layout */
-  display: block;
+/* Oculta el texto de error por defecto, se mostrará solo si está activo */
+.error {
+  position: absolute;
+  font-size: 0.8rem;
   color: #ff0303;
-  font-size: 0.85rem;
-  margin-top: 1px;
-  text-align: right;
+  white-space: nowrap;
+  margin-top: 5px;
+  padding-top: 25px;
+}
+
+/* Agrupamos cada input con error dentro de una posición relativa para controlar el tooltip */
+.input-group {
+  position: relative;
 }
