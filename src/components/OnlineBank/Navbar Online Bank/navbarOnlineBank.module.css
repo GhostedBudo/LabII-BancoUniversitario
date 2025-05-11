@@ -1,11 +1,10 @@
-/* NavbarOnlineBank.module.css */
-
 .navbar {
-  position: sticky;
+  width: 20%;
+  height: 100vh;
   background-color: #085F63;
+  position: relative;
   z-index: 1;
-  margin-left: -3.4%;
-  margin-top: -3.4%;
+  flex-shrink: 0; /* ← evita que se reduzca en el flex layout */
 }
 
 .navBackground {
@@ -14,11 +13,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../../../assets/img/BankObelisco.png');
+  background-image: url('../../../assets/img/florBarquisimeto.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.2; /* Opacidad reducida para que se vea el color de fondo */
-  
+  opacity: 0.2;
 }
 
 .navContent {
@@ -26,6 +24,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   position: relative;
   z-index: 1;
 }
