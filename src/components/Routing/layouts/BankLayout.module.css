@@ -29,7 +29,7 @@
   
   /* Navigation sidebar */
   .navbar {
-    background-color: rgba(32, 32, 32, 0.1);
+    background-color: #085F63;
     padding: 1rem;
     position: sticky;
     top: 70px; /* Header height + padding */

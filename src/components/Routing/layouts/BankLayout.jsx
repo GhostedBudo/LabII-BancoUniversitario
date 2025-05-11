@@ -3,6 +3,7 @@ import { Outlet, Link } from 'react-router-dom'
 import styles from '../layouts/BankLayout.module.css'
 import HeaderOnlineBank from '../../OnlineBank/Header/HeaderOnlineBank';
 import FooterBank from '../../OnlineBank/FooterBank/FooterBank';
+import NavbarOnlineBank from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank';
 const BankLayout = () => {
   return (
     <>
@@ -10,26 +11,9 @@ const BankLayout = () => {
     <div className={styles.mainContainer}>
     <HeaderOnlineBank />
       <div className={styles.container}>
-        <nav className={styles.navbar}>
-          Bank Lateral NavBar
-          <ul>
-            <li>
-              <Link to='/user'>Resumen Financiero</Link>
-            </li>
-            <li>
-              <Link to="movements">Consulta de Movimientos</Link>
-            </li>
-            <li>
-              <Link>Transferencia</Link>
-            </li>
-            <li>
-              <Link>Contactos</Link>
-            </li>
-            <li>
-              <Link>Actualizar Contrasenia</Link>
-            </li>
-          </ul>
-        </nav>
+        
+          <NavbarOnlineBank />
+        
         <div className={styles.content}>
 
           <Outlet />
