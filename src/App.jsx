@@ -53,9 +53,9 @@ function App() {
 
           <Route path="movements"
             element={
-
+              <PrivateRoute>
                 <Movement />
-             
+                </PrivateRoute>
             } />
 
 

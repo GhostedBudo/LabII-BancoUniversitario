@@ -11,9 +11,11 @@ const Login = () => {
   const {login, getJwtToken} = useAuth(); 
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('hanu@gmail.com');
-  const [password, setPassword] = useState('Abc123456789!');
-  const [errors, setErrors] = useState({});
+  const [email, setEmail] = useState('user1@gmail.com');
+  const [password, setPassword] = useState('Abc@1234');
+  const [errors, setErrors] = useState("");
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,8 +61,11 @@ const Login = () => {
           navigate('/user')
         } else {
           console.error('Login failed:', data.message);
+          validationErrors.login = data.message
+          setErrors(validationErrors);
         }
       } catch (error) {
+       
         console.error('Network error:', error);
       }
 
@@ -72,6 +77,7 @@ const Login = () => {
       {/* <HeaderAuth /> */}
       <div className={styles["login-container"]}>
         <div className={styles["form-section"]}>
+        {/* {errors.login && <p className={styles.error}>{errors.login}</p>} */}
           <h2>Bienvenido</h2>
           <h3>Iniciar Sesión</h3>
           <form onSubmit={handleSubmit}>

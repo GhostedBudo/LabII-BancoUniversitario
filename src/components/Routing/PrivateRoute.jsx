@@ -3,6 +3,9 @@ import useAuth from '../../hooks/useAuth';
 const PrivateRoute = ({ children }) => {
   const location = useLocation()
   const {isAuthenticated, isLoading} = useAuth();
+
+
+  
   if (isLoading) return <div>Loading...</div>
   
 
