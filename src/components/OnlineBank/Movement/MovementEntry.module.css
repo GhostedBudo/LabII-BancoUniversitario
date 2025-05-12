@@ -1,5 +1,50 @@
+/* Estilo de los registros (movimientos) */
 .flex {
-    display: grid;
-    grid-template-columns: 4fr 3fr 3fr 2fr ;
-    align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.5em 0;
 }
+
+.flex > div {
+  flex: 1;
+  min-width: 0; /* necesario para que funcione el overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Opcional: controla proporciones */
+.flex > div:nth-child(1) { flex-basis: 20%; }
+.flex > div:nth-child(2) { flex-basis: 20%; }
+.flex > div:nth-child(3) { flex-basis: 40%; }
+.flex > div:nth-child(4) { flex-basis: 20%; text-align: right; }
+
+.amountPositive {
+  color: green;
+}
+
+.amountNegative {
+  color: red;
+}
+.headerRow {
+  color: #085f63;
+  font-weight: bold;
+  border-bottom: 2px solid #085f63;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+.movementRow {
+  padding: 0.8em 0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 0.95em;
+}
+
+.movementRow:hover {
+  background-color: #f0fefe;
+}
+

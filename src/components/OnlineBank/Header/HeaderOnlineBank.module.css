@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    background: linear-gradient(360deg,#49BEB7, white );
+    background: linear-gradient(360deg,#49BEB7, white 90%);
     opacity: 1;
     display: flex;
     align-items: center;

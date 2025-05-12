@@ -8,6 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #e5f6f7;
+    padding: 0.8em 1.5em;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 8px 8px 0 0;
 }
 
 .balanceContainer {
@@ -16,57 +22,125 @@
     align-items: center;
     padding: 1em;
     gap: 1em;
+    border: red;
 }
 
-
-
+/* CONTENEDOR DE LA IMAGEN */
 .balance {
-    background-color: rgb(32, 165, 174);
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    height: 70%;
-    border-radius: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: auto;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+}
+
+/* IMAGEN BIEN ADAPTADA Y ESCALADA */
+.balance img {
+    width: 560px;
+    height: 300px;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* CAPA DE TEXTO SOBRE LA IMAGEN */
+ .cardAccountNumber,
+ .cardAmount {
+    position: absolute;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    font-size: 1.1em;
     padding: 1em;
-    
 }
 
+/* POSICIONES ESPECÍFICAS DEL TEXTO */
 .cardAccountNumber {
-   
+    top: 10px;
+    left: 130px;
 }
-
 
 .cardAmount {
-    justify-self: end;
-    align-self: end;
+    bottom: 10px;
+    right: 130px;
 }
-
-.accountText {
-
-    align-self: start;
-    display: grid;
-
-    height: 100%;
-}
-
-
-.accountBtn {
-    display: grid;
-    justify-content: center;
-
-}
-
-
 
 .account {
-   
     height: 70%;
     display: grid;
     grid-template-rows: 1fr 1fr;
     padding: 1em;
     gap: 1em;
-
 }
 
-.movementsContainer{ 
-  
+.accountText input {
+    padding: 0.5em;
+    border-radius: 8px;
+    border: 1px solid #20a5ae;
+    background-color: #e0fafa;
+    color: #064f50;
+    font-weight: bold;
+    outline: none;
+    transition: border-color 0.3s ease;
+    
+}
+
+.accountText input::placeholder {
+    color: #20a5ae;
+}
+
+.accountText input:focus {
+    border-color: #128992;
+    background-color: #d3f4f4;
+}
+
+.accountText {
+    align-self: start;
+    display: grid;
+    height: 100%;
+}
+
+.accountBtn {
+    display: grid;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.radioBtn {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 0.9em;
+}
+
+.radioBtn input[type="radio"] {
+    accent-color: #085F63;
+    width: 16px;
+    height: 16px;
+}
+
+select {
+    padding: 0.4em 0.7em;
+    border-radius: 6px;
+    border: 1px solid #20a5ae;
+    background-color: #e0fafa;
+    color: #064f50;
+    font-weight: bold;
+    outline: none;
+}
+.movementsContainer {
+    padding: 1em;
+    margin-top: -1.5em; 
+}
+.selectContainer {
+    text-align: right;
+    padding: 1em;
+    margin-top: -4em; /* Ajusta este valor para subirlo más o menos */
 }
