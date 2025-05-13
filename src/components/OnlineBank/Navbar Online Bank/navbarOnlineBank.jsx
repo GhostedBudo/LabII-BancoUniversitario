@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './NavbarOnlineBank.module.css';
+import styles from './navbarOnlineBank.module.css';
 
 // Importa tus iconos (ajusta las rutas según tu estructura de archivos)
 import ResumenIcon from '../../../assets/img/icons8-ordenación-trasera.png';

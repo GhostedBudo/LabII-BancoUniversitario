@@ -8,12 +8,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #e5f6f7;
-    padding: 0.8em 1.5em;
-    border-bottom: 1px solid #ccc;
-    font-weight: bold;
-    font-size: 1.1em;
-    border-radius: 8px 8px 0 0;
 }
 
 .balanceContainer {
@@ -22,55 +16,99 @@
     align-items: center;
     padding: 1em;
     gap: 1em;
-    border: red;
 }
 
-/* CONTENEDOR DE LA IMAGEN */
+
+/* TARJETA */
 .balance {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border-radius: 12px;
-    overflow: hidden;
-    margin: auto;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 700px;
-    height: auto;
+    justify-self: center;
+
+    display: grid;
+    width: 80%;
+    padding: 0;
+    
+
 }
 
-/* IMAGEN BIEN ADAPTADA Y ESCALADA */
-.balance img {
-    width: 560px;
-    height: 300px;
+.eye {
+    width: 1px;
+    border: none;
+    background-color: transparent;
+    color: lightgray;
+    
+}
+
+.eye:hover {
+    cursor: pointer;
+}
+
+.balance > img {
+    padding: 0;
     display: block;
-    border-radius: 12px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    grid-area: 1 / 1;
+   
 }
 
-/* CAPA DE TEXTO SOBRE LA IMAGEN */
- .cardAccountNumber,
- .cardAmount {
-    position: absolute;
-    z-index: 2;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-    font-size: 1.1em;
-    padding: 1em;
-}
+.textContainer {
 
-/* POSICIONES ESPECÍFICAS DEL TEXTO */
-.cardAccountNumber {
-    top: 10px;
-    left: 130px;
+padding: 2em;
+display: grid;
+grid-area: 1 /1;
+color: white;
+font-weight: bold;
+font-size: minmax(1rem, 1.5rem); 
+
+
 }
 
 .cardAmount {
-    bottom: 10px;
-    right: 130px;
+    align-self: end;
+    justify-self: end;
+    height: 40%;
+    display: grid;
+    align-content:space-between;
+  
+ 
 }
+
+.cardAccountNumber {
+    display: flex;
+    
+    gap: 10px;
+}
+
+
+
+.accountText {
+
+    align-self: start;
+    display: grid;
+
+    height: 100%;
+}
+
+
+.accountBtn {
+    display: grid;
+    justify-content: center;
+
+}
+
+
+
+.account {
+
+    height: 70%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 1em;
+    gap: 1em;
+
+}
+
+.movementsContainer {}
 
 .account {
     height: 70%;
@@ -89,7 +127,7 @@
     font-weight: bold;
     outline: none;
     transition: border-color 0.3s ease;
-    
+
 }
 
 .accountText input::placeholder {
@@ -135,12 +173,26 @@ select {
     font-weight: bold;
     outline: none;
 }
+
 .movementsContainer {
     padding: 1em;
-    margin-top: -1.5em; 
+   
 }
+
 .selectContainer {
     text-align: right;
     padding: 1em;
-    margin-top: -4em; /* Ajusta este valor para subirlo más o menos */
+    margin-top: -4em;
+    /* Ajusta este valor para subirlo más o menos */
 }
+
+input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: black;
+  }
+
+ .consultaTuCuenta {
+    font-size: 1.3rem; color: #085f63; font-weight: bold; 
+}
+  

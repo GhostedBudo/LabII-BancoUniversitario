@@ -12,6 +12,7 @@ const MovementEntry = ({ entry }) => {
 
   return (
     <div className={`${styles.flex} ${isHeader ? styles.headerRow : styles.movementRow}`}>
+     
       <div>{entry.date}</div>
       <div>{entry.reference}</div>
       <div>{entry.description}</div>
