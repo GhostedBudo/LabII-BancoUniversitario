@@ -92,9 +92,6 @@ const Signup = () => {
                 <h3>REGISTRO</h3>
 
 
-
-
-
                 <form onSubmit={handleSubmit}>
                     <div className={styles["input-group"]}>
                         <label>Nombre</label>
