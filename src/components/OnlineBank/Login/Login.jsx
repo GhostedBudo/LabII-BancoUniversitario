@@ -87,7 +87,7 @@ const Login = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Correo Electrónico"
+                placeholder="Ingresar Correo Electrónico"
               />
               {errors.email && <p className={styles.error}>{errors.email}</p>}
             </div>
@@ -98,7 +98,7 @@ const Login = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Contraseña"
+                placeholder="Ingresar Contraseña"
               />
               {errors.password && <p className={styles.error}>{errors.password}</p>}
             </div>

@@ -1,13 +1,9 @@
-
-
 .signup-container {
   background-image: url('../../../assets/img/FondoRegister.png');
   background-size: cover;
   background-position: center;
-  height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
   padding: 0 3%; /* Reducido de 5% para mover hacia izquierda */
   box-sizing: border-box;
 }
@@ -18,8 +14,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-right: 10%; /* MUEVE TODO EL CONTAINER A LA DERECHA */
-  padding: 20px 0; /* Espacio interno para que no toque bordes */
+  margin-right: 6%; /* MUEVE TODO EL CONTAINER A LA DERECHA */
+  padding: 16px 0; /* Espacio interno para que no toque bordes */
 }
 
 .form-section h3 {
@@ -29,11 +25,11 @@
   color: #085F63;
   margin: 0;
   align-self: center;
-  margin-left: 74%;
+  margin-left: 72%;
 }
 
 .input-group {
-  margin-bottom: 8%; /* SEPARACION DE TODOS LOS TEXTBOX CON TODOS */
+  margin-bottom: 6%; /* SEPARACION DE TODOS LOS TEXTBOX CON TODOS */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -74,7 +70,7 @@
 .btn-login {
   background-color: #004d4d;
   color: white;
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
@@ -82,7 +78,7 @@
   width: 200%; /* Reducir el ancho */
   transition: background-color 0.3s ease;
   align-self: flex-start; /* o center o flex-end */
-  margin-left: -250px; /* CAMBIA ESTO PARA MOVERLO */
+  margin-left: -240px; /* CAMBIA ESTO PARA MOVERLO */
 }
 
 .btn-login:hover {
@@ -91,7 +87,7 @@
 
 .register-text {
   width: 90%; /* Mismo ancho que el botón */
-  margin: 22px auto 0; /* Centrado automático */
+  margin: 18px auto 0; /* Centrado automático */
   text-align: right; /* Texto alineado a la derecha */
   font-size: 1rem;
   line-height: 1.4;
