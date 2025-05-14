@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: flex-end;
   margin-right: 6%; /* MUEVE TODO EL CONTAINER A LA DERECHA */
-  padding: 16px 0; /* Espacio interno para que no toque bordes */
+  padding: 10px 0; /* Espacio interno para que no toque bordes */
 }
 
 .form-section h3 {
@@ -29,7 +29,7 @@
 }
 
 .input-group {
-  margin-bottom: 6%; /* SEPARACION DE TODOS LOS TEXTBOX CON TODOS */
+  margin-bottom: 4%; /* SEPARACION DE TODOS LOS TEXTBOX CON TODOS */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -79,6 +79,7 @@
   transition: background-color 0.3s ease;
   align-self: flex-start; /* o center o flex-end */
   margin-left: -240px; /* CAMBIA ESTO PARA MOVERLO */
+  margin-top: 1rem;
 }
 
 .btn-login:hover {
@@ -87,7 +88,7 @@
 
 .register-text {
   width: 90%; /* Mismo ancho que el botón */
-  margin: 18px auto 0; /* Centrado automático */
+  margin: 24px auto 0; /* Centrado automático */
   text-align: right; /* Texto alineado a la derecha */
   font-size: 1rem;
   line-height: 1.4;
@@ -98,22 +99,15 @@
 
 .register-text a {
   display: block; /* Cambiado a block para mejor control */
-  margin-top: 6px;
+  margin-top: 4px;
   font-weight: bold;
   color: #ffffff;
   font-size: 1.1rem;
   text-align: right; /* Texto alineado a la derecha */
-  margin-right: 11px; /*Mueve texto de iniciar sesion*/
+  margin-right: 17px; /*Mueve texto de iniciar sesion*/
 }
 
 
-/* footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-} */
 /* Estilo para input con error (campo en rojo) */
 .input-icon input.input-error {
   border-bottom: 1.8px solid #ff0303;
