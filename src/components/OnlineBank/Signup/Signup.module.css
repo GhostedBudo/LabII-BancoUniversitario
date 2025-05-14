@@ -1,15 +1,4 @@
-/* REGLA GLOBAL para que nada desborde por padding/margin inesperado */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-/* BLOQUEAMOS SCROLL EN TODA LA PÁGINA */
-html, body {
-  height: 100vh;
-  overflow: hidden;
-}
 
 .signup-container {
   background-image: url('../../../assets/img/FondoRegister.png');
@@ -122,13 +111,13 @@ html, body {
 }
 
 
-footer {
+/* footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 10;
-}
+} */
 /* Estilo para input con error (campo en rojo) */
 .input-icon input.input-error {
   border-bottom: 1.8px solid #ff0303;

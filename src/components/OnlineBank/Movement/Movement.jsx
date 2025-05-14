@@ -9,7 +9,7 @@ const Movement = ({ userData }) => {
     const [movementsData, setMovementsData] = useState([])
     const [accountNumber, setAccountNumber] = useState("")
     const [accountBalance, setAccountBalance] = useState(0)
-    const [accountNumberVisibility, setAccountNumberVisibility] = useState(true);
+    const [accountNumberVisibility, setAccountNumberVisibility] = useState(false);
     const [pageSize, setPageSize] = useState(5);
     const [currentTime, setCurrentTime] = useState(new Date());
     const [currentPage, setCurrentPage] = useState(1)

@@ -32,21 +32,21 @@ const BankLayout = ( ) => {
   return (
     <>
     
-    <div className={styles.mainContainer}>
+    <div className={styles.layout}>
     <HeaderOnlineBank />
-      <div className={styles.layoutContainer}>
+      <div className={styles.main}>
         
           <NavbarOnlineBank />
         
-        <div className={styles.mainContent}>
+        <div className={styles.content}>
          
 
           <Outlet userData={userData} />
         </div>
 
       </div>
-    </div>
       <FooterBank />
+    </div>
     </>
   )
 }

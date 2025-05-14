@@ -1,9 +1,9 @@
 .navbar {
-  width: 20%;
-  height: 100vh;
+  /* height: 100vh; */
+  height: 100%;
   background-color: #085F63;
-  position: relative;
   z-index: 1;
+
   flex-shrink: 0; /* ← evita que se reduzca en el flex layout */
 }
 
@@ -17,6 +17,7 @@
   background-size: cover;
   background-position: center;
   opacity: 0.2;
+  display: none;
 }
 
 .navContent {
