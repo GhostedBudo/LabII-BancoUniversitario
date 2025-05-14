@@ -89,9 +89,7 @@ const Signup = () => {
     return (
         <div className={styles["signup-container"]}>
             <div className={styles["form-section"]}>
-                <h3>REGISTRO</h3>
-
-
+                <h3>Registro</h3>
                 <form onSubmit={handleSubmit}>
                     <div className={styles["input-group"]}>
                         <label>Nombre</label>
@@ -101,7 +99,7 @@ const Signup = () => {
                                 type="text"
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
-                                placeholder="Nombre"
+                                placeholder="Ingresar Nombre"
                             />
                         </div>
                         {errors.firstName && <p className={styles.error}>{errors.firstName}</p>}
@@ -115,7 +113,7 @@ const Signup = () => {
                                 type="text"
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
-                                placeholder="Apellido"
+                                placeholder="Ingresar Apellido"
                             />
                         </div>
                         {errors.lastName && <p className={styles.error}>{errors.lastName}</p>}
@@ -129,7 +127,7 @@ const Signup = () => {
                                 type="text"
                                 value={documentNumber}
                                 onChange={(e) => setDocumentNumber(e.target.value)}
-                                placeholder="Cédula"
+                                placeholder="Ingresar Cédula"
                             />
                         </div>
                         {errors.documentNumber && <p className={styles.error}>{errors.documentNumber}</p>}
@@ -158,7 +156,7 @@ const Signup = () => {
                                 type="text"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber(e.target.value)}
-                                placeholder="Teléfono"
+                                placeholder="Ingresar Teléfono"
                             />
                         </div>
                         {errors.phoneNumber && <p className={styles.error}>{errors.phoneNumber}</p>}
@@ -172,7 +170,7 @@ const Signup = () => {
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Correo Electrónico"
+                                placeholder="Ingresar Correo Electrónico"
                             />
                         </div>
                         {errors.email && <p className={styles.error}>{errors.email}</p>}
@@ -186,21 +184,21 @@ const Signup = () => {
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Contraseña"
+                                placeholder="ingresar Contraseña"
                             />
                         </div>
                         {errors.password && <p className={styles.error}>{errors.password}</p>}
                     </div>
 
                     <div className={styles["input-group"]}>
-                        <label>Repetir Contraseña</label>
+                        <label>Confirmar Contraseña</label>
                         <div className={styles["input-icon"]}>
                             <img src={iconRepeat} alt="icono repetir" />
                             <input
                                 type="password"
                                 value={repeatPassword}
                                 onChange={(e) => setRepeatPassword(e.target.value)}
-                                placeholder="Repetir Contraseña"
+                                placeholder="Ingresar de nuevo la Contraseña"
                             />
                         </div>
                         {errors.repeatPassword && <p className={styles.error}>{errors.repeatPassword}</p>}
