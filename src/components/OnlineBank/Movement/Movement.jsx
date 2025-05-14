@@ -8,9 +8,9 @@ import { useOutletContext } from 'react-router-dom';
 
 const Movement = () => {
     const { getJwtToken } = useAuth();
-    const {userData} = useOutletContext(); 
+    const { userData } = useOutletContext();
     const [movementsData, setMovementsData] = useState([])
-    const [accountNumber, setAccountNumber] = useState(userData?.user?.account_number || 0); 
+    const [accountNumber, setAccountNumber] = useState(userData?.user?.account_number || 0);
     const [accountBalance, setAccountBalance] = useState(userData?.balance?.balance || 0)
     const [accountNumberVisibility, setAccountNumberVisibility] = useState(false);
     const [pageSize, setPageSize] = useState(5);
@@ -51,7 +51,7 @@ const Movement = () => {
                 const json = await response.json();
                 if (json.data && Array.isArray(json.data)) {
                     setMovementsData(json.data);
-                    setAccountNumber(json.data[0]?.account_number)
+                    // setAccountNumber(json.data[0]?.account_number)
 
                 } else {
                     console.error('Formato de datos inesperado:', json.data);
@@ -219,9 +219,13 @@ const Movement = () => {
                 {movements}
 
                 <div className={styles.pagesList}>
-                    <button onClick={handlePrevPageChange}>prev</button>
+
+                    {currentPage == 1 ? '' : <button onClick={handlePrevPageChange}>prev</button>}
+
                     <span style={{ padding: '0 1rem' }}>{currentPage}</span>
-                    <button onClick={handleNextPageChange}>next</button>
+
+                    {movements.length < pageSize ? '' : <button onClick={handleNextPageChange}>next</button>}
+
 
                 </div>
             </div>

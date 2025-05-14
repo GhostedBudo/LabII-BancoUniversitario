@@ -24,9 +24,9 @@ const Signup = () => {
     const [errors, setErrors] = useState({});
 
     const formatDate = (value) => {
-        const digits = value.replace(/\D/g, '');
-        const parts = [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4, 8)].filter(Boolean);
-        return parts.join('/');
+       const iso = new Date().toISOString(value);
+       console.log(iso); 
+       return iso; 
     };
 
     const handleSubmit = async (e) => {
@@ -55,22 +55,27 @@ const Signup = () => {
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
+
+            const user = {
+                email,
+                password,
+                first_name: firstName,
+                last_name: lastName,
+                document_number: documentNumber,
+                birth_date: formatDate(birthDate),
+                phone_number: phoneNumber,
+            }
+
+            console.log(user)
             try {
                 const response = await fetch('/api/v1/public/client/user/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        email,
-                        password,
-                        first_name: firstName,
-                        last_name: lastName,
-                        document_number: documentNumber,
-                        birth_date: birthDate,
-                        phone_number: phoneNumber,
-                    }),
+                    body: JSON.stringify(user),
                 });
+
 
                 const data = await response.json();
 
@@ -138,9 +143,12 @@ const Signup = () => {
                         <div className={styles["input-icon"]}>
                             <img src={iconFecha} alt="icono fecha" />
                             <input
-                                type="text"
+                                type="date"
                                 value={birthDate}
-                                onChange={(e) => setBirthDate(formatDate(e.target.value))}
+                                onChange={(e) => {
+                                    setBirthDate(e.target.value); 
+                                    
+                                }}
                                 placeholder="DD/MM/AAAA"
                                 maxLength={10}
                             />
