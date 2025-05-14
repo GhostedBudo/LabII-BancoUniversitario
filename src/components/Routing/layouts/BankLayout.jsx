@@ -5,50 +5,139 @@ import HeaderOnlineBank from '../../OnlineBank/Header/HeaderOnlineBank';
 import FooterBank from '../../OnlineBank/FooterBank/FooterBank';
 import NavbarOnlineBank from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank';
 import useAuth from '../../../hooks/useAuth';
-const BankLayout = ( ) => {
-  const [userData, setUserData] = useState({});
-  const { getJwtToken } = useAuth(); 
-  const token = getJwtToken(); 
+// const BankLayout = ( ) => {
+//   const [userData, setUserData] = useState({
+//     user: {}, balance: {}
+//   });
+//   const { getJwtToken } = useAuth(); 
+//   const token = getJwtToken(); 
+      
 
-  useEffect(() => {
-    const getUserData = async () => {
-        const url = `/api/v1/client/user/whoami`
-        const response = await fetch(url, {
-          headers: {
-            'Authorization': `Bearer ${token}`, 
-            'Content-Type': 'application/json'
-          }
-        })
+//   useEffect(() => {
+//     const fetchBalance = async () => {
+//       const url = `/api/v1/client/user/balance`;
 
-        const json = await response.json(); 
+
+//       try {
+//           const response = await fetch(url, {
+//               headers: {
+//                   'Authorization': `Bearer ${token}`,
+//                   'Content-Type': 'application/json'
+//               }
+//           });
+//           const json = await response.json();
+//           userData.balance = json.data;
+
+
+//       } catch (error) {
+//           console.log(error)
+//       }
+
+//   }
+
+//   const getUserData = async () => {
+//     const url = `/api/v1/client/user/whoami`
+//     const response = await fetch(url, {
+//       headers: {
+//         'Authorization': `Bearer ${token}`, 
+//         'Content-Type': 'application/json'
+//       }
+//     })
+
+//         const json = await response.json(); 
        
-        setUserData(json.data)
-
+//         userData.user = json.data;
+        
        
-    }
+//     }
 
-    getUserData();
-  }, [])
-  return (
-    <>
+//     getUserData();
+//     fetchBalance();
+   
+//   }, [])
+//   return (
+//     <>
     
-    <div className={styles.layout}>
-    <HeaderOnlineBank />
-      <div className={styles.main}>
+//     <div className={styles.layout}>
+//     <HeaderOnlineBank />
+//       <div className={styles.main}>
         
-          <NavbarOnlineBank />
+//           <NavbarOnlineBank />
         
-        <div className={styles.content}>
+//         <div className={styles.content}>
          
 
-          <Outlet userData={userData} />
-        </div>
+//           <Outlet context={{userData}} />
+//         </div>
 
+//       </div>
+//       <FooterBank />
+//     </div>
+//     </>
+//   )
+// }
+
+
+
+const BankLayout = () => {
+  const [userData, setUserData] = useState(null); // Start with null
+  const [isLoading, setIsLoading] = useState(true);
+  const { getJwtToken } = useAuth();
+  const token = getJwtToken();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch user data
+        const userResponse = await fetch('/api/v1/client/user/whoami', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const userJson = await userResponse.json();
+
+        // Fetch balance data
+        const balanceResponse = await fetch('/api/v1/client/user/balance', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const balanceJson = await balanceResponse.json();
+
+        // Update state together
+        setUserData({
+          user: userJson.data,
+          balance: balanceJson.data
+        });
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [token]);
+
+  if (isLoading) {
+    return <div className={styles.loading}>Loading...</div>;
+  }
+
+  return (
+    <div className={styles.layout}>
+      <HeaderOnlineBank />
+      <div className={styles.main}>
+        <NavbarOnlineBank />
+        <div className={styles.content}>
+          <Outlet context={{ userData }} />
+        </div>
       </div>
       <FooterBank />
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default BankLayout
+export default BankLayout; 

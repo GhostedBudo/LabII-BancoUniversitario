@@ -1,0 +1,39 @@
+.main {
+    padding: 2rem;
+    display: grid;
+    font-weight: 600;
+}
+
+.info {
+    padding-top: 1rem;
+    display: grid; 
+    gap: 2.5rem; 
+}
+
+.clock {
+    
+    justify-self: end;
+    color: gray;
+    font-weight: bold;
+}
+
+.name {
+
+}
+
+.label {
+    padding: 0 3rem; 
+    display: flex; 
+    justify-content: space-between;
+}
+
+.content {
+    
+    padding: 3rem; 
+    
+    box-shadow: 0px 0px 16px 0px darkcyan;
+    border-radius: 10px;
+    display: flex;
+
+    justify-content: space-between;
+}

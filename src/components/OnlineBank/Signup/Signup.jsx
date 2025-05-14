@@ -90,6 +90,11 @@ const Signup = () => {
         <div className={styles["signup-container"]}>
             <div className={styles["form-section"]}>
                 <h3>REGISTRO</h3>
+
+
+
+
+
                 <form onSubmit={handleSubmit}>
                     <div className={styles["input-group"]}>
                         <label>Nombre</label>

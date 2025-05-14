@@ -3,69 +3,42 @@ import useAuth from '../../../hooks/useAuth';
 import MovementEntry from './MovementEntry';
 import styles from "./Movement.module.css";
 import bankCard from "../../../assets/img/tarjetBancRecortada.png"
+import Clock from '../../../utils/components/Clock';
+import { useOutletContext } from 'react-router-dom';
 
-const Movement = ({ userData }) => {
+const Movement = () => {
     const { getJwtToken } = useAuth();
+    const {userData} = useOutletContext(); 
     const [movementsData, setMovementsData] = useState([])
-    const [accountNumber, setAccountNumber] = useState("")
-    const [accountBalance, setAccountBalance] = useState(0)
+    const [accountNumber, setAccountNumber] = useState(userData?.user?.account_number || 0); 
+    const [accountBalance, setAccountBalance] = useState(userData?.balance?.balance || 0)
     const [accountNumberVisibility, setAccountNumberVisibility] = useState(false);
     const [pageSize, setPageSize] = useState(5);
-    const [currentTime, setCurrentTime] = useState(new Date());
     const [currentPage, setCurrentPage] = useState(1)
     const [multiplier, setMultiplier] = useState(0)
 
 
 
     const visibleEye = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-  </svg>
-  
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+    </svg>
+
 
 
     const nonVisibleEye = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-  </svg>
-  
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+    </svg>
 
-
-    useEffect(() => {
-
-        const interval = setInterval(() => {
-            setCurrentTime(new Date());
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
 
 
     useEffect(() => {
 
 
-        const fetchBalance = async () => {
-            const url = `/api/v1/client/user/balance`;
 
-
-            try {
-                const response = await fetch(url, {
-                    headers: {
-                        'Authorization': `Bearer ${getJwtToken()}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
-                const json = await response.json();
-                setAccountBalance(json.data.balance);
-
-
-            } catch (error) {
-                console.log(error)
-            }
-
-        }
         const fetchmovementsData = async () => {
 
-            const url = `/api/v1/client/movement?page=${currentPage}&page_size=${pageSize}${multiplier != 0 ? `&multiplier=${multiplier}`: ''}`
+            const url = `/api/v1/client/movement?page=${currentPage}&page_size=${pageSize}${multiplier != 0 ? `&multiplier=${multiplier}` : ''}`
 
             try {
                 const response = await fetch(url, {
@@ -89,10 +62,10 @@ const Movement = ({ userData }) => {
             }
         };
         fetchmovementsData();
-        fetchBalance();
 
-  
-   
+
+
+
     }, [pageSize, currentPage, multiplier])
 
 
@@ -107,26 +80,26 @@ const Movement = ({ userData }) => {
     }
 
     const handleLeftRadio = (e) => {
-        if (e.target.value == multiplier)  {
-            e.target.checked = false; 
-            setMultiplier(0); 
+        if (e.target.value == multiplier) {
+            e.target.checked = false;
+            setMultiplier(0);
         } else {
 
-            setMultiplier(e.target.value); 
+            setMultiplier(e.target.value);
         }
     }
 
     const handleRightRadio = (e) => {
-        if (e.target.value == multiplier)  {
-            e.target.checked = false; 
-            setMultiplier(0); 
+        if (e.target.value == multiplier) {
+            e.target.checked = false;
+            setMultiplier(0);
         } else {
 
-            setMultiplier(e.target.value); 
+            setMultiplier(e.target.value);
         }
 
-    } 
-       
+    }
+
 
 
 
@@ -152,9 +125,9 @@ const Movement = ({ userData }) => {
             <div className={styles.accountContainer}>
                 <div className={styles.titleBar}>
                     <div><span>Detalle de la cuenta</span></div>
-                    <div>
-                        {currentTime.toLocaleDateString()} - {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
-                    </div>
+
+                    <Clock />
+
                 </div>
                 <div className={styles.balanceContainer}>
 
@@ -193,33 +166,33 @@ const Movement = ({ userData }) => {
                         <div className={styles.accountText}>
                             <span className={styles.consultaTuCuenta}>Consulta tu Cuenta</span>
 
-                            <input 
+                            <input
                                 readOnly
                                 style={
                                     {
-                                        background: 'none', border: 'none', borderBottom: 'solid #085f63 2px', borderRadius: '0', fontSize: '1rem', fontFamily: 'Monserrat', 
+                                        background: 'none', border: 'none', borderBottom: 'solid #085f63 2px', borderRadius: '0', fontSize: '1rem', fontFamily: 'Monserrat',
                                     }
                                 }
-                            type="text" name="" id="" placeholder={!!accountNumber ?'Cuenta de Ahorro ' + accountNumber.slice(-4).padStart(accountNumber.length, '*') : 'Loading...'} />
+                                type="text" name="" id="" placeholder={!!accountNumber ? 'Cuenta de Ahorro ' + accountNumber.slice(-4).padStart(accountNumber.length, '*') : 'Loading...'} />
                         </div>
                         <div className={styles.accountBtn}>
                             <div className={styles.radioBtn}>
 
                                 <label htmlFor="">Credito</label>
                                 <input
-                                onClick={handleLeftRadio}
-                                value={1}
-                                 type="radio" name="filter" id="" />
+                                    onClick={handleLeftRadio}
+                                    value={1}
+                                    type="radio" name="filter" id="" />
                                 <label htmlFor="">Debito</label>
                                 <input
-                                value={-1}
-                                 onClick={handleRightRadio} type="radio" name="filter" id="" />
+                                    value={-1}
+                                    onClick={handleRightRadio} type="radio" name="filter" id="" />
                             </div>
 
                             <button
-                            style={{
-                                backgroundColor: '#49beb7', border: 'none', borderRadius: '20px', fontFamily: 'Monserrat', fontSize: '1rem'
-                            }}
+                                style={{
+                                    backgroundColor: '#49beb7', border: 'none', borderRadius: '20px', fontFamily: 'Monserrat', fontSize: '1rem'
+                                }}
                             >Buscar</button>
                         </div>
 
@@ -247,7 +220,7 @@ const Movement = ({ userData }) => {
 
                 <div className={styles.pagesList}>
                     <button onClick={handlePrevPageChange}>prev</button>
-                    <span style={{ padding: '0 1rem'}}>{currentPage}</span>
+                    <span style={{ padding: '0 1rem' }}>{currentPage}</span>
                     <button onClick={handleNextPageChange}>next</button>
 
                 </div>

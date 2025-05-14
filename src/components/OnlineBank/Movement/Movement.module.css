@@ -109,7 +109,7 @@ font-size: minmax(1rem, 1.5rem);
 
 }
 
-.movementsContainer {}
+
 
 .account {
     height: 70%;
@@ -197,3 +197,11 @@ input::placeholder {
     font-size: 1.3rem; color: #085f63; font-weight: bold; 
 }
   
+
+.pagesList {
+    padding-top: 1em;
+}
+
+.movementsContainer {
+    padding: 2rem; 
+}
