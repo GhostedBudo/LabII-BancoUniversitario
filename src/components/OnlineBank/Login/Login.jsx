@@ -66,6 +66,7 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
           <div className={styles["input-group"]}>
+            
             <label>Correo Electrónico</label>
             <div className={styles["input-wrapper"]}>
               <img src={correoimg} alt="Correo" className={styles["input-icon"]} />

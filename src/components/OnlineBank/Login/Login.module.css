@@ -50,11 +50,6 @@
   width: 100%;
 }
 
-.input-group label {
-  font-size: 1.4rem; /* antes 1.3rem */
-  margin-bottom: 12px;
-  border: none;
-}
 
 .btn-login {
   background-color: #004d4d;
@@ -117,9 +112,17 @@
 }
 
 .input-icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   margin-left: -40px;
+}
+
+.input-group label {
+  font-size: 1.4rem; /* antes 1.3rem */
+  margin-bottom: 12px;
+  border: none;
+  margin-left: -40px;
+  
 }
 
 

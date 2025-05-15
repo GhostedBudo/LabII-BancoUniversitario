@@ -6,6 +6,7 @@ import bankCard from "../../../assets/img/tarjetBancRecortada.png"
 import Clock from '../../../utils/components/Clock';
 import { useOutletContext } from 'react-router-dom';
 import ToggleableText from '../../../utils/components/ToggleableText';
+import toast from 'react-hot-toast';
 
 const Movement = () => {
     const { getJwtToken } = useAuth();
@@ -39,11 +40,13 @@ const Movement = () => {
                     // setAccountNumber(json.data[0]?.account_number)
 
                 } else {
-                    console.error('Formato de datos inesperado:', json.data);
+                    toast.error('Formato de datos inesperado')
+                    // console.error('Formato de datos inesperado:', json.data);
                     setMovementsData([]);
                 }
             } catch (error) {
-                console.log(error)
+                toast.error(error)
+                // console.log(error)
             }
         };
         fetchmovementsData();
@@ -165,7 +168,8 @@ const Movement = () => {
             </div>
 
             <div className={styles.movementsContainer}>
-                <select
+                <select 
+                    
                     onChange={(e) => setPageSize(parseInt(e.target.value))}
                     value={pageSize}
                     name="page_size"

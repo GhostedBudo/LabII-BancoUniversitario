@@ -173,6 +173,7 @@ font-size: minmax(1rem, 1.5rem);
 }
 
 select {
+    justify-self: end;
     padding: 0.4em 0.7em;
     border-radius: 6px;
     border: 1px solid #20a5ae;
@@ -207,6 +208,7 @@ input::placeholder {
 
 .pagesList {
     padding-top: 1em;
+    justify-self: end;
 }
 .pagesList button{
    padding: 0.4em 0.7em;
@@ -221,4 +223,5 @@ input::placeholder {
 
 .movementsContainer {
     padding: 2rem; 
+    display: grid;
 }
