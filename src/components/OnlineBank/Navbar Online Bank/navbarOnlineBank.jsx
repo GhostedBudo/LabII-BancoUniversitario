@@ -8,10 +8,13 @@ import MovimientosIcon from '../../../assets/img/icons8-ver-archivo.png';
 import TransferIcon from '../../../assets/img/icons8-transferencia-de-dinero.png';
 import ContactosIcon from '../../../assets/img/icons8-contacto-de-negocio.png';
 import PasswordIcon from '../../../assets/img/icons8-contraseña.png';
+
+
 const NavbarOnlineBank = () => {
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navBackground}></div>
+      <div className={styles.navBackground}>
+      </div>
       <div className={styles.navContent}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>

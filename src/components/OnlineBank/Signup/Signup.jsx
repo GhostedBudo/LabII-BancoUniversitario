@@ -9,6 +9,7 @@ import iconTelefono from '../../../assets/img/icons8-teléfono-celular.png';
 import iconEmail from '../../../assets/img/icons8-nuevo-post.png';
 import iconPassword from '../../../assets/img/icons8-contraseña.png';
 import iconRepeat from '../../../assets/img/icons8-contraseña.png';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Signup = () => {
 
     const formatDate = (value) => {
        const iso = new Date().toISOString(value);
-       console.log(iso); 
+    //    console.log(iso); 
        return iso; 
     };
 
@@ -66,7 +67,7 @@ const Signup = () => {
                 phone_number: phoneNumber,
             }
 
-            console.log(user)
+            // console.log(user)
             try {
                 const response = await fetch('/api/v1/public/client/user/register', {
                     method: 'POST',
@@ -80,13 +81,16 @@ const Signup = () => {
                 const data = await response.json();
 
                 if (response.ok) {
-                    console.log('Registro exitoso:', data);
+                    toast.success('Registro Exitoso')
+                    // console.log('Registro exitoso:', data);
                     navigate('/login');
                 } else {
-                    console.error('Fallo en el registro:', data.message);
+                    toast.error('Fallo el registro')
+                    // console.error('Fallo en el registro:', data.message);
                 }
             } catch (error) {
-                console.error('Error de red:', error);
+                toast.error('Error de red')
+                // console.error('Error de red:', error);
             }
         }
     };

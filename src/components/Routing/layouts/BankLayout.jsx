@@ -4,7 +4,9 @@ import styles from '../layouts/BankLayout.module.css'
 import HeaderOnlineBank from '../../OnlineBank/Header/HeaderOnlineBank';
 import FooterBank from '../../OnlineBank/FooterBank/FooterBank';
 import NavbarOnlineBank from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank';
+import NavbarOnlineBank2 from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank-alter';
 import useAuth from '../../../hooks/useAuth';
+import toast from 'react-hot-toast';
 // const BankLayout = ( ) => {
 //   const [userData, setUserData] = useState({
 //     user: {}, balance: {}
@@ -113,7 +115,8 @@ const BankLayout = () => {
         });
         
       } catch (error) {
-        console.error("Error fetching data:", error);
+        toast.error('Error fetching data')
+        // console.error("Error fetching data:", error);
       } finally {
         setIsLoading(false);
       }

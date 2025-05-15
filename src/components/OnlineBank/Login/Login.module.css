@@ -50,11 +50,6 @@
   width: 100%;
 }
 
-.input-group label {
-  font-size: 1.4rem; /* antes 1.3rem */
-  margin-bottom: 12px;
-  border: none;
-}
 
 .btn-login {
   background-color: #004d4d;
@@ -98,3 +93,36 @@
 .image-section {
   display: none;
 }
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  padding: 0.2rem 0;
+}
+
+.input-wrapper input {
+  background: transparent;
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 10px 5px;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.input-icon {
+  width: 38px;
+  height: 38px;
+  margin-left: -40px;
+}
+
+.input-group label {
+  font-size: 1.4rem; /* antes 1.3rem */
+  margin-bottom: 12px;
+  border: none;
+  margin-left: -40px;
+  
+}
+
+

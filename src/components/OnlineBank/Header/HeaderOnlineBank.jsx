@@ -12,9 +12,9 @@ const HeaderOnlineBank = () => {
   const navigate  = useNavigate(); 
 
   function handleClick() {
-      console.log("Saliendo");
+      // console.log("Saliendo");
       logout(); 
-      console.log(getJwtToken()); 
+      // console.log(getJwtToken()); 
       navigate('/login'); 
 
   }
