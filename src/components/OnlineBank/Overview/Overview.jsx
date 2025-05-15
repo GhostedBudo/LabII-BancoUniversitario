@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import Clock from '../../../utils/components/Clock';
 import styles from './Overview.module.css'
-import { useState } from 'react';
+import ToggleableText from '../../../utils/components/ToggleableText';
 
 const Overview = () => {
   const { userData } = useOutletContext();
@@ -26,8 +26,10 @@ const Overview = () => {
           
         </div>
         <div className={styles.content}>
+
+          <ToggleableText colorEye={'gray'} text={user?.account_number ?? 'Loading...'}/>
           
-          <span>{`Cuenta de Ahorro ${user?.account_number ?? 'Loading...'}`}</span>
+          {/* <span>{`Cuenta de Ahorro ${user?.account_number ?? 'Loading...'}`}</span> */}
           <span>{`Bs. ${balance?.balance ?? 'Loading...'}`}</span>
         </div>
       </div>

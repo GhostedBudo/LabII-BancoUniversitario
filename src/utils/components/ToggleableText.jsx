@@ -1,6 +1,7 @@
 import React from 'react'
+import { useState } from 'react';
 
-const ToggleableText = ({ text }) => {
+const ToggleableText = ({ text, colorEye }) => {
     const [visibility, setVisibility] = useState(false);
 
     const visibleEye = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -15,9 +16,10 @@ const ToggleableText = ({ text }) => {
     </svg>
 
     const toggleVisibility = () => setVisibility(prev => !prev);
+    
     return (
         <div style={{
-            display: 'flex', gap: '10px'
+            display: 'flex', gap: '10px', alignItems: 'center'
         }} >
 
             <span>{!!text ?
@@ -30,8 +32,8 @@ const ToggleableText = ({ text }) => {
                 width: '1px',
                 border: 'none',
                 backgroundColor: 'transparent',
-                color: 'lightgray'
-            }} className={styles.eye}>
+                color: colorEye
+            }}>
                 {visibility ? visibleEye : nonVisibleEye}
             </button>
         </div>

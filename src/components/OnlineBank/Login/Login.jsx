@@ -3,8 +3,9 @@ import styles from './Login.module.css';
 import fondoLogin from "../../../assets/img/fondoLogin1.png";
 import HeaderAuth from "../Header/HeaderAuth";
 import useAuth from '../../../hooks/useAuth';
-
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+
 
 
 const Login = () => {
@@ -14,6 +15,8 @@ const Login = () => {
   const [email, setEmail] = useState('user1@gmail.com');
   const [password, setPassword] = useState('Abc@1234');
   const [errors, setErrors] = useState("");
+  const [error, setError] = useState('');
+
 
 
 
@@ -55,18 +58,21 @@ const Login = () => {
           // Store JWT in localStorage
           login(data.data.jwt);
           
-          console.log('Login successful:', data);
-          console.log(getJwtToken());
+          // console.log('Login successful:', data);
+
+  
+          toast.success('Login succesful')
+          // console.log(getJwtToken());
           //Navegar a la primera ruta protegida
           navigate('/user')
         } else {
-          console.error('Login failed:', data.message);
+          // console.error('Login failed:', data.message);
           validationErrors.login = data.message
-          setErrors(validationErrors);
+          toast.error(data.message)
         }
       } catch (error) {
        
-        console.error('Network error:', error);
+       toast.error(error)
       }
 
     }
@@ -80,6 +86,8 @@ const Login = () => {
         {/* {errors.login && <p className={styles.error}>{errors.login}</p>} */}
           <h2>Bienvenido</h2>
           <h3>Iniciar Sesión</h3>
+
+         <div> {error}</div>
           <form onSubmit={handleSubmit}>
             <div className={styles["input-group"]}>
               <label>Correo Electrónico</label>
