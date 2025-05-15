@@ -98,3 +98,28 @@
 .image-section {
   display: none;
 }
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  padding: 0.2rem 0;
+}
+
+.input-wrapper input {
+  background: transparent;
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 10px 5px;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.input-icon {
+  width: 40px;
+  height: 40px;
+  margin-left: -40px;
+}
+
+
