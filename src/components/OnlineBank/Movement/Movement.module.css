@@ -208,6 +208,16 @@ input::placeholder {
 .pagesList {
     padding-top: 1em;
 }
+.pagesList button{
+   padding: 0.4em 0.7em;
+    border-radius: 6px;
+    border: 1px solid #20a5ae;
+    background-color: #e0fafa;
+    color: #064f50;
+    font-weight: bold;
+    outline: none;
+  
+}
 
 .movementsContainer {
     padding: 2rem; 

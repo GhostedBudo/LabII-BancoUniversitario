@@ -184,11 +184,11 @@ const Movement = () => {
 
                 <div className={styles.pagesList}>
 
-                    {currentPage == 1 ? '' : <button onClick={handlePrevPageChange}>prev</button>}
+                    {currentPage == 1 ? '' : <button onClick={handlePrevPageChange}>Prev</button>}
 
                     <span style={{ padding: '0 1rem' }}>{currentPage}</span>
 
-                    {movements.length < pageSize ? '' : <button onClick={handleNextPageChange}>next</button>}
+                    {movements.length < pageSize ? '' : <button onClick={handleNextPageChange}>Next</button>}
 
 
                 </div>
