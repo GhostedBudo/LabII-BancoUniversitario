@@ -66,7 +66,7 @@ function Header() {
                 clipRule="evenodd"
               />
             </svg>
-            <Link className={styles.accessText}>Registro</Link>
+            <Link to={'/signup'} className={styles.accessText}>Registro</Link>
           </button>
         </div>
       </header>

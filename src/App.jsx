@@ -1,23 +1,73 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import PrivateRoute from "./components/Routing/PrivateRoute";
+
 import "./index.css";
+
+import InstitutionalLayout from "./components/Routing/layouts/InstitutionalLayout";
+import AuthLayout from "./components/Routing/layouts/AuthLayout";
+import BankLayout from "./components/Routing/layouts/BankLayout";
+
+
+import ScrollToAnchor from "./utils/components/ScrollToAnchor";
+
 import MoreInfo from "./components/Institutional/MoreInfo/MoreInfo";
 import Institutional from "./components/Institutional/Institutional";
-import Footer from "./components/Institutional/Footer/Footer";
-import Header from "./components/Institutional/Header/Header";
-import { Routes, Route } from "react-router-dom";
-import ScrollToAnchor from "./utils/components/ScrollToAnchor";
+import Login from "./components/OnlineBank/Login/Login";
+import Signup from "./components/OnlineBank/Signup/Signup";
+import Movement from "./components/OnlineBank/Movement/Movement";
+import Overview from "./components/OnlineBank/Overview/Overview";
+
+
+
 function App() {
   return (
     <>
       <ScrollToAnchor />
-      <Header />
 
       <Routes>
-        <Route path="/" element={<Institutional />} />
-        <Route path="/moreinfo" element={<MoreInfo />} />
+        {/* Institutional */}
+
+        <Route element={<InstitutionalLayout />}>
+
+          <Route index path="/" element={<Institutional />} />
+          <Route path="moreinfo" element={<MoreInfo />} />
+
+        </Route>
+
+
+        {/* Login y Registro */}
+        <Route element={<AuthLayout />}>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+        </Route>
+
+
+        {/* Banca en linea */}
+        <Route path="user" element={<BankLayout />}>
+          
+          <Route index
+            element={
+              <PrivateRoute>
+                <Overview />
+              </PrivateRoute>
+            } />
+
+          <Route path="movements"
+            element={
+              <PrivateRoute>
+                <Movement />
+                </PrivateRoute>
+            } />
+
+
+
+        </Route>
+
       </Routes>
 
-      <Footer />
+
+
     </>
   );
 }

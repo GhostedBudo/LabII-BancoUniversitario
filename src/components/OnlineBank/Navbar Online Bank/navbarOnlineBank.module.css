@@ -1,0 +1,78 @@
+.navbar {
+  /* height: 100vh; */
+  height: 100%;
+  background-color: #085F63;
+  z-index: 1;
+
+  flex-shrink: 0; /* ← evita que se reduzca en el flex layout */
+}
+
+.navBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../../assets/img/florBarquisimeto.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  display: none;
+}
+
+.navContent {
+  padding: 2rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente los items */
+}
+
+.navItem {
+  margin-bottom: 1.5rem; /*Espaciado entre etiquetas de elementos*/
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-left: 3px solid transparent;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #49BEB7;
+  transform: translateX(5px);
+}
+
+.navIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  filter: brightness(0) invert(1); /* Convierte los iconos a blanco */
+}
+
+/* Estilo para el link activo */
+.navLink.active {
+  background-color: rgba(73, 190, 183, 0.3);
+  border-left: 3px solid #49BEB7;
+  font-weight: bold;
+}

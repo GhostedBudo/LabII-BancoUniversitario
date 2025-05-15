@@ -1,0 +1,100 @@
+.login-container {
+  background-image: url('../../../assets/img/fondoLogin1.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 8%; /* antes 5%, ahora más a la derecha */
+  box-sizing: border-box;
+  /* position: fixed; por si acaso, usar después pq la img tapa todo */
+}
+
+.form-section {
+  color: #fff;
+  width: 550px; /* antes 450px */
+  
+}
+
+.form-section h2 {
+  font-size: 2.3rem; /* antes 2rem */
+  margin: 0;
+  text-align: center;
+}
+
+.form-section h3 {
+  font-size: 2.6rem; /* antes 2.5rem */
+  margin-top: 15px;
+  margin-bottom: 80px;
+  font-weight: bolder;
+  text-align: center;
+  color: #085F63;
+}
+
+.input-group {
+  margin-bottom: 35px; /* un poco más de espacio */
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  font-size: 1.3rem; /* antes 1.2rem */
+  padding-top: 10px;  
+  padding-bottom: 15px;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.input-group label {
+  font-size: 1.4rem; /* antes 1.3rem */
+  margin-bottom: 12px;
+  border: none;
+}
+
+.btn-login {
+  background-color: #004d4d;
+  color: white;
+  padding: 10px; /* un pelín más alto */
+  border: none;
+  border-radius: 100px;
+  font-size: 1.5rem; /* antes 1.3rem */
+  width: 90%;
+  margin-top: 12px;
+  margin-left: 20px;
+}
+
+.btn-login:hover {
+  background-color: #003333;
+}
+
+.register-text {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 1.3rem; /* antes 1.3rem */
+  line-height: 1.6;
+  color: #085F63;
+  font-weight: bold;
+}
+
+.register-text a {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.4rem; /* antes 1.4rem */
+}
+
+.error {
+  color: #ff0303;
+  font-size: 1.1rem; /* antes 1rem */
+  margin-top: 5px;
+}
+
+.image-section {
+  display: none;
+}

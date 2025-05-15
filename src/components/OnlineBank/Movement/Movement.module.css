@@ -1,0 +1,207 @@
+.accountContainer {
+    /* min-height: 50%; */
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 2em;
+}
+
+.titleBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.balanceContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+}
+
+
+/* TARJETA */
+.balance {
+    justify-self: center;
+
+    display: grid;
+    width: 80%;
+    padding: 0;
+    
+
+}
+
+.eye {
+    width: 1px;
+    border: none;
+    background-color: transparent;
+    color: lightgray;
+    
+}
+
+.eye:hover {
+    cursor: pointer;
+}
+
+.balance > img {
+    padding: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    grid-area: 1 / 1;
+   
+}
+
+.textContainer {
+
+padding: 2em;
+display: grid;
+grid-area: 1 /1;
+color: white;
+font-weight: bold;
+font-size: minmax(1rem, 1.5rem); 
+
+
+}
+
+.cardAmount {
+    align-self: end;
+    justify-self: end;
+    height: 40%;
+    display: grid;
+    align-content:space-between;
+  
+ 
+}
+
+.cardAccountNumber {
+    display: flex;
+    
+    gap: 10px;
+}
+
+
+
+.accountText {
+
+    align-self: start;
+    display: grid;
+
+    height: 100%;
+}
+
+
+.accountBtn {
+    display: grid;
+    justify-content: center;
+
+}
+
+
+
+.account {
+
+    height: 70%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 1em;
+    gap: 1em;
+
+}
+
+
+
+.account {
+    height: 70%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 1em;
+    gap: 1em;
+}
+
+.accountText input {
+    padding: 0.5em;
+    border-radius: 8px;
+    border: 1px solid #20a5ae;
+    background-color: #e0fafa;
+    color: #064f50;
+    font-weight: bold;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+}
+
+.accountText input::placeholder {
+    color: #20a5ae;
+}
+
+.accountText input:focus {
+    border-color: #128992;
+    background-color: #d3f4f4;
+}
+
+.accountText {
+    align-self: start;
+    display: grid;
+    height: 100%;
+}
+
+.accountBtn {
+    display: grid;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.radioBtn {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 0.9em;
+}
+
+.radioBtn input[type="radio"] {
+    accent-color: #085F63;
+    width: 16px;
+    height: 16px;
+}
+
+select {
+    padding: 0.4em 0.7em;
+    border-radius: 6px;
+    border: 1px solid #20a5ae;
+    background-color: #e0fafa;
+    color: #064f50;
+    font-weight: bold;
+    outline: none;
+}
+
+.movementsContainer {
+    padding: 1em;
+   
+}
+
+.selectContainer {
+    text-align: right;
+    padding: 1em;
+    margin-top: -4em;
+    /* Ajusta este valor para subirlo más o menos */
+}
+
+input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: black;
+  }
+
+ .consultaTuCuenta {
+    font-size: 1.3rem; color: #085f63; font-weight: bold; 
+}
+  
+
+.pagesList {
+    padding-top: 1em;
+}
+
+.movementsContainer {
+    padding: 2rem; 
+}

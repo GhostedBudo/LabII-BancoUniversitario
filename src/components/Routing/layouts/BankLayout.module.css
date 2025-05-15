@@ -1,0 +1,15 @@
+
+ .main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.layout {
+ height: 100vh;
+ overflow-y: hidden;
+
+}
+
+
