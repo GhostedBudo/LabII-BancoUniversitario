@@ -4,6 +4,7 @@ import styles from '../layouts/BankLayout.module.css'
 import HeaderOnlineBank from '../../OnlineBank/Header/HeaderOnlineBank';
 import FooterBank from '../../OnlineBank/FooterBank/FooterBank';
 import NavbarOnlineBank from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank';
+import NavbarOnlineBank2 from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank-alter';
 import useAuth from '../../../hooks/useAuth';
 // const BankLayout = ( ) => {
 //   const [userData, setUserData] = useState({

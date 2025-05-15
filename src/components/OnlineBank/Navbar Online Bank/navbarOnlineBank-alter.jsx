@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './NavbarOnlineBank-alter.module.css';
+import styles from './navbarOnlineBank-alter.module.css';
 
 // Importa tus iconos (ajusta las rutas según tu estructura de archivos)
 import ResumenIcon from '../../../assets/img/icons8-ordenación-trasera.png';
@@ -8,10 +8,13 @@ import MovimientosIcon from '../../../assets/img/icons8-ver-archivo.png';
 import TransferIcon from '../../../assets/img/icons8-transferencia-de-dinero.png';
 import ContactosIcon from '../../../assets/img/icons8-contacto-de-negocio.png';
 import PasswordIcon from '../../../assets/img/icons8-contraseña.png';
-const NavbarOnlineBankalter = () => {
+
+
+const NavbarOnlineBank2 = () => {
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navBackground}></div>
+      <div className={styles.navBackground}>
+      </div>
       <div className={styles.navContent}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
@@ -50,4 +53,4 @@ const NavbarOnlineBankalter = () => {
   );
 };
 
-export default NavbarOnlineBankalter;
+export default NavbarOnlineBank2;

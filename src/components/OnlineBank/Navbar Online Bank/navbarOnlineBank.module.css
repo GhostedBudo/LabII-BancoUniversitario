@@ -1,23 +1,24 @@
 .navbar {
-  /* height: 100vh; */
+  position: relative;
   height: 100%;
   background-color: #085F63;
   z-index: 1;
-
-  flex-shrink: 0; /* ← evita que se reduzca en el flex layout */
+  flex-shrink: 0;
 }
 
 .navBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('../../../assets/img/florBarquisimeto.png');
-  background-size: cover;
-  background-position: center;
+  position: fixed;
+  top: 43%;
+  right: 78.9%;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/img/florBarquisimeto.png'); /* ← verifica que la ruta sea válida */
+  background-repeat: no-repeat;
+  background-size: 23% auto; /* Puedes ajustar aquí el tamaño */
+  background-position: right center; /* Desplazada a la derecha */
   opacity: 0.2;
-  display: none;
+  pointer-events: none; /* ← Para que no bloquee los clics */
+  z-index: 0;
 }
 
 .navContent {
@@ -31,12 +32,15 @@
 }
 
 .navList {
-  list-style: none;
   padding: 0;
-  margin: 0; /* Ocupa todo el espacio disponible */
+  margin: 0;
+  width: 17%;
+  list-style: none;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centra verticalmente los items */
+  
 }
 
 .navItem {
