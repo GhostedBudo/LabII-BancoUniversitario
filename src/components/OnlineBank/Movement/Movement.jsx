@@ -157,11 +157,7 @@ const Movement = () => {
                                     onClick={handleRightRadio} type="radio" name="filter" id="" />
                             </div>
 
-                            <button
-                                style={{
-                                    backgroundColor: '#49beb7', border: 'none', borderRadius: '20px', fontFamily: 'Monserrat', fontSize: '1rem'
-                                }}
-                            >Buscar</button>
+                           
                         </div>
 
                     </div>

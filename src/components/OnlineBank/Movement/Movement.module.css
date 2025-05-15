@@ -163,6 +163,13 @@ font-size: minmax(1rem, 1.5rem);
     accent-color: #085F63;
     width: 16px;
     height: 16px;
+    margin-top: 70px;
+}
+.radioBtn label{
+    font-size: 1.5rem;
+    color: #085F63;
+    font-weight: bold;
+    margin-top: 70px;
 }
 
 select {
