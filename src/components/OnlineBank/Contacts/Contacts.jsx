@@ -20,6 +20,9 @@ const Contacts = () => {
   const [contactToDelete, setContactToDelete] = useState(null);
   const navigate = useNavigate();
 
+  
+
+
   useEffect(() => {
     const fetchContacts = async () => {
       try {
@@ -31,7 +34,7 @@ const Contacts = () => {
         });
         const currentData = await response.json();
         const currentList = currentData.data || [];
-
+  
         const nextResponse = await fetch(`/api/v1/client/contact?page=${currentPage + 1}&page_size=${pageSize}`, {
           headers: {
             Authorization: `Bearer ${getJwtToken()}`,
@@ -40,10 +43,10 @@ const Contacts = () => {
         });
         const nextData = await nextResponse.json();
         const nextList = nextData.data || [];
-
+  
         setContacts(currentList);
         setHasNextPage(nextList.length > 0);
-
+  
         if (currentList.length === 0 && currentPage > 1) {
           setCurrentPage(prev => prev - 1);
         }
@@ -53,9 +56,10 @@ const Contacts = () => {
         setHasNextPage(false);
       }
     };
-
     fetchContacts();
   }, [currentPage, pageSize]);
+
+
 
   const handlePrevPage = () => {
     setCurrentPage(prev => (prev === 1 ? prev : prev - 1));
@@ -87,6 +91,8 @@ const Contacts = () => {
       if (response.ok) {
         toast.success('Contacto eliminado correctamente');
         setContacts(prev => prev.filter(contact => contact.id !== contactToDelete));
+
+        setCurrentPage(1); 
       } else {
         const error = await response.json();
         toast.error(error?.message || 'Error eliminando el contacto');
@@ -96,11 +102,14 @@ const Contacts = () => {
     } finally {
       setContactToDelete(null);
     }
+
+
   };
 
   const handleCancelDelete = () => {
     setShowConfirm(false);
     setContactToDelete(null);
+   
   };
 
   return (

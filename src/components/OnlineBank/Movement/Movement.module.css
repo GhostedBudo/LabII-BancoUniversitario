@@ -2,7 +2,7 @@
     /* min-height: 50%; */
     display: grid;
     grid-template-rows: auto 1fr;
-    padding: 2em;
+    padding: 1em;
 }
 
 .titleBar {
@@ -222,7 +222,7 @@ select {
 }
 
 .movementsContainer {
-    padding: 1em;
+    padding: 0;
 
 }
 
@@ -244,7 +244,7 @@ input::placeholder {
 }
   
 .movementsContainer {
-    padding: 2rem; 
+    padding: 0 2rem; 
     display: grid;
   
 }
