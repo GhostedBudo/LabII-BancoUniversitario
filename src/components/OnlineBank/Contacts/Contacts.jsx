@@ -3,7 +3,7 @@ import useAuth from '../../../hooks/useAuth';
 import styles from './Contacts.module.css';
 import Clock from '../../../utils/components/Clock';
 import toast from 'react-hot-toast';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, useNavigate } from 'react-router-dom';
 
 const Contacts = () => {
   const { getJwtToken } = useAuth();
@@ -11,11 +11,12 @@ const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const url = `/v1/client/contact?page=1&page_size=20`;
+        const url = `/api/v1/client/contact?page=${currentPage}&page_size=${pageSize}`;
         const response = await fetch(url, {
           headers: {
             Authorization: `Bearer ${getJwtToken()}`,
@@ -56,7 +57,7 @@ const Contacts = () => {
 
       {/* Botones de acción global */}
       <div className={styles.actionButtons}>
-        <button onClick={() => console.log('Agregar')}>Agregar</button>
+        <button onClick={() => navigate('/user/contacts-list')}>Agregar</button>
         <button onClick={() => console.log('Editar global')}>Editar</button>
         <button onClick={() => console.log('Borrar global')}>Borrar</button>
       </div>

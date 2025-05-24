@@ -8,14 +8,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2%;
 }
 
 .movementsContainer {
-  padding: 2rem;
+  padding: 1rem;
   display: grid;
 }
 
-select {
+.select {
   justify-self: end;
   padding: 0.4em 0.7em;
   border-radius: 6px;
@@ -63,11 +64,12 @@ select {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  margin-left: 15%;
 }
 
 .actionButtons button,
 .rowActions button {
-  padding: 0.4em 0.7em;
+  padding: 0.4em 10em;
   border-radius: 6px;
   border: 1px solid #20a5ae;
   background-color: #e0fafa;
