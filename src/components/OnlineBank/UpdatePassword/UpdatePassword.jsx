@@ -57,7 +57,7 @@ const UpdatePassword = () => {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-          current_password: currentPassword,  // Asegúrate que coincida con lo que espera tu backend
+          password: currentPassword,  // Asegúrate que coincida con lo que espera tu backend
           new_password: newPassword
         })
       });
@@ -77,7 +77,7 @@ const UpdatePassword = () => {
       setConfirmPassword('');
       
       // Redirigir después de éxito
-      setTimeout(() => navigate('/perfil'), 1500);
+      setTimeout(() => navigate('/login'), 1500);
 
     } catch (error) {
       console.error('Error en actualización de contraseña:', error);
