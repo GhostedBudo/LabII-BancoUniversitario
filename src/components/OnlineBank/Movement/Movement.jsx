@@ -103,7 +103,7 @@ const Movement = () => {
 
 
     return (
-        <>
+        <div className={styles.mainMovement}>
             <div className={styles.accountContainer}>
                 <div className={styles.titleBar}>
                     <div><span>Detalle de la cuenta</span></div>
@@ -197,8 +197,8 @@ const Movement = () => {
 
                 </div>
             </div>
-        </>
-    )
-}
+        </div>
+    );
+};
 
-export default Movement
+export default Movement;

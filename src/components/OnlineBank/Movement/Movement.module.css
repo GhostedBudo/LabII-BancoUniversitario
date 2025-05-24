@@ -1,3 +1,7 @@
+.mainMovement{
+    overflow-y: scroll;
+}
+
 .accountContainer {
     /* min-height: 50%; */
     display: grid;
