@@ -5,35 +5,50 @@ import Clock from '../../../utils/components/Clock';
 import toast from 'react-hot-toast';
 import { useOutletContext, useNavigate } from 'react-router-dom';
 
+import addUser from "../../../assets/img/icons8-agregar-usuario.png";
+import editUser from "../../../assets/img/icons8-modificar.png";
+import deleteUser from "../../../assets/img/icons8-eliminar.png";
+
 const Contacts = () => {
   const { getJwtToken } = useAuth();
   const { userData } = useOutletContext();
   const [contacts, setContacts] = useState([]);
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate(); 
+  const [hasNextPage, setHasNextPage] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const url = `/api/v1/client/contact?page=${currentPage}&page_size=${pageSize}`;
-        const response = await fetch(url, {
+        const response = await fetch(`/api/v1/client/contact?page=${currentPage}&page_size=${pageSize}`, {
           headers: {
             Authorization: `Bearer ${getJwtToken()}`,
             'Content-Type': 'application/json'
           }
         });
+        const currentData = await response.json();
+        const currentList = currentData.data || [];
 
-        const json = await response.json();
-        if (json.data && Array.isArray(json.data)) {
-          setContacts(json.data);
-        } else {
-          toast.error('Formato de datos inesperado');
-          setContacts([]);
+        const nextResponse = await fetch(`/api/v1/client/contact?page=${currentPage + 1}&page_size=${pageSize}`, {
+          headers: {
+            Authorization: `Bearer ${getJwtToken()}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const nextData = await nextResponse.json();
+        const nextList = nextData.data || [];
+
+        setContacts(currentList);
+        setHasNextPage(nextList.length > 0);
+
+        if (currentList.length === 0 && currentPage > 1) {
+          setCurrentPage((prev) => prev - 1);
         }
       } catch (error) {
         toast.error('Error cargando contactos');
         setContacts([]);
+        setHasNextPage(false);
       }
     };
 
@@ -45,7 +60,9 @@ const Contacts = () => {
   };
 
   const handleNextPage = () => {
-    setCurrentPage((prev) => (contacts.length < pageSize ? prev : prev + 1));
+    if (hasNextPage) {
+      setCurrentPage((prev) => prev + 1);
+    }
   };
 
   const handleDeleteContact = async (id) => {
@@ -78,7 +95,10 @@ const Contacts = () => {
       </div>
 
       <div className={styles.movementsContainer}>
-        <select className={styles.select} value={pageSize} onChange={(e) => setPageSize(parseInt(e.target.value))}>
+        <select className={styles.select} value={pageSize} onChange={(e) => {
+          setPageSize(parseInt(e.target.value));
+          setCurrentPage(1);
+        }}>
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={20}>20</option>
@@ -100,22 +120,33 @@ const Contacts = () => {
             <div>{c.account_number}</div>
             <div>{c.description}</div>
             <div className={styles.rowActions}>
-              <button onClick={() => navigate('/user/contacts-list', { state: c })}>Editar</button>
-              <button onClick={() => handleDeleteContact(c.id)}>Borrar</button>
-            </div>
+  <button onClick={() => navigate('/user/contacts-list', { state: c })}>
+    <img src={editUser} alt="Editar" className={styles.iconButton} />
+    <span>Editar</span>
+  </button>
+  <button onClick={() => handleDeleteContact(c.id)}>
+    <img src={deleteUser} alt="Borrar" className={styles.iconButton} />
+    <span>Borrar</span>
+  </button>
+</div>
+
           </div>
         ))}
 
         <div className={styles.pagesList}>
-          {currentPage !== 1 && <button onClick={handlePrevPage}>Prev</button>}
+          {currentPage > 1 && <button onClick={handlePrevPage}>Prev</button>}
           <span style={{ padding: '0 1rem' }}>{currentPage}</span>
-          {contacts.length === pageSize && <button onClick={handleNextPage}>Next</button>}
+          {hasNextPage && <button onClick={handleNextPage}>Next</button>}
         </div>
       </div>
 
       <div className={styles.actionButtons}>
-        <button onClick={() => navigate('/user/contacts-list')}>Agregar Contacto</button>
-      </div>
+  <button onClick={() => navigate('/user/contacts-list')}>
+    <img src={addUser} alt="Agregar" className={styles.addIcon} />
+    <span>Agregar Contacto</span>
+  </button>
+</div>
+
     </div>
   );
 };

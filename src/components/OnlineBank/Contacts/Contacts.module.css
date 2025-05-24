@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-  font-family: 'Monserrat', Tahoma, Geneva, Verdana, sans-serif;
   align-items: center;
 }
 
@@ -11,9 +10,19 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5em;
-  font-size: 1.2em;
+  font-size: 1em;
+  width: 100%; 
+}
+.titleBar span{
+  color: black;
   font-weight: bold;
-  width: 100%;
+  font-size: 1.2em;
+
+}
+.titleBar div {
+  color:black;
+  opacity: 0.6;
+  font-weight: bold;
 }
 
 .actionButtons {
@@ -26,10 +35,10 @@
 
 .actionButtons button {
   background-color: #49BEB7;
-  color: white;
+  color: #085f63;
   border: none;
   border-radius: 4rem;
-  padding: 0.6em 2em;
+  padding: 0.4em 1em;
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
@@ -37,9 +46,19 @@
   
 }
 
+
 .actionButtons button:hover {
   background-color: #085f63;
+  color: white
 }
+
+.addIcon {
+  width: 30px;
+  height: 100%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
 
 .movementsContainer {
   display: flex;
@@ -50,7 +69,7 @@
 }
 
 .select {
-  align-self: flex-start;
+  align-self: flex-end;
   padding: 0.3em 0.6em;
   font-size: 0.85em;
   border-radius: 4px;
@@ -98,6 +117,7 @@
 .contactRow > div:nth-child(1),
 .contactHeader > span:nth-child(1) {
   flex-basis: 20%;
+  font-weight: bold;
 }
 .contactRow > div:nth-child(2),
 .contactHeader > span:nth-child(2) {
@@ -117,15 +137,19 @@
   background-color: #f0fefe;
 }
 
-.rowActions {
-  display: flex;
-  gap: 0.4rem;
-  justify-content: flex-end;
+.iconButton {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 .rowActions button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   background-color: #49BEB7;
-  color: white;
+  color: #085f63;
   border: none;
   border-radius: 4px;
   padding: 0.3em 0.8em;
@@ -137,6 +161,14 @@
 
 .rowActions button:hover {
   background-color: #085f63;
+  color: white;
+}
+
+
+.rowActions {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: flex-end;
 }
 
 .pagesList {
@@ -148,8 +180,8 @@
 }
 
 .pagesList button {
-  background-color: #20a5ae;
-  color: white;
+  background-color: #49BEB7;
+  color: #085f63;
   border: none;
   border-radius: 4px;
   padding: 0.3em 0.8em;
@@ -161,4 +193,6 @@
 
 .pagesList button:hover {
   background-color: #187b80;
+  color: white;
 }
+

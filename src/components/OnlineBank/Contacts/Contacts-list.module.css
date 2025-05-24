@@ -5,11 +5,11 @@
   border: 2px solid #20a5ae;
   border-radius: 12px;
   background-color: #e0fafa;
-  color: #064f50;
-  font-family: 'Montserrat', sans-serif;
+  color: #085f63;
+
 }
 
-.contactFormTitle {
+.contactFormTitle { /*titulo*/
   text-align: center;
   margin-bottom: 2rem;
   color: #085f63;
@@ -42,7 +42,7 @@
 .contactFormTextarea:focus {
   outline: none;
   border-color: #128992;
-  background-color: #d3f4f4;
+  background-color: white;
 }
 
 .contactFormButtons {
@@ -56,13 +56,15 @@
   padding: 0.7rem 1rem;
   border: none;
   border-radius: 8px;
-  background-color: #20a5ae;
+  background-color: #49BEB7;
   color: white;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
+  color: #085f63;
 }
 
 .contactFormButton:hover {
-  background-color: #128992;
+  background-color: #085f63;
+  color: white;
 }
