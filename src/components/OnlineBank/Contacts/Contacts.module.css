@@ -1,0 +1,84 @@
+.accountContainer {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 2em;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movementsContainer {
+  padding: 2rem;
+  display: grid;
+}
+
+select {
+  justify-self: end;
+  padding: 0.4em 0.7em;
+  border-radius: 6px;
+  border: 1px solid #20a5ae;
+  background-color: #e0fafa;
+  color: #064f50;
+  font-weight: bold;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.contactEntry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  padding: 1rem;
+  background-color: #d5f5f6;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #085f63;
+  align-items: center;
+}
+
+.headerRow {
+  background-color: #b6e9ea;
+  color: #003333;
+}
+
+.pagesList {
+  padding-top: 1em;
+  justify-self: end;
+}
+
+.pagesList button {
+  padding: 0.4em 0.7em;
+  border-radius: 6px;
+  border: 1px solid #20a5ae;
+  background-color: #e0fafa;
+  color: #064f50;
+  font-weight: bold;
+  outline: none;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.actionButtons button,
+.rowActions button {
+  padding: 0.4em 0.7em;
+  border-radius: 6px;
+  border: 1px solid #20a5ae;
+  background-color: #e0fafa;
+  color: #064f50;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+.rowActions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}

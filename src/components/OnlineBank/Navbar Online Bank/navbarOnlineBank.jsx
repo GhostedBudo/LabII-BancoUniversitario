@@ -36,7 +36,7 @@ const NavbarOnlineBank = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link to="/contacts" className={styles.navLink}>
+            <Link to="contacts" className={styles.navLink}>
               <img src={ContactosIcon} alt="Contactos" className={styles.navIcon} />
               Contactos
             </Link>

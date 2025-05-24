@@ -11,8 +11,8 @@ const Login = () => {
   const { login, getJwtToken } = useAuth();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('user1@gmail.com');
-  const [password, setPassword] = useState('Abc@1234');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [error, setError] = useState('');
 
