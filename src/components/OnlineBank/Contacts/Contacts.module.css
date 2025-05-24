@@ -1,86 +1,164 @@
-.accountContainer {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding: 2em;
+.ContactsContainer {
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-family: 'Monserrat', Tahoma, Geneva, Verdana, sans-serif;
+  align-items: center;
 }
 
 .titleBar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 2%;
-}
-
-.movementsContainer {
-  padding: 1rem;
-  display: grid;
-}
-
-.select {
-  justify-self: end;
-  padding: 0.4em 0.7em;
-  border-radius: 6px;
-  border: 1px solid #20a5ae;
-  background-color: #e0fafa;
-  color: #064f50;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
   font-weight: bold;
-  outline: none;
-  margin-bottom: 1rem;
-}
-
-.contactEntry {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) auto;
-  padding: 1rem;
-  background-color: #d5f5f6;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #085f63;
-  align-items: center;
-}
-
-.headerRow {
-  background-color: #b6e9ea;
-  color: #003333;
-}
-
-.pagesList {
-  padding-top: 1em;
-  justify-self: end;
-}
-
-.pagesList button {
-  padding: 0.4em 0.7em;
-  border-radius: 6px;
-  border: 1px solid #20a5ae;
-  background-color: #e0fafa;
-  color: #064f50;
-  font-weight: bold;
-  outline: none;
+  width: 100%;
 }
 
 .actionButtons {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 15%;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  
 }
 
-.actionButtons button,
-.rowActions button {
-  padding: 0.4em 10em;
-  border-radius: 6px;
+.actionButtons button {
+  background-color: #49BEB7;
+  color: white;
+  border: none;
+  border-radius: 4rem;
+  padding: 0.6em 2em;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+}
+
+.actionButtons button:hover {
+  background-color: #085f63;
+}
+
+.movementsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+  font-size: 1rem;;
+}
+
+.select {
+  align-self: flex-start;
+  padding: 0.3em 0.6em;
+  font-size: 0.85em;
+  border-radius: 4px;
   border: 1px solid #20a5ae;
   background-color: #e0fafa;
   color: #064f50;
   font-weight: bold;
   outline: none;
-  cursor: pointer;
+  margin-bottom: 0.3rem;
+}
+
+/* Encabezado */
+.contactHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  color: #085f63;
+  font-weight: bold;
+  border-bottom: 2px solid #085f63;
+  padding: 0.4em 0;
+  font-size: 1em;
+}
+
+/* Fila individual */
+.contactRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.4em 0;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  font-size: 0.9em;
+  align-items: center;
+}
+
+.contactRow > div,
+.contactHeader > span {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contactRow > div:nth-child(1),
+.contactHeader > span:nth-child(1) {
+  flex-basis: 20%;
+}
+.contactRow > div:nth-child(2),
+.contactHeader > span:nth-child(2) {
+  flex-basis: 20%;
+}
+.contactRow > div:nth-child(3),
+.contactHeader > span:nth-child(3) {
+  flex-basis: 40%;
+}
+.contactRow > div:nth-child(4),
+.contactHeader > span:nth-child(4) {
+  flex-basis: 20%;
+  text-align: right;
+}
+
+.contactRow:hover {
+  background-color: #f0fefe;
 }
 
 .rowActions {
   display: flex;
-  gap: 0.5rem;
-  justify-content: center;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+
+.rowActions button {
+  background-color: #49BEB7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3em 0.8em;
+  font-size: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.rowActions button:hover {
+  background-color: #085f63;
+}
+
+.pagesList {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.9em;
+}
+
+.pagesList button {
+  background-color: #20a5ae;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3em 0.8em;
+  font-size: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagesList button:hover {
+  background-color: #187b80;
 }

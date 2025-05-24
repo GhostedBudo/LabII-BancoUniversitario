@@ -48,22 +48,37 @@ const Contacts = () => {
     setCurrentPage((prev) => (contacts.length < pageSize ? prev : prev + 1));
   };
 
+  const handleDeleteContact = async (id) => {
+    try {
+      const response = await fetch(`/api/v1/client/contact/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${getJwtToken()}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        toast.success('Contacto eliminado correctamente');
+        setContacts((prev) => prev.filter((contact) => contact.id !== id));
+      } else {
+        const error = await response.json();
+        toast.error(error?.message || 'Error eliminando el contacto');
+      }
+    } catch (error) {
+      toast.error('Error en la conexión al eliminar');
+    }
+  };
+
   return (
-    <div className={styles.accountContainer}>
+    <div className={styles.ContactsContainer}>
       <div className={styles.titleBar}>
         <span>Lista de Contactos</span>
         <Clock />
       </div>
 
-      {/* Botones de acción global */}
-      <div className={styles.actionButtons}>
-        <button onClick={() => navigate('/user/contacts-list')}>Agregar</button>
-        <button onClick={() => console.log('Editar global')}>Editar</button>
-        <button onClick={() => console.log('Borrar global')}>Borrar</button>
-      </div>
-
       <div className={styles.movementsContainer}>
-        <select value={pageSize} onChange={(e) => setPageSize(parseInt(e.target.value))}>
+        <select className={styles.select} value={pageSize} onChange={(e) => setPageSize(parseInt(e.target.value))}>
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={20}>20</option>
@@ -71,7 +86,7 @@ const Contacts = () => {
         </select>
 
         {/* Cabecera */}
-        <div className={`${styles.contactEntry} ${styles.headerRow}`}>
+        <div className={styles.contactHeader}>
           <span>Alias</span>
           <span>Cuenta</span>
           <span>Descripción</span>
@@ -80,13 +95,13 @@ const Contacts = () => {
 
         {/* Contactos */}
         {contacts.map((c) => (
-          <div key={c.id} className={styles.contactEntry}>
-            <span>{c.alias}</span>
-            <span>{c.account_number}</span>
-            <span>{c.description}</span>
+          <div key={c.id} className={styles.contactRow}>
+            <div>{c.alias}</div>
+            <div>{c.account_number}</div>
+            <div>{c.description}</div>
             <div className={styles.rowActions}>
-              <button onClick={() => console.log('Editar', c.id)}>Editar</button>
-              <button onClick={() => console.log('Borrar', c.id)}>Borrar</button>
+              <button onClick={() => navigate('/user/contacts-list', { state: c })}>Editar</button>
+              <button onClick={() => handleDeleteContact(c.id)}>Borrar</button>
             </div>
           </div>
         ))}
@@ -96,6 +111,10 @@ const Contacts = () => {
           <span style={{ padding: '0 1rem' }}>{currentPage}</span>
           {contacts.length === pageSize && <button onClick={handleNextPage}>Next</button>}
         </div>
+      </div>
+
+      <div className={styles.actionButtons}>
+        <button onClick={() => navigate('/user/contacts-list')}>Agregar Contacto</button>
       </div>
     </div>
   );
