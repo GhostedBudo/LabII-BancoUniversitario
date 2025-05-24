@@ -6,9 +6,24 @@
 }
 
 .titleBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  width: 100%; 
+}
+
+.titleBar span{
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+
+}
+
+.titleBar div {
+  color:black;
+  opacity: 0.6;
+  font-weight: bold;
 }
 
 .balanceContainer {
@@ -97,8 +112,6 @@ font-size: minmax(1rem, 1.5rem);
 
 }
 
-
-
 .account {
 
     height: 70%;
@@ -108,8 +121,6 @@ font-size: minmax(1rem, 1.5rem);
     gap: 1em;
 
 }
-
-
 
 .account {
     height: 70%;
@@ -128,7 +139,6 @@ font-size: minmax(1rem, 1.5rem);
     font-weight: bold;
     outline: none;
     transition: border-color 0.3s ease;
-
 }
 
 .accountText input::placeholder {
@@ -183,6 +193,34 @@ select {
     outline: none;
 }
 
+
+.pagesList {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.9em;
+  padding-top: 1em;
+  justify-self: end;
+}
+
+.pagesList button {
+  background-color: #49BEB7;
+  color:#085F63;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3em 0.8em;
+  font-size: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagesList button:hover {
+  background-color: #085f63;
+  color: white;
+}
+
 .movementsContainer {
     padding: 1em;
    
@@ -205,22 +243,6 @@ input::placeholder {
     font-size: 1.3rem; color: #085f63; font-weight: bold; 
 }
   
-
-.pagesList {
-    padding-top: 1em;
-    justify-self: end;
-}
-.pagesList button{
-   padding: 0.4em 0.7em;
-    border-radius: 6px;
-    border: 1px solid #20a5ae;
-    background-color: #e0fafa;
-    color: #064f50;
-    font-weight: bold;
-    outline: none;
-  
-}
-
 .movementsContainer {
     padding: 2rem; 
     display: grid;
