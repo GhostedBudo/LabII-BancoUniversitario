@@ -5,8 +5,10 @@ import toast from 'react-hot-toast';
 import { Eye, EyeOff } from 'react-feather';
 import iconUpdate from '../../../assets/img/icons8-actualizar.png';
 import Clock from '../../../utils/components/Clock';
+import useAuth from '../../../hooks/useAuth';
 
 const UpdatePassword = () => {
+  const { getJwtToken } = useAuth();
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -19,6 +21,12 @@ const UpdatePassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Validaciones
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      toast.error('Todos los campos son obligatorios');
+      return;
+    }
+
     if (newPassword !== confirmPassword) {
       toast.error('Las contraseñas no coinciden');
       return;
@@ -29,24 +37,28 @@ const UpdatePassword = () => {
       return;
     }
 
+    if (currentPassword === newPassword) {
+      toast.error('La nueva contraseña no puede ser igual a la actual');
+      return;
+    }
+
     setIsLoading(true);
     
     try {
-      // Obtener el token JWT del almacenamiento local
-      const token = localStorage.getItem('token');
+      const token = getJwtToken();
       if (!token) {
-        throw new Error('No se encontró el token de autenticación');
+        throw new Error('Sesión expirada. Por favor, inicie sesión nuevamente');
       }
 
-      const response = await fetch('/v1/client/user/password', {
-        method: 'POST',
+      const response = await fetch('/api/v1/client/user/password', {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-          currentPassword,
-          newPassword
+          current_password: currentPassword,  // Asegúrate que coincida con lo que espera tu backend
+          new_password: newPassword
         })
       });
 
@@ -56,18 +68,27 @@ const UpdatePassword = () => {
         throw new Error(data.message || 'Error al actualizar la contraseña');
       }
 
+      // Éxito
       toast.success('Contraseña actualizada correctamente');
       
-      // Limpiar los campos después de una actualización exitosa
+      // Limpiar formulario
       setCurrentPassword('');
       setNewPassword('');
       setConfirmPassword('');
       
       // Redirigir después de éxito
-      navigate('/perfil');
+      setTimeout(() => navigate('/perfil'), 1500);
 
     } catch (error) {
-      toast.error(error.message || 'Error al actualizar la contraseña');
+      console.error('Error en actualización de contraseña:', error);
+      
+      // Mensajes de error específicos
+      if (error.message.includes('current password')) {
+        toast.error('La contraseña actual es incorrecta');
+      } else {
+        toast.error(error.message || 'Error al actualizar la contraseña');
+      }
+      
     } finally {
       setIsLoading(false);
     }
@@ -75,12 +96,13 @@ const UpdatePassword = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Actualizar Contraseña
-        <div className={styles.clockPassword}>
-          <Clock /> 
-        </div>
-      </h2>
+      <div className={styles.titleBar}>
+        <span>Actualizar Contraseña</span>
+        <Clock />
+      </div>
+
       <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Campo Contraseña Actual */}
         <div className={styles.formGroup}>
           <label htmlFor="currentPassword" className={styles.label}>
             Contraseña Actual
@@ -93,18 +115,20 @@ const UpdatePassword = () => {
               onChange={(e) => setCurrentPassword(e.target.value)}
               className={styles.input}
               required
-              placeholder="Ingresar Contraseña"
+              placeholder="Ingrese su contraseña actual"
             />
             <button
               type="button"
               className={styles.togglePassword}
               onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+              aria-label={showCurrentPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
             >
               {showCurrentPassword ? <Eye size={18} /> : <EyeOff size={18} />}
             </button>
           </div>
         </div>
 
+        {/* Campo Nueva Contraseña */}
         <div className={styles.formGroup}>
           <label htmlFor="newPassword" className={styles.label}>
             Nueva Contraseña
@@ -117,18 +141,22 @@ const UpdatePassword = () => {
               onChange={(e) => setNewPassword(e.target.value)}
               className={styles.input}
               required
-              placeholder="Ingresar la Nueva Contraseña"
+              minLength="8"
+              placeholder="Ingrese su nueva contraseña"
             />
             <button
               type="button"
               className={styles.togglePassword}
               onClick={() => setShowNewPassword(!showNewPassword)}
+              aria-label={showNewPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
             >
               {showNewPassword ? <Eye size={18} /> : <EyeOff size={18} />}
             </button>
           </div>
+          <p className={styles.passwordHint}>Mínimo 8 caracteres</p>
         </div>
 
+        {/* Campo Confirmar Contraseña */}
         <div className={styles.formGroup}>
           <label htmlFor="confirmPassword" className={styles.label}>
             Confirmar Nueva Contraseña
@@ -141,26 +169,31 @@ const UpdatePassword = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               className={styles.input}
               required
-              placeholder="Ingresar Nuevamente la Contraseña"
+              placeholder="Confirme su nueva contraseña"
             />
             <button
               type="button"
               className={styles.togglePassword}
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              aria-label={showConfirmPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
             >
               {showConfirmPassword ? <Eye size={18} /> : <EyeOff size={18} />}
             </button>
           </div>
         </div>
 
-        <button
-          type="submit"
-          className={styles.button}
-          disabled={isLoading || !currentPassword || !newPassword || !confirmPassword}
-        >
-          <img src={iconUpdate} className={styles.iconUpdate} alt="icono actualizar" />
-          {isLoading ? 'Actualizando...' : 'Actualizar'}
-        </button>
+        {/* Botón de Envío */}
+        <div className={styles.actionButtons}>
+          <button
+            type="submit"
+            className={styles.button}
+            disabled={isLoading}
+            aria-busy={isLoading}
+          >
+            <img src={iconUpdate} alt="Actualizar" className={styles.iconButton} />
+            {isLoading ? 'Actualizando...' : 'Actualizar Contraseña'}
+          </button>
+        </div>
       </form>
     </div>
   );
