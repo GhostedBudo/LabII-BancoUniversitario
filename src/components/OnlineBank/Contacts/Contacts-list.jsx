@@ -32,10 +32,16 @@ const ContactsList = () => {
       return;
     }
 
+    if (accountNumber.length !== 20) {
+      toast.error('El número de cuenta debe tener exactamente 20 dígitos');
+      return;
+    }
+
     const jwt = getJwtToken();
     const isEditing = Boolean(contactToEdit?.id);
 
     try {
+      setLoading(true);
       const url = isEditing
         ? `/api/v1/client/contact/${contactToEdit.id}`
         : '/api/v1/client/contact';
@@ -65,6 +71,15 @@ const ContactsList = () => {
     } catch (error) {
       console.error(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAccountChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 20) {
+      setAccountNumber(value);
     }
   };
 
@@ -91,9 +106,10 @@ const ContactsList = () => {
           <input
             type="number"
             value={accountNumber}
-            onChange={(e) => setAccountNumber(e.target.value)}
+            onChange={handleAccountChange}
             required
             className={styles.contactFormInput}
+            maxLength={20} // Este atributo no se respeta en inputs type="number", pero es útil si cambias a "text"
           />
         </label>
 

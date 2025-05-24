@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import styles from './Contacts.module.css';
 import Clock from '../../../utils/components/Clock';
-import toast from 'react-hot-toast';
 import { useOutletContext, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import addUser from "../../../assets/img/icons8-agregar-usuario.png";
 import editUser from "../../../assets/img/icons8-modificar.png";
@@ -16,6 +16,8 @@ const Contacts = () => {
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [contactToDelete, setContactToDelete] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const Contacts = () => {
         setHasNextPage(nextList.length > 0);
 
         if (currentList.length === 0 && currentPage > 1) {
-          setCurrentPage((prev) => prev - 1);
+          setCurrentPage(prev => prev - 1);
         }
       } catch (error) {
         toast.error('Error cargando contactos');
@@ -56,18 +58,25 @@ const Contacts = () => {
   }, [currentPage, pageSize]);
 
   const handlePrevPage = () => {
-    setCurrentPage((prev) => (prev === 1 ? prev : prev - 1));
+    setCurrentPage(prev => (prev === 1 ? prev : prev - 1));
   };
 
   const handleNextPage = () => {
     if (hasNextPage) {
-      setCurrentPage((prev) => prev + 1);
+      setCurrentPage(prev => prev + 1);
     }
   };
 
-  const handleDeleteContact = async (id) => {
+  const confirmDelete = (id) => {
+    setContactToDelete(id);
+    setShowConfirm(true);
+  };
+
+  const handleDeleteConfirmed = async () => {
+    setShowConfirm(false);
+
     try {
-      const response = await fetch(`/api/v1/client/contact/${id}`, {
+      const response = await fetch(`/api/v1/client/contact/${contactToDelete}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${getJwtToken()}`,
@@ -77,14 +86,21 @@ const Contacts = () => {
 
       if (response.ok) {
         toast.success('Contacto eliminado correctamente');
-        setContacts((prev) => prev.filter((contact) => contact.id !== id));
+        setContacts(prev => prev.filter(contact => contact.id !== contactToDelete));
       } else {
         const error = await response.json();
         toast.error(error?.message || 'Error eliminando el contacto');
       }
     } catch (error) {
-      toast.error('Error en la conexión al eliminar');
+      toast.error('Error en la conexión al eliminar el contacto');
+    } finally {
+      setContactToDelete(null);
     }
+  };
+
+  const handleCancelDelete = () => {
+    setShowConfirm(false);
+    setContactToDelete(null);
   };
 
   return (
@@ -95,17 +111,20 @@ const Contacts = () => {
       </div>
 
       <div className={styles.movementsContainer}>
-        <select className={styles.select} value={pageSize} onChange={(e) => {
-          setPageSize(parseInt(e.target.value));
-          setCurrentPage(1);
-        }}>
+        <select
+          className={styles.select}
+          value={pageSize}
+          onChange={(e) => {
+            setPageSize(parseInt(e.target.value));
+            setCurrentPage(1);
+          }}
+        >
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={20}>20</option>
           <option value={25}>25</option>
         </select>
 
-        {/* Cabecera */}
         <div className={styles.contactHeader}>
           <span>Alias</span>
           <span>Cuenta</span>
@@ -113,23 +132,21 @@ const Contacts = () => {
           <span>Acciones</span>
         </div>
 
-        {/* Contactos */}
         {contacts.map((c) => (
           <div key={c.id} className={styles.contactRow}>
             <div>{c.alias}</div>
             <div>{c.account_number}</div>
             <div>{c.description}</div>
             <div className={styles.rowActions}>
-  <button onClick={() => navigate('/user/contacts-list', { state: c })}>
-    <img src={editUser} alt="Editar" className={styles.iconButton} />
-    <span>Editar</span>
-  </button>
-  <button onClick={() => handleDeleteContact(c.id)}>
-    <img src={deleteUser} alt="Borrar" className={styles.iconButton} />
-    <span>Borrar</span>
-  </button>
-</div>
-
+              <button onClick={() => navigate('/user/contacts-list', { state: c })}>
+                <img src={editUser} alt="Editar" className={styles.iconButton} />
+                <span>Editar</span>
+              </button>
+              <button onClick={() => confirmDelete(c.id)}>
+                <img src={deleteUser} alt="Borrar" className={styles.iconButton} />
+                <span>Borrar</span>
+              </button>
+            </div>
           </div>
         ))}
 
@@ -141,12 +158,23 @@ const Contacts = () => {
       </div>
 
       <div className={styles.actionButtons}>
-  <button onClick={() => navigate('/user/contacts-list')}>
-    <img src={addUser} alt="Agregar" className={styles.addIcon} />
-    <span>Agregar Contacto</span>
-  </button>
-</div>
+        <button onClick={() => navigate('/user/contacts-list')}>
+          <img src={addUser} alt="Agregar" className={styles.addIcon} />
+          <span>Agregar Contacto</span>
+        </button>
+      </div>
 
+      {showConfirm && (
+        <div className={styles.confirmModal}>
+          <div className={styles.confirmBox}>
+            <p>¿Estás seguro de que deseas eliminar este contacto?</p>
+            <div className={styles.confirmButtons}>
+              <button onClick={handleDeleteConfirmed} className={styles.confirmYes}>Sí</button>
+              <button onClick={handleCancelDelete} className={styles.confirmNo}>Cancelar</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

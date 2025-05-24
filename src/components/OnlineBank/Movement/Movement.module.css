@@ -223,7 +223,7 @@ select {
 
 .movementsContainer {
     padding: 1em;
-   
+
 }
 
 .selectContainer {
@@ -246,4 +246,5 @@ input::placeholder {
 .movementsContainer {
     padding: 2rem; 
     display: grid;
+  
 }
