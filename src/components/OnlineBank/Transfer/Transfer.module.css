@@ -1,0 +1,38 @@
+.transferFormContainer {
+  display: grid; 
+  justify-self: center;
+  justify-content: center;
+
+  width: 50%;
+
+}
+
+.container {
+    display: grid;
+    padding: 1rem 3rem;
+   overflow-y: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formGroup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .formInput {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #d1d5db;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+    color: #374151;
+  }
