@@ -1,38 +1,58 @@
 .transferFormContainer {
-  display: grid; 
-  justify-self: center;
-  justify-content: center;
-
-  width: 50%;
-
+  margin: 0 25%;
 }
 
 .container {
-    display: grid;
-    padding: 1rem 3rem;
-   overflow-y: hidden;
+  
+
+
 }
 
 .header {
-    display: flex;
+   padding: 1rem;
+   display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .formGroup {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+
+  padding: 3rem; 
+  grid-template-columns: 1fr auto;
+  align-items: center;
+    
   }
 
-  .formInput {
+  .formInput, .disabledInput {
+    padding: 1rem 0.1rem;
+    width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 2px solid #d1d5db;
-    padding: 0.5rem 0;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s ease-in-out;
-    color: #374151;
+    border-bottom: 1px solid #ccc;
+    display: grid;
+    font-size: 1.3rem;
+    
+    
   }
+
+  .inputWithButton {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    
+  }
+
+  .formInput:focus, .disabledInput:focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+  }
+
+  .formTitle {
+    text-align: center;
+  }
+
+  .buttonGroup {
+    justify-self: center
+  }
+

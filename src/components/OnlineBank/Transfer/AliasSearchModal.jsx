@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import styles from './AliasSearchModal.module.css';
 
-const AliasSearchModal = ({ onClose, onSelectAlias }) => {
+const AliasSearchModal = ({ onClose, onSelectAlias, data }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const aliases = [
+  const aliases = data || [
     { name: 'Jorge Chiquin', accountNumber: '1234567890' },
     { name: 'Alondra León', accountNumber: '0987654321' },
     { name: 'Hanuman Sánchez', accountNumber: '1122334455' },
     { name: 'Maria Garcia', accountNumber: '5566778899' },
     { name: 'Pedro Martinez', accountNumber: '9988776655' },
-  ];
+  ] ;
 
   const filteredAliases = aliases.filter(alias =>
     alias.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -47,7 +47,12 @@ const AliasSearchModal = ({ onClose, onSelectAlias }) => {
                 onClick={() => onSelectAlias(alias.accountNumber)}
               >
                 {alias.name}
+                <br />
+                 <span className={styles.aliasAccountNumber}>
+                  {alias.accountNumber}
+                </span>
               </div>
+      
             ))
           ) : (
             <div className={styles.noResults}>No aliases found.</div>
