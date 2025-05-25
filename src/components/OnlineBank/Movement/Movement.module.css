@@ -228,4 +228,5 @@ input::placeholder {
 .movementsContainer {
     padding: 2rem; 
     display: grid;
+    margin-bottom: 5rem;
 }

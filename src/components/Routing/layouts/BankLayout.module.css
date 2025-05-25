@@ -10,4 +10,6 @@
 
 }
 
-
+.content{
+  overflow-y: auto;
+}
