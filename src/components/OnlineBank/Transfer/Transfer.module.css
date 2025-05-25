@@ -9,10 +9,17 @@
 }
 
 .header {
-   padding: 1rem;
+   padding: 1rem 2rem;
    display: flex;
     justify-content: space-between;
     align-items: center;
+
+}
+
+.header > h1, p {
+  font-size: 1.5rem;
+  /* color: gray; */
+  font-weight: 900;
 }
 
 .formGroup {
@@ -23,12 +30,18 @@
     
   }
 
+  .formGroup > label {
+    color: #085F63;
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+
   .formInput, .disabledInput {
     padding: 1rem 0.1rem;
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #085F63;
     display: grid;
     font-size: 1.3rem;
     
@@ -45,7 +58,7 @@
 
   .formInput:focus, .disabledInput:focus {
     outline: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 3px solid #085F63;
   }
 
   .formTitle {
@@ -55,4 +68,6 @@
   .buttonGroup {
     justify-self: center
   }
+
+
 

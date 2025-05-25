@@ -30,7 +30,7 @@ const NavbarOnlineBank = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link to="/transfer" className={styles.navLink}>
+            <Link to="transfer" className={styles.navLink}>
               <img src={TransferIcon} alt="Transferencia" className={styles.navIcon} />
               Transferencia
             </Link>

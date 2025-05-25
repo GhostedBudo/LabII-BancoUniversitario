@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import Clock from '../../../utils/components/Clock'
 import useAuth from '../../../hooks/useAuth';
 
-
+// TODO: report of transfer, with the tx id in the url
 const Transfer = () => {
   const {getJwtToken} = useAuth();
   const { userData } = useOutletContext(); // Get userData from BankLayout
@@ -82,7 +82,6 @@ const handleAmountChange = (e) => {
 };
 
 
-// TODO: make the transfer request
 
     // Validate input fields
   const handleTransfer = async (e) => {
@@ -136,12 +135,10 @@ const handleAmountChange = (e) => {
     <div className={styles.container}>
 
       <header className={styles.header}>
-        <h1 className={styles.headerTitle}>Transferencias</h1>
+        <h1 className={styles.headerTitle}>Ingresa los datos</h1>
         <Clock />
       </header>
     <div className={styles.transferFormContainer}>
-      <h2 className={styles.formTitle}>Ingresa los Datos</h2>
-
       <form onSubmit={handleTransfer}>
         <div className={styles.formGroup}>
           <label htmlFor="fromAccount">Desde mi cuenta</label>
@@ -176,6 +173,7 @@ const handleAmountChange = (e) => {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.buttonIcon}>
                 <path d="M19.5 22.5a.75.75 0 0 0 .75-.75v-13.5a.75.75 0 0 0-.75-.75h-8.25a.75.75 0 0 0-.75.75v13.5a.75.75 0 0 0 .75.75h8.25ZM11.25 10.5a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75ZM12 14.25h5.25a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1 0-1.5Zm-.75 4.5h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1 0-1.5ZM7.5 1.5A.75.75 0 0 0 6.75 2.25v13.5a.75.75 0 0 0 .75.75h-.75a2.25 2.25 0 0 1-2.25-2.25V5.25A2.25 2.25 0 0 1 5.25 3h.75A.75.75 0 0 0 7.5 1.5ZM3 5.25v10.5A3.75 3.75 0 0 0 6.75 19.5h10.5A3.75 3.75 0 0 0 21 15.75V5.25A3.75 3.75 0 0 0 17.25 1.5H6.75A3.75 3.75 0 0 0 3 5.25Z" />
               </svg>
+              
             </button>
           </div>
         </div>
