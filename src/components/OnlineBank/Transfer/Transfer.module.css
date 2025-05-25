@@ -16,10 +16,8 @@
 
 }
 
-.header > h1, p {
-  font-size: 1.5rem;
-  /* color: gray; */
-  font-weight: 900;
+.headerTitle {
+  color: gray; 
 }
 
 .formGroup {

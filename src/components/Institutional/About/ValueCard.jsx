@@ -8,15 +8,20 @@ const ValueCard = ({ info, isActive }) => {
       >
         <h2 className={styles.cardTitle}>{info.title}</h2>
         <div className={styles.cardContent}>
+          
           <div
             className={styles.bg}
             
             style={{
-              backgroundImage: "url(" + info.backgroundUrl + ")",
+              backgroundImage: `url("${info.backgroundUrl}")`,
               backgroundSize: "cover",
-              
+              backgroundRepeat: "no-repeat",
             }}
-          ></div>
+          >
+            <div className={styles.overlayColor}>
+
+            </div>
+          </div>
 
             <div className={styles.text}>
 

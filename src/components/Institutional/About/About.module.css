@@ -6,6 +6,7 @@
 
 .bg {
   background-image: url("../../../assets/img/FondoMobil.png");
+
   background-size: cover;
   min-width: 100%;
   background-position: center;
