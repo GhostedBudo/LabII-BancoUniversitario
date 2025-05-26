@@ -6,7 +6,8 @@ import FooterBank from '../../OnlineBank/FooterBank/FooterBank';
 import NavbarOnlineBank from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank';
 import NavbarOnlineBank2 from '../../OnlineBank/Navbar Online Bank/navbarOnlineBank-alter';
 import useAuth from '../../../hooks/useAuth';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
+
 // const BankLayout = ( ) => {
 //   const [userData, setUserData] = useState({
 //     user: {}, balance: {}
@@ -131,6 +132,7 @@ const BankLayout = () => {
 
   return (
     <div className={styles.layout}>
+      <Toaster />
       <HeaderOnlineBank />
       <div className={styles.main}>
         <NavbarOnlineBank />
