@@ -35,7 +35,7 @@ const Overview = () => {
           user: userJson.data,
           balance: balanceJson.data
         }
-        console.log(user)
+        // console.log(user)
         // Update state together
         setUserData(user)
 

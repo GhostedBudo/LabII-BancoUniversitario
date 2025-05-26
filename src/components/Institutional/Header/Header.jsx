@@ -73,10 +73,10 @@ function Header() {
       </header>
 
       <div className={`${menuOpen ? styles.dropDown : styles.inactive}`}>
-        <Link to="#services">Servicios</Link>
-        <Link to="#about">Nosotros</Link>
-        <Link to="#priority">Prioridades</Link>
-        <Link to="#contact">Contactos</Link>
+         <Link to="/#services"> <span>Servicios</span></Link>
+          <Link to="/#about"><span>Nosotros</span></Link>
+          <Link to="/#priority"><span>Prioridades</span></Link>
+          <Link to="/#contact"><span>Contacto</span></Link>
       </div>
     </div>
   );
