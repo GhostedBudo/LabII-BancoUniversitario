@@ -1,24 +1,29 @@
 .contactFormContainer {
-  max-width: 600px;
-  margin: 3rem auto;
+  display: grid;
+  justify-items: center;
   padding: 2rem;
-  border: 2px solid #20a5ae;
-  border-radius: 12px;
-  background-color: #e0fafa;
-  color: #085f63;
+}
 
+.clockContacts{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #95a5a6;
+  margin: 2rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .contactFormTitle { /*titulo*/
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #085f63;
+  color: black;
   font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 4rem;
 }
 
 .contactForm {
   display: grid;
   gap: 1.5rem;
+  width: 40%;
 }
 
 .contactFormLabel {
@@ -32,16 +37,17 @@
   opacity: 0.5;
 }
 
-
-
 .contactFormInput,
 .contactFormTextarea {
-  padding: 0.5rem;
-  border: 1px solid #20a5ae;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: white;
-  color: #085f63;
+  font-size: 1.02rem;
+  border: none;
+  border-bottom: 1.8px solid #085F63;
+  color: black;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.3s;
+  margin-top: 1rem;
   resize: none;
 }
 
@@ -51,18 +57,30 @@
   border-color: #128992;
   background-color: white;
 }
+.contactFormInput::placeholder{
+  font-weight: normal;
+  color: #95a5a6;
+  opacity: 1;
+}
+
+.contactFormTextarea::placeholder{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #95a5a6;
+  opacity: 1;
+}
 
 .contactFormButtons {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .contactFormButton {
   flex: 1;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 2rem;
   background-color: #49BEB7;
   color: white;
   font-weight: bold;

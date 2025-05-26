@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+
+import { Routes, Route, createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./components/Routing/PrivateRoute";
 
 import "./index.css";
@@ -7,10 +7,7 @@ import "./index.css";
 import InstitutionalLayout from "./components/Routing/layouts/InstitutionalLayout";
 import AuthLayout from "./components/Routing/layouts/AuthLayout";
 import BankLayout from "./components/Routing/layouts/BankLayout";
-
-
 import ScrollToAnchor from "./utils/components/ScrollToAnchor";
-
 import MoreInfo from "./components/Institutional/MoreInfo/MoreInfo";
 import Institutional from "./components/Institutional/Institutional";
 import Login from "./components/OnlineBank/Login/Login";
@@ -20,6 +17,8 @@ import Overview from "./components/OnlineBank/Overview/Overview";
 import Contacts from "./components/OnlineBank/Contacts/Contacts";
 import ContactsList from "./components/OnlineBank/Contacts/Contacts-list";
 import UpdatePassword from "./components/OnlineBank/UpdatePassword/UpdatePassword";
+import Transfer from "./components/OnlineBank/Transfer/Transfer";
+import TransferReport from "./components/OnlineBank/Transfer/TransferReport";
 
 
 
@@ -48,7 +47,7 @@ function App() {
 
         {/* Banca en linea */}
         <Route path="user" element={<BankLayout />}>
-          
+
           <Route index
             element={
               <PrivateRoute>
@@ -60,32 +59,49 @@ function App() {
             element={
               <PrivateRoute>
                 <Movement />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
 
-            <Route path="contacts"
+          <Route path="contacts"
             element={
               <PrivateRoute>
                 <Contacts />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
 
-            <Route path="contacts-list"
+          <Route path="contacts-list"
             element={
               <PrivateRoute>
                 <ContactsList />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
-            
+
           <Route path="updatePassword"
             element={
               <PrivateRoute>
                 <UpdatePassword />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
 
 
+          <Route path="transfer">
 
+            <Route index element={
+              <PrivateRoute>
+                <Transfer />
+              </PrivateRoute>
+            } />
+
+            <Route
+              path=":transferId"
+              element={
+                <PrivateRoute>
+                  <TransferReport />
+                </PrivateRoute>
+              }
+            />
+
+          </Route>
         </Route>
 
       </Routes>

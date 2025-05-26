@@ -126,4 +126,9 @@
 /* Agrupamos cada input con error dentro de una posición relativa para controlar el tooltip */
 .input-group {
   position: relative;
+  
+}
+.input-icon input[type="date"] {
+  color: #085F63;
+  font-weight: bold;
 }

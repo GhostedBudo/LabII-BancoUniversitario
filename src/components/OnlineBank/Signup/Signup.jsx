@@ -38,7 +38,7 @@ const Signup = () => {
         if (!lastName) validationErrors.lastName = 'El apellido es obligatorio.';
         if (!documentNumber) validationErrors.documentNumber = 'La cédula es obligatoria.';
         if (!birthDate) validationErrors.birthDate = 'La fecha de nacimiento es obligatoria.';
-        /*if (!phoneNumber) validationErrors.phoneNumber = 'El teléfono es obligatorio.';*/
+        if (!phoneNumber) validationErrors.phoneNumber = 'El teléfono es obligatorio.';
         if (!email) {
             validationErrors.email = 'El correo es obligatorio.';
         } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -154,6 +154,8 @@ const Signup = () => {
                                     
                                 }}
                                 placeholder="DD/MM/AAAA"
+                                max={new Date().toISOString().split('T')[0]} // Fecha máxima = hoy
+                                 min="1900-01-01"
                                 maxLength={10}
                             />
                         </div>
@@ -196,7 +198,7 @@ const Signup = () => {
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                placeholder="ingresar Contraseña"
+                                placeholder="Ingresar Contraseña"
                             />
                         </div>
                         {errors.password && <p className={styles.error}>{errors.password}</p>}

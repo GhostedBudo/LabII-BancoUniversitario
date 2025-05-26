@@ -68,8 +68,11 @@ svg {
 .accessButton {
   border: none;
   background: none;
-
-
+  text-decoration: none;
+}
+.accessText {
+  text-decoration: none;
+  color: inherit;
 }
 
 .accessButton svg path {
