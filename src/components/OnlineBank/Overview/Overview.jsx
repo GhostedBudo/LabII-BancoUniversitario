@@ -72,8 +72,8 @@ const Overview = () => {
   {userData?.balance?.balance != null
     ? `Bs. ${formatValue({
         value: String(userData.balance.balance),
-        groupSeparator: '.',
-        decimalSeparator: ',',
+        groupSeparator: ',',
+        decimalSeparator: '.',
         decimalScale: 2,
         fixedDecimalLength: 2
       })}`

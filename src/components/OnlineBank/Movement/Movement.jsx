@@ -164,16 +164,18 @@ const Movement = () => {
 
                 </div>
                 <div className={styles.cardAmount}>
-  <span>Disponible:</span> {!!userData?.balance?.balance
+  <span>Disponible:</span>{" "}
+  {userData?.balance?.balance !== undefined && userData?.balance?.balance !== null
     ? `Bs. ${formatValue({
         value: String(userData.balance.balance),
-        groupSeparator: '.',
-        decimalSeparator: ',',
+        groupSeparator: ',',
+        decimalSeparator: '.',
         decimalScale: 2,
         fixedDecimalLength: 2
       })}`
     : 'Loading...'}
 </div>
+
 
 
               </div>

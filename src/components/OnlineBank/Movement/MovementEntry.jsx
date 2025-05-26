@@ -21,8 +21,8 @@ const MovementEntry = ({ entry }) => {
           ? entry.amount
           : `${entry.amount < 0 ? '-' : ''}${formatValue({
               value: String(Math.abs(entry.amount)),
-              groupSeparator: '.',
-              decimalSeparator: ',',
+              groupSeparator: ',',
+              decimalSeparator: '.',
               decimalScale: 2,
               fixedDecimalLength: 2
             })} Bs`}
