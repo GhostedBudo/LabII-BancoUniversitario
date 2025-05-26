@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import addUser from "../../../assets/img/icons8-agregar-usuario.png";
 import editUser from "../../../assets/img/icons8-modificar.png";
 import deleteUser from "../../../assets/img/icons8-eliminar.png";
+import lupa from "../../../assets/img/icons8-búsqueda.png";
 
 const Contacts = () => {
   const { getJwtToken } = useAuth();
@@ -18,23 +19,25 @@ const Contacts = () => {
   const [hasNextPage, setHasNextPage] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [contactToDelete, setContactToDelete] = useState(null);
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-  
+  const fetchContacts = async () => {
+    try {
+      const url = search
+        ? `/api/v1/client/contact?alias=${encodeURIComponent(search)}`
+        : `/api/v1/client/contact?page=${currentPage}&page_size=${pageSize}`;
 
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${getJwtToken()}`,
+          'Content-Type': 'application/json'
+        }
+      });
 
-  useEffect(() => {
-    const fetchContacts = async () => {
-      try {
-        const response = await fetch(`/api/v1/client/contact?page=${currentPage}&page_size=${pageSize}`, {
-          headers: {
-            Authorization: `Bearer ${getJwtToken()}`,
-            'Content-Type': 'application/json'
-          }
-        });
-        const currentData = await response.json();
-        const currentList = currentData.data || [];
-  
+      const data = await response.json();
+      setContacts(data.data || []);
+      if (!search) {
         const nextResponse = await fetch(`/api/v1/client/contact?page=${currentPage + 1}&page_size=${pageSize}`, {
           headers: {
             Authorization: `Bearer ${getJwtToken()}`,
@@ -42,24 +45,27 @@ const Contacts = () => {
           }
         });
         const nextData = await nextResponse.json();
-        const nextList = nextData.data || [];
-  
-        setContacts(currentList);
-        setHasNextPage(nextList.length > 0);
-  
-        if (currentList.length === 0 && currentPage > 1) {
-          setCurrentPage(prev => prev - 1);
-        }
-      } catch (error) {
-        toast.error('Error cargando contactos');
-        setContacts([]);
+        setHasNextPage((nextData.data || []).length > 0);
+      } else {
         setHasNextPage(false);
       }
-    };
+
+    } catch (error) {
+      toast.error('Error cargando contactos');
+      setContacts([]);
+      setHasNextPage(false);
+    }
+  };
+
+  useEffect(() => {
     fetchContacts();
   }, [currentPage, pageSize]);
 
-
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setCurrentPage(1);
+    fetchContacts();
+  };
 
   const handlePrevPage = () => {
     setCurrentPage(prev => (prev === 1 ? prev : prev - 1));
@@ -78,7 +84,6 @@ const Contacts = () => {
 
   const handleDeleteConfirmed = async () => {
     setShowConfirm(false);
-
     try {
       const response = await fetch(`/api/v1/client/contact/${contactToDelete}`, {
         method: 'DELETE',
@@ -91,7 +96,6 @@ const Contacts = () => {
       if (response.ok) {
         toast.success('Contacto eliminado correctamente');
         setContacts(prev => prev.filter(contact => contact.id !== contactToDelete));
-
         setCurrentPage(1); 
       } else {
         const error = await response.json();
@@ -102,14 +106,11 @@ const Contacts = () => {
     } finally {
       setContactToDelete(null);
     }
-
-
   };
 
   const handleCancelDelete = () => {
     setShowConfirm(false);
     setContactToDelete(null);
-   
   };
 
   return (
@@ -119,7 +120,19 @@ const Contacts = () => {
         <Clock />
       </div>
 
-      <div className={styles.movementsContainer}>
+      <div className={styles.controlsRow}>
+        <form className={styles.searchBar} onSubmit={handleSearch}>
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Buscar por alias..."
+          />
+          <button type="submit">
+            <img src={lupa} alt="Buscar" />
+          </button>
+        </form>
+
         <select
           className={styles.select}
           value={pageSize}
@@ -133,7 +146,9 @@ const Contacts = () => {
           <option value={20}>20</option>
           <option value={25}>25</option>
         </select>
+      </div>
 
+      <div className={styles.movementsContainer}>
         <div className={styles.contactHeader}>
           <span>Alias</span>
           <span>Cuenta</span>
