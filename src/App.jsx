@@ -19,6 +19,7 @@ import Movement from "./components/OnlineBank/Movement/Movement";
 import Overview from "./components/OnlineBank/Overview/Overview";
 import Contacts from "./components/OnlineBank/Contacts/Contacts";
 import ContactsList from "./components/OnlineBank/Contacts/Contacts-list";
+import UpdatePassword from "./components/OnlineBank/UpdatePassword/UpdatePassword";
 
 
 
@@ -73,6 +74,13 @@ function App() {
             element={
               <PrivateRoute>
                 <ContactsList />
+                </PrivateRoute>
+            } />
+            
+          <Route path="updatePassword"
+            element={
+              <PrivateRoute>
+                <UpdatePassword />
                 </PrivateRoute>
             } />
 

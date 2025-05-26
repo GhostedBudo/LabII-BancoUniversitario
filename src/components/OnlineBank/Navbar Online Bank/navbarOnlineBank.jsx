@@ -42,7 +42,7 @@ const NavbarOnlineBank = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link to="/update-password" className={styles.navLink}>
+            <Link to="updatePassword" className={styles.navLink}>
               <img src={PasswordIcon} alt="Contraseña" className={styles.navIcon} />
               Actualizar Contraseña
             </Link>
