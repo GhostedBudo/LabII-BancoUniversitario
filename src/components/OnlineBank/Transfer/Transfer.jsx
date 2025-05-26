@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useOutletContext, redirect, Form, useNavigate } from 'react-router-dom';
+import { fetchUser } from '../../../utils/fetchings';
 import styles from './Transfer.module.css';
 import AliasSearchModal from './AliasSearchModal';
 import toast from 'react-hot-toast';
@@ -9,11 +10,11 @@ import contactsIcon from "../../../assets/img/icons8-contacto-de-negocio.png"
 import cancelarIcon from "../../../assets/img/icons8-cancelar.png"
 import sendIcon from "../../../assets/img/icons8-enviar.png"
 
-// TODO: report of transfer, with the tx id in the url
+// DONE: report of transfer, with the tx id in the url 
 const Transfer = () => {
   const { getJwtToken } = useAuth();
   const navigate = useNavigate(); 
-  const { userData } = useOutletContext(); // Get userData from BankLayout
+  const [fromAccount, setFromAccount] = useState()
   const [contacts, setContacts] = useState([]);
   const [contactId, setContactId] = useState('')
   const [contactAlias, setContactAlias] = useState('')
@@ -23,8 +24,33 @@ const Transfer = () => {
   const [concept, setConcept] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Hardcoded for demonstration
-  const fromAccount = userData?.balance?.accountNumber || 'Cuenta de Ahorro **** 2861';
+  useEffect(() => {
+     const fetchUser = async () => {
+      try {
+        // Fetch user data
+        const token = getJwtToken();
+        const userResponse = await fetch('/api/v1/client/user/whoami', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const userJson = await userResponse.json();
+        console.log(userJson)
+        const text = userJson.data.account_number;
+        const fromAccountFormatted = `Cuenta Ahorro ${text.slice(-4).padStart(text.length, "*")}`
+        setFromAccount(fromAccountFormatted)
+
+
+      } catch (error) {
+        toast.error(error.message)
+
+      }
+    }
+
+    fetchUser();
+ 
+  }, [])
 
   useEffect(() => {
     const fetchContacts = async () => {

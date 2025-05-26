@@ -14,7 +14,6 @@ let debounceTimer;
 
 const Contacts = () => {
   const { getJwtToken } = useAuth();
-  const { userData } = useOutletContext();
   const [contacts, setContacts] = useState([]);
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);

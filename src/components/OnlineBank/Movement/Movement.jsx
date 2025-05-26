@@ -1,25 +1,65 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useAuth from '../../../hooks/useAuth';
 import MovementEntry from './MovementEntry';
 import styles from "./Movement.module.css";
 import bankCard from "../../../assets/img/tarjetBancRecortada.png"
 import Clock from '../../../utils/components/Clock';
-import { useOutletContext } from 'react-router-dom';
 import ToggleableText from '../../../utils/components/ToggleableText';
 import toast from 'react-hot-toast';
+import { fetchUser } from '../../../utils/fetchings';
 
 const Movement = () => {
   const { getJwtToken } = useAuth();
-  const { userData } = useOutletContext();
+  const [userData, setUserData] = useState({});
   const [movementsData, setMovementsData] = useState([]);
   const [accountNumber, setAccountNumber] = useState(userData?.user?.account_number || 0);
-  const [accountBalance, setAccountBalance] = useState(userData?.balance?.balance || 0);
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [multiplier, setMultiplier] = useState(0);
   const [hasNextPage, setHasNextPage] = useState(false);
 
+
+
+
+
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        // Fetch user data
+        const token = getJwtToken();
+        const userResponse = await fetch('/api/v1/client/user/whoami', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const userJson = await userResponse.json();
+
+        // Fetch balance data
+        const balanceResponse = await fetch('/api/v1/client/user/balance', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const balanceJson = await balanceResponse.json();
+        const user = {
+          user: userJson.data,
+          balance: balanceJson.data
+        }
+        // console.log(user);
+        // Update state together
+        setUserData(user)
+        setAccountNumber(user?.account_number)
+
+
+      } catch (error) {
+        toast.error(error.message)
+
+      }
+    }
+
+    fetchUser();
     const fetchMovements = async () => {
       const baseURL = `/api/v1/client/movement?page=${currentPage}&page_size=${pageSize}${multiplier !== 0 ? `&multiplier=${multiplier}` : ''}`;
       const nextURL = `/api/v1/client/movement?page=${currentPage + 1}&page_size=${pageSize}${multiplier !== 0 ? `&multiplier=${multiplier}` : ''}`;
@@ -49,11 +89,15 @@ const Movement = () => {
           setCurrentPage(prev => prev - 1);
         }
 
+
+
       } catch (error) {
         toast.error('Error cargando movimientos');
         setMovementsData([]);
         setHasNextPage(false);
       }
+
+
     };
 
     fetchMovements();
@@ -102,73 +146,75 @@ const Movement = () => {
 
   return (
     <>
-        <div className={styles.mainMovement}>
-            <div className={styles.accountContainer}>
-                <div className={styles.titleBar}>
-                    <div><span>Detalle de la cuenta</span></div>
+      <div className={styles.mainMovement}>
+        <div className={styles.accountContainer}>
+          <div className={styles.titleBar}>
+            <div><span>Detalle de la cuenta</span></div>
 
-                    <Clock />
+            <Clock />
+
+          </div>
+          <div className={styles.balanceContainer}>
+
+
+            {/* TARJETA */}
+            <div className={styles.balance}>
+
+              <img src={bankCard} alt="tarjeta" />
+
+              <div className={styles.textContainer}>
+                <div >
+                  <span>Cuenta de Ahorro</span><br />
+
+                  <ToggleableText text={userData?.user?.account_number} colorEye={'white'} />
+
 
                 </div>
-                <div className={styles.balanceContainer}>
-
-
-                    {/* TARJETA */}
-                    <div className={styles.balance}>
-
-                        <img src={bankCard} alt="tarjeta" />
-
-                        <div className={styles.textContainer}>
-                            <div >
-                                <span>Cuenta de Ahorro</span><br />
-
-                                <ToggleableText text={accountNumber} colorEye={'white'} />
-
-
-                            </div>
-                            <div className={styles.cardAmount}><span>Disponible:</span> <br />{!!accountBalance ? 'Bs. ' + accountBalance : 'Loading...'}</div>
-
-                        </div>
-
-                    </div>
-
-                    <div className={styles.account}>
-                        <div className={styles.accountText}>
-                            <span className={styles.consultaTuCuenta}>Consulta tu Cuenta</span>
-
-                            <input
-                                readOnly
-                                style={
-                                    {
-                                        background: 'none', border: 'none', borderBottom: 'solid #085f63 2px', borderRadius: '0', fontSize: '1rem', fontFamily: 'Monserrat',
-                                    }
-                                }
-                                type="text" name="" id="" placeholder={!!accountNumber ? 'Cuenta de Ahorro ' + accountNumber.slice(-4).padStart(accountNumber.length, '*') : 'Loading...'} />
-                        </div>
-                        <div className={styles.accountBtn}>
-                            <div className={styles.radioBtn}>
-
-                                <label htmlFor="">Credito</label>
-                                <input
-                                    onClick={handleLeftRadio}
-                                    value={1}
-                                    type="radio" name="filter" id="" />
-                                <label htmlFor="">Debito</label>
-                                <input
-                                    value={-1}
-                                    onClick={handleRightRadio} type="radio" name="filter" id="" />
-                            </div>
-
-                           
-                        </div>
-
-                    </div>
+                <div className={styles.cardAmount}>
+                  <span>Disponible:</span> {!!userData?.balance?.balance ? 'Bs. ' + userData.balance.balance : 'Loading...'}
                 </div>
+
+              </div>
+
+            </div>
+
+            <div className={styles.account}>
+              <div className={styles.accountText}>
+                <span className={styles.consultaTuCuenta}>Consulta tu Cuenta</span>
+
+                <input
+                  readOnly
+                  style={
+                    {
+                      background: 'none', border: 'none', borderBottom: 'solid #085f63 2px', borderRadius: '0', fontSize: '1rem', fontFamily: 'Monserrat',
+                    }
+                  }
+                  type="text" name="" id="" placeholder={!!userData?.user?.account_number ? 'Cuenta de Ahorro ' + userData?.user?.account_number.slice(-4).padStart(userData?.user?.account_number.length, '*') : 'Loading...'} />
+              </div>
+              <div className={styles.accountBtn}>
+                <div className={styles.radioBtn}>
+
+                  <label htmlFor="">Credito</label>
+                  <input
+                    onClick={handleLeftRadio}
+                    value={1}
+                    type="radio" name="filter" id="" />
+                  <label htmlFor="">Debito</label>
+                  <input
+                    value={-1}
+                    onClick={handleRightRadio} type="radio" name="filter" id="" />
+                </div>
+
+
+              </div>
+
             </div>
           </div>
+        </div>
+      </div>
 
-          
-     
+
+
 
       <div className={styles.movementsContainer}>
         <select
