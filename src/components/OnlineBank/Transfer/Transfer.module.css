@@ -1,0 +1,119 @@
+.transferFormContainer {
+  margin: 0 25%;
+}
+
+.container {
+  
+
+
+}
+
+.header {
+   padding: 1rem 2rem;
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.headerTitle {
+  color: gray; 
+}
+
+.formGroup {
+
+  padding: 3rem; 
+  grid-template-columns: 1fr auto;
+  align-items: center;
+    
+  }
+
+  .formGroup > label {
+    color: #085F63;
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+
+  .formInput, .disabledInput {
+    padding: 1rem 0.1rem;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #085F63;
+    display: grid;
+    font-size: 1.3rem;
+    
+    
+  }
+
+  .inputWithButton {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    
+  }
+
+  .formInput:focus, .disabledInput:focus {
+    outline: none;
+    border-bottom: 3px solid #085F63;
+  }
+
+  .formTitle {
+    text-align: center;
+  }
+
+  .buttonGroup {
+    justify-self: center;
+    border: none;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 25%;
+    gap: 10px;
+
+  }
+
+  .actionButton {
+    padding: 0.5rem 1rem;
+    background-color: #49BEB7;
+    border-radius: 100px;
+    border: none; 
+    font-family: "Monserrat";
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #085F63;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    
+  }
+
+  .actionButton:hover {
+    background-color: #0c7d83;
+    color: white;
+    cursor: pointer;
+  }
+  .iconButton {
+
+    border: none; 
+    border-radius: 10px;
+    background-color: #085F63;
+    padding: 1em;
+  }
+
+  .iconButton img {
+      max-width: 2rem;
+  }
+
+  .iconButton:hover {
+    cursor: pointer;
+    background-color: #0c7d83;
+    
+  }
+
+  
+
+

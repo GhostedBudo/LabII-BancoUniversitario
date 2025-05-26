@@ -1,0 +1,161 @@
+/* TODO: make the styles to match the figma file */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Simpler overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  border: none;
+  background-color: #49BEB7;
+  border-radius: 10px;
+  min-width: 50%; 
+  height: 50vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  padding: 1.2em;
+  gap: 0.5em;
+  font-family: "Monserrat";
+  
+  
+}
+
+.closeButton {
+  justify-self: end;
+  border: none; 
+  width: 3em;
+  background: none;
+
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.closeIcon {
+  color: white;
+  
+}
+
+
+
+.searchBar {
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.searchBar input {
+  margin: 0 5px;
+  background: none;
+  border: none; 
+  border-bottom: solid white 2px;
+  padding: 0 0.7rem;
+  font-size: larger;
+  font-weight: thin;
+  outline: none;
+}
+
+.searchBar input::placeholder {
+  font-family: "Monserrat";
+}
+
+.searchBar input::focus {
+  border: none;
+}
+
+.searchButton {
+  font-family: "Monserrat";
+  background-color: #085F63;
+  border: none; 
+  border-radius: 10px;
+  padding: 0 4px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: larger;
+
+}
+
+.searchButton:hover {
+  cursor: pointer;
+  background-color: #0f7176;
+}
+
+.searchIcon {
+  
+}
+
+/* Alias list styles */
+
+.aliasList {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  ;
+}
+/* scrollbar */
+/*To give the track a yellowish color*/
+::-webkit-scrollbar-track {
+background: transparent;
+
+}
+
+/*Shrinking the scrollbar*/
+::-webkit-scrollbar {
+  width: 15px;
+  
+}
+
+/*Giving the thumb a gradient*/
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background: #085F63;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+
+
+.aliasItem {
+  background-color: #A4DFDB;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-size: larger;
+  font-weight: bold;
+  margin-right: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+
+.aliasItem:hover {
+  cursor: pointer;
+  background-color: #bcf3f0;
+}
+
+/* TODO: prove this and style it */
+.noResults {
+
+}
+
+.aliasAccountNumber {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: medium;
+}
