@@ -107,25 +107,25 @@
 }
 /* scrollbar */
 /*To give the track a yellowish color*/
-::-webkit-scrollbar-track {
+.modalOverlay ::-webkit-scrollbar-track {
 background: transparent;
 
 }
 
 /*Shrinking the scrollbar*/
-::-webkit-scrollbar {
+.modalOverlay ::-webkit-scrollbar {
   width: 15px;
   
 }
 
 /*Giving the thumb a gradient*/
-::-webkit-scrollbar-thumb {
+.modalOverlay ::-webkit-scrollbar-thumb {
   width: 10px;
   background: #085F63;
   border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.modalOverlay ::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
 }
 
