@@ -6,6 +6,8 @@ import bankCard from "../../../assets/img/tarjetBancRecortada.png"
 import ToggleableText from '../../../utils/components/ToggleableText';
 import toast from 'react-hot-toast';
 import TitleAndClock from '../../../utils/components/TitleAndClock';
+import { formatValue } from 'react-currency-input-field';
+
 
 
 const Movement = () => {
@@ -162,8 +164,17 @@ const Movement = () => {
 
                 </div>
                 <div className={styles.cardAmount}>
-                  <span>Disponible:</span> {!!userData?.balance?.balance ? 'Bs. ' + userData.balance.balance : 'Loading...'}
-                </div>
+  <span>Disponible:</span> {!!userData?.balance?.balance
+    ? `Bs. ${formatValue({
+        value: String(userData.balance.balance),
+        groupSeparator: '.',
+        decimalSeparator: ',',
+        decimalScale: 2,
+        fixedDecimalLength: 2
+      })}`
+    : 'Loading...'}
+</div>
+
 
               </div>
 
