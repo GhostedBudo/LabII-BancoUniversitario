@@ -3,6 +3,8 @@ import Clock from '../../../utils/components/Clock';
 import styles from './Overview.module.css'
 import ToggleableText from '../../../utils/components/ToggleableText';
 import useAuth from '../../../hooks/useAuth';
+import { formatValue } from 'react-currency-input-field';
+
 
 const Overview = () => {
 
@@ -66,8 +68,18 @@ const Overview = () => {
 
           <ToggleableText colorEye={'gray'} text={userData?.user?.account_number ?? 'Loading...'} />
 
-          {/* <span>{`Cuenta de Ahorro ${user?.account_number ?? 'Loading...'}`}</span> */}
-          <span>{`Bs. ${userData?.balance?.balance ?? 'Loading...'}`}</span>
+         <span>
+  {userData?.balance?.balance != null
+    ? `Bs. ${formatValue({
+        value: String(userData.balance.balance),
+        groupSeparator: '.',
+        decimalSeparator: ',',
+        decimalScale: 2,
+        fixedDecimalLength: 2
+      })}`
+    : 'Loading...'}
+</span>
+
         </div>
       </div>
     </div>

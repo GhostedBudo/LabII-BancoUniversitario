@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "react": "^19.0.0",
+    "react-currency-input-field": "^3.10.0",
     "react-dom": "^19.0.0",
     "react-feather": "^2.0.10",
     "react-hot-toast": "^2.5.2",
