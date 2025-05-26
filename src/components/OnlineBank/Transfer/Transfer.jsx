@@ -89,7 +89,7 @@ const Transfer = () => {
     }
     
     // parseamos el string formateado a número
-    const numericAmount = parseFloat(amount.replace(/\./g, '').replace(',', '.'));
+    const numericAmount = parseFloat(amount);
     
     if (isNaN(numericAmount) || numericAmount <= 0) {
       toast.error('El monto debe ser mayor a cero.');
@@ -194,7 +194,7 @@ const Transfer = () => {
               id="amount"
               name="amount"
               placeholder="0.00"
-              decimalsLimit={2}
+              // decimalsLimit={2}
               decimalSeparator="."
               groupSeparator=","
               value={amount}
