@@ -75,7 +75,7 @@ const Contacts = () => {
     debounceTimer = setTimeout(() => {
       setCurrentPage(1);
       fetchContacts(search, 1);
-    }, 400);
+    }, 100);
     return () => clearTimeout(debounceTimer);
   }, [search]);
 

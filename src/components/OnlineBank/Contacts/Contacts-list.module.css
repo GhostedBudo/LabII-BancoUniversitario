@@ -28,6 +28,13 @@
   color: #085f63;
 }
 
+.contactFormInputAcNumber{
+  background-color: aquamarine;
+  opacity: 0.5;
+}
+
+
+
 .contactFormInput,
 .contactFormTextarea {
   padding: 0.5rem;
