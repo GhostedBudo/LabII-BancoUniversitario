@@ -3,7 +3,7 @@
     /* min-height: 50%; */
     display: grid;
     grid-template-rows: auto 1fr;
-    padding: 1em;
+    padding: 1em 2rem;
 }
 
 .titleBar {

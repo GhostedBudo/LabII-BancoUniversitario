@@ -3,24 +3,20 @@ import useAuth from '../../../hooks/useAuth';
 import MovementEntry from './MovementEntry';
 import styles from "./Movement.module.css";
 import bankCard from "../../../assets/img/tarjetBancRecortada.png"
-import Clock from '../../../utils/components/Clock';
 import ToggleableText from '../../../utils/components/ToggleableText';
 import toast from 'react-hot-toast';
-import { fetchUser } from '../../../utils/fetchings';
+import TitleAndClock from '../../../utils/components/TitleAndClock';
+
 
 const Movement = () => {
   const { getJwtToken } = useAuth();
   const [userData, setUserData] = useState({});
   const [movementsData, setMovementsData] = useState([]);
-  const [accountNumber, setAccountNumber] = useState(userData?.user?.account_number || 0);
+  
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [multiplier, setMultiplier] = useState(0);
   const [hasNextPage, setHasNextPage] = useState(false);
-
-
-
-
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -50,7 +46,7 @@ const Movement = () => {
         // console.log(user);
         // Update state together
         setUserData(user)
-        setAccountNumber(user?.account_number)
+       
 
 
       } catch (error) {
@@ -148,12 +144,7 @@ const Movement = () => {
     <>
       <div className={styles.mainMovement}>
         <div className={styles.accountContainer}>
-          <div className={styles.titleBar}>
-            <div><span>Detalle de la cuenta</span></div>
-
-            <Clock />
-
-          </div>
+          <TitleAndClock title={"Detalle de la cuenta"} />
           <div className={styles.balanceContainer}>
 
 

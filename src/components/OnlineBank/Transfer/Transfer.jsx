@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useOutletContext, redirect, Form, useNavigate } from 'react-router-dom';
-import { fetchUser } from '../../../utils/fetchings';
+import {  useEffect, useState } from 'react';
+import {  useNavigate } from 'react-router-dom';
+
 import styles from './Transfer.module.css';
+import TitleAndClock from '../../../utils/components/TitleAndClock';
 import AliasSearchModal from './AliasSearchModal';
 import toast from 'react-hot-toast';
-import Clock from '../../../utils/components/Clock'
 import useAuth from '../../../hooks/useAuth';
 import contactsIcon from "../../../assets/img/icons8-contacto-de-negocio.png"
 import cancelarIcon from "../../../assets/img/icons8-cancelar.png"
@@ -122,9 +122,6 @@ const Transfer = () => {
     setConcept('')
     setAccountNumber('')
   }
-
-
-
   // Validate input fields
   const handleTransfer = async (e) => {
     e.preventDefault();
@@ -193,8 +190,8 @@ const Transfer = () => {
     <div className={styles.container}>
 
       <header className={styles.header}>
-        <h1 className={styles.headerTitle}>Ingresa los datos</h1>
-        <Clock />
+        <TitleAndClock title={"Ingresa los datos"}/>
+       
       </header>
       <div className={styles.transferFormContainer}>
         {/* Formulario de react router para cargar la data a la siguiente pantalla */}

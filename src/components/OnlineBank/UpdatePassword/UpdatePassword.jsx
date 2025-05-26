@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Eye, EyeOff } from 'react-feather';
 import iconUpdate from '../../../assets/img/icons8-actualizar.png';
-import Clock from '../../../utils/components/Clock';
+import TitleAndClock from '../../../utils/components/TitleAndClock';
 import useAuth from '../../../hooks/useAuth';
 
 const UpdatePassword = () => {
@@ -96,13 +96,7 @@ const UpdatePassword = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
-        <span>Actualizar Contraseña</span>
-        <div className={styles.clockPassword}>
-           <Clock /> 
-        </div>
-        
-      </div>
+      <TitleAndClock title={"Actualizar Contraseña"} />
 
       <form onSubmit={handleSubmit} className={styles.form}>
         {/* Campo Contraseña Actual */}

@@ -17,12 +17,14 @@
 }
 
 .headerTitle {
-  color: gray; 
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .formGroup {
 
-  padding: 3rem; 
+  padding: 1rem; 
   grid-template-columns: 1fr auto;
   align-items: center;
     
@@ -69,8 +71,9 @@
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0 25%;
+    margin: 1rem 25%;
     gap: 10px;
+
 
   }
 
