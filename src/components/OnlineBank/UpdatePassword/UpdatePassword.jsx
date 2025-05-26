@@ -96,9 +96,12 @@ const UpdatePassword = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.titleBar}>
+      <div className={styles.title}>
         <span>Actualizar Contraseña</span>
-        <Clock />
+        <div className={styles.clockPassword}>
+           <Clock /> 
+        </div>
+        
       </div>
 
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -153,7 +156,6 @@ const UpdatePassword = () => {
               {showNewPassword ? <Eye size={18} /> : <EyeOff size={18} />}
             </button>
           </div>
-          <p className={styles.passwordHint}>Mínimo 8 caracteres</p>
         </div>
 
         {/* Campo Confirmar Contraseña */}
@@ -183,17 +185,17 @@ const UpdatePassword = () => {
         </div>
 
         {/* Botón de Envío */}
-        <div className={styles.actionButtons}>
+        
           <button
             type="submit"
             className={styles.button}
             disabled={isLoading}
             aria-busy={isLoading}
           >
-            <img src={iconUpdate} alt="Actualizar" className={styles.iconButton} />
-            {isLoading ? 'Actualizando...' : 'Actualizar Contraseña'}
+            <img src={iconUpdate} alt="Actualizar" className={styles.iconUpdate} />
+            {isLoading ? 'Actualizando...' : 'Actualizar'}
           </button>
-        </div>
+        
       </form>
     </div>
   );

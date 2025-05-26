@@ -102,55 +102,73 @@ const Movement = () => {
 
   return (
     <>
-      <div className={styles.accountContainer}>
-        <div className={styles.titleBar}>
-          <span>Detalle de la cuenta</span>
-          <Clock />
-        </div>
+        <div className={styles.mainMovement}>
+            <div className={styles.accountContainer}>
+                <div className={styles.titleBar}>
+                    <div><span>Detalle de la cuenta</span></div>
 
-        <div className={styles.balanceContainer}>
-          <div className={styles.balance}>
-            <img src={bankCard} alt="tarjeta" />
-            <div className={styles.textContainer}>
-              <div>
-                <span>Cuenta de Ahorro</span><br />
-                <ToggleableText text={accountNumber} colorEye={'white'} />
-              </div>
-              <div className={styles.cardAmount}>
-                <span>Disponible:</span><br />
-                {!!accountBalance ? 'Bs. ' + accountBalance : 'Loading...'}
-              </div>
+                    <Clock />
+
+                </div>
+                <div className={styles.balanceContainer}>
+
+
+                    {/* TARJETA */}
+                    <div className={styles.balance}>
+
+                        <img src={bankCard} alt="tarjeta" />
+
+                        <div className={styles.textContainer}>
+                            <div >
+                                <span>Cuenta de Ahorro</span><br />
+
+                                <ToggleableText text={accountNumber} colorEye={'white'} />
+
+
+                            </div>
+                            <div className={styles.cardAmount}><span>Disponible:</span> <br />{!!accountBalance ? 'Bs. ' + accountBalance : 'Loading...'}</div>
+
+                        </div>
+
+                    </div>
+
+                    <div className={styles.account}>
+                        <div className={styles.accountText}>
+                            <span className={styles.consultaTuCuenta}>Consulta tu Cuenta</span>
+
+                            <input
+                                readOnly
+                                style={
+                                    {
+                                        background: 'none', border: 'none', borderBottom: 'solid #085f63 2px', borderRadius: '0', fontSize: '1rem', fontFamily: 'Monserrat',
+                                    }
+                                }
+                                type="text" name="" id="" placeholder={!!accountNumber ? 'Cuenta de Ahorro ' + accountNumber.slice(-4).padStart(accountNumber.length, '*') : 'Loading...'} />
+                        </div>
+                        <div className={styles.accountBtn}>
+                            <div className={styles.radioBtn}>
+
+                                <label htmlFor="">Credito</label>
+                                <input
+                                    onClick={handleLeftRadio}
+                                    value={1}
+                                    type="radio" name="filter" id="" />
+                                <label htmlFor="">Debito</label>
+                                <input
+                                    value={-1}
+                                    onClick={handleRightRadio} type="radio" name="filter" id="" />
+                            </div>
+
+                           
+                        </div>
+
+                    </div>
+                </div>
             </div>
           </div>
 
-          <div className={styles.account}>
-            <div className={styles.accountText}>
-              <span className={styles.consultaTuCuenta}>Consulta tu Cuenta</span>
-              <input
-                readOnly
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  borderBottom: 'solid #085f63 2px',
-                  borderRadius: '0',
-                  fontSize: '1rem',
-                  fontFamily: 'Monserrat',
-                }}
-                type="text"
-                placeholder={!!accountNumber ? 'Cuenta de Ahorro ' + accountNumber.slice(-4).padStart(accountNumber.length, '*') : 'Loading...'}
-              />
-            </div>
-            <div className={styles.accountBtn}>
-              <div className={styles.radioBtn}>
-                <label htmlFor="">Credito</label>
-                <input onClick={handleLeftRadio} value={1} type="radio" name="filter" />
-                <label htmlFor="">Debito</label>
-                <input onClick={handleRightRadio} value={-1} type="radio" name="filter" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          
+     
 
       <div className={styles.movementsContainer}>
         <select

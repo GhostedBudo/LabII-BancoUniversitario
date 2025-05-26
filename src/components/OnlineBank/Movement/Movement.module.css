@@ -1,3 +1,4 @@
+
 .accountContainer {
     /* min-height: 50%; */
     display: grid;
@@ -246,5 +247,5 @@ input::placeholder {
 .movementsContainer {
     padding: 0 2rem; 
     display: grid;
-  
+    margin-bottom: 5rem;
 }
