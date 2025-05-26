@@ -48,6 +48,7 @@
   width: 100%;
   transition: border-color 0.3s;
   margin-top: 1rem;
+  resize: none;
 }
 
 .contactFormInput:focus,
