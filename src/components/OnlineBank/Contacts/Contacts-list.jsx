@@ -108,8 +108,9 @@ const ContactsList = () => {
             value={accountNumber}
             onChange={handleAccountChange}
             required
-            className={styles.contactFormInput}
+            className={`${styles.contactFormInput} ${ Boolean(contactToEdit?.id) && contactToEdit.account_number ? styles.contactFormInputAcNumber: ''}`}
             maxLength={20} // Este atributo no se respeta en inputs type="number", pero es útil si cambias a "text"
+            disabled= {Boolean(contactToEdit?.id) && contactToEdit.account_number ? true : false}
           />
         </label>
 

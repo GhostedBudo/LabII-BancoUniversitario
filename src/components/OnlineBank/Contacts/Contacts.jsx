@@ -10,6 +10,8 @@ import editUser from "../../../assets/img/icons8-modificar.png";
 import deleteUser from "../../../assets/img/icons8-eliminar.png";
 import lupa from "../../../assets/img/icons8-búsqueda.png";
 
+let debounceTimer;
+
 const Contacts = () => {
   const { getJwtToken } = useAuth();
   const { userData } = useOutletContext();
@@ -22,11 +24,14 @@ const Contacts = () => {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-  const fetchContacts = async () => {
+  const fetchContacts = async (searchTerm = search, page = currentPage, size = pageSize) => {
     try {
-      const url = search
-        ? `/api/v1/client/contact?alias=${encodeURIComponent(search)}`
-        : `/api/v1/client/contact?page=${currentPage}&page_size=${pageSize}`;
+      const queryParams = new URLSearchParams();
+      if (searchTerm) queryParams.append('alias', searchTerm);
+      queryParams.append('page', page);
+      queryParams.append('page_size', size);
+
+      const url = `/api/v1/client/contact?${queryParams.toString()}`;
 
       const response = await fetch(url, {
         headers: {
@@ -37,18 +42,21 @@ const Contacts = () => {
 
       const data = await response.json();
       setContacts(data.data || []);
-      if (!search) {
-        const nextResponse = await fetch(`/api/v1/client/contact?page=${currentPage + 1}&page_size=${pageSize}`, {
-          headers: {
-            Authorization: `Bearer ${getJwtToken()}`,
-            'Content-Type': 'application/json'
-          }
-        });
-        const nextData = await nextResponse.json();
-        setHasNextPage((nextData.data || []).length > 0);
-      } else {
-        setHasNextPage(false);
-      }
+
+      // Verificar si hay siguiente página
+      const nextParams = new URLSearchParams();
+      if (searchTerm) nextParams.append('alias', searchTerm);
+      nextParams.append('page', page + 1);
+      nextParams.append('page_size', size);
+
+      const nextResponse = await fetch(`/api/v1/client/contact?${nextParams.toString()}`, {
+        headers: {
+          Authorization: `Bearer ${getJwtToken()}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      const nextData = await nextResponse.json();
+      setHasNextPage((nextData.data || []).length > 0);
 
     } catch (error) {
       toast.error('Error cargando contactos');
@@ -61,11 +69,15 @@ const Contacts = () => {
     fetchContacts();
   }, [currentPage, pageSize]);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setCurrentPage(1);
-    fetchContacts();
-  };
+  // Live search con debounce
+  useEffect(() => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      setCurrentPage(1);
+      fetchContacts(search, 1);
+    }, 100);
+    return () => clearTimeout(debounceTimer);
+  }, [search]);
 
   const handlePrevPage = () => {
     setCurrentPage(prev => (prev === 1 ? prev : prev - 1));
@@ -95,8 +107,8 @@ const Contacts = () => {
 
       if (response.ok) {
         toast.success('Contacto eliminado correctamente');
-        setContacts(prev => prev.filter(contact => contact.id !== contactToDelete));
-        setCurrentPage(1); 
+        setCurrentPage(1);
+        fetchContacts(search, 1);
       } else {
         const error = await response.json();
         toast.error(error?.message || 'Error eliminando el contacto');
@@ -121,17 +133,15 @@ const Contacts = () => {
       </div>
 
       <div className={styles.controlsRow}>
-        <form className={styles.searchBar} onSubmit={handleSearch}>
+        <div className={styles.searchBar}>
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar por alias..."
           />
-          <button type="submit">
-            <img src={lupa} alt="Buscar" />
-          </button>
-        </form>
+          <img src={lupa} alt="Buscar" />
+        </div>
 
         <select
           className={styles.select}

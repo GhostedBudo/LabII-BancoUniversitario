@@ -131,13 +131,14 @@
         color: #085F63;
         font-size: 1.5rem; 
         width: 50%;
-        margin-right: 46%;
+        margin-right: 45%;
     }
     
     .thirdText {
         color: #000;
-        width: 40%;
-        font-size: 1.4rem;
-        margin-right: 55%;
+        width: 35%;
+        font-size: 1.3rem;
+        margin-right: 59%;
+        height: 35%;
     }
 }
