@@ -3,6 +3,7 @@ import styles from './Contacts-list.module.css';
 import useAuth from '../../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import Clock from '../../../utils/components/Clock';
 
 const ContactsList = () => {
   const { getJwtToken } = useAuth();
@@ -84,7 +85,12 @@ const ContactsList = () => {
   };
 
   return (
-    <div className={styles.contactFormContainer}>
+    <div>
+      <div className={styles.clockContacts}>
+        <Clock />
+      </div>
+      
+      <div className={styles.contactFormContainer}>
       <h2 className={styles.contactFormTitle}>
         {contactToEdit ? 'Editar Contacto' : 'Nuevo Contacto'}
       </h2>
@@ -98,6 +104,7 @@ const ContactsList = () => {
             onChange={(e) => setAlias(e.target.value)}
             required
             className={styles.contactFormInput}
+            placeholder="Ingrese el Alias"
           />
         </label>
 
@@ -111,6 +118,7 @@ const ContactsList = () => {
             className={`${styles.contactFormInput} ${ Boolean(contactToEdit?.id) && contactToEdit.account_number ? styles.contactFormInputAcNumber: ''}`}
             maxLength={20} // Este atributo no se respeta en inputs type="number", pero es útil si cambias a "text"
             disabled= {Boolean(contactToEdit?.id) && contactToEdit.account_number ? true : false}
+            placeholder="Ingrese el numero de cuenta"
           />
         </label>
 
@@ -121,18 +129,23 @@ const ContactsList = () => {
             onChange={(e) => setDescription(e.target.value)}
             rows={4}
             className={styles.contactFormTextarea}
+            placeholder="Ingrese Descripción del contacto..."
           />
         </label>
 
         <div className={styles.contactFormButtons}>
-          <button type="submit" className={styles.contactFormButton} disabled={loading}>
-            {loading ? 'Guardando...' : 'Guardar'}
-          </button>
           <button type="button" className={styles.contactFormButton} onClick={() => navigate(-1)}>
             Cancelar
           </button>
+          
+          <button type="submit" className={styles.contactFormButton} disabled={loading}>
+            {loading ? 'Guardando...' : 'Guardar'}
+          </button>
         </div>
       </form>
+
+      </div>
+      
     </div>
   );
 };
