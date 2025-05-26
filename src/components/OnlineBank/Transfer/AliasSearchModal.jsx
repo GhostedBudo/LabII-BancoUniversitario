@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './AliasSearchModal.module.css';
+import searchIcon from '../../../assets/img/icons8-búsqueda.png'
 
 const AliasSearchModal = ({ onClose, onSelectAlias, data }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,8 +16,16 @@ const AliasSearchModal = ({ onClose, onSelectAlias, data }) => {
     alias.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+    // Lógica simple para cerrar el modal al hacer clic fuera del contenido
+  const handleOverlayClick = (event) => {
+    // Si el elemento donde se hizo clic (event.target) es EXACTAMENTE el overlay
+    // significa que el clic no ocurrió en un hijo del modal (como el contenido del modal).
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
   return (
-    <div className={styles.modalOverlay}>
+    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
       <div className={styles.modalContent}>
         <button className={styles.closeButton} onClick={onClose} aria-label="Cerrar modal">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.closeIcon}>
@@ -32,10 +41,8 @@ const AliasSearchModal = ({ onClose, onSelectAlias, data }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className={styles.searchButton} aria-label="Buscar">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={styles.searchIcon}>
-              <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
-            </svg>
             Buscar
+            <img src={searchIcon} alt=""  width={`30px`}/>
           </button>
         </div>
         <div className={styles.aliasList}>
@@ -47,7 +54,6 @@ const AliasSearchModal = ({ onClose, onSelectAlias, data }) => {
                 onClick={() => onSelectAlias(alias.accountNumber)}
               >
                 {alias.name}
-                <br />
                  <span className={styles.aliasAccountNumber}>
                   {alias.accountNumber}
                 </span>

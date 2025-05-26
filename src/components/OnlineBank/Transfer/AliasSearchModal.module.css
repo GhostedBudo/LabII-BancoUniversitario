@@ -14,121 +14,148 @@
 }
 
 .modalContent {
-  background-color: #fff;
-  padding: 25px; /* Reduced padding */
-  border-radius: 8px; /* Standard rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Softer shadow */
-  width: 90%;
-  max-width: 400px; /* Slightly narrower */
-  position: relative;
-  border: none; /* No explicit border */
+  border: none;
+  background-color: #49BEB7;
+  border-radius: 10px;
+  min-width: 50%; 
+  height: 50vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  padding: 1.2em;
+  gap: 0.5em;
+  font-family: "Monserrat";
+  
+  
 }
 
 .closeButton {
-justify-self: end;
+  justify-self: end;
+  border: none; 
+  width: 3em;
   background: none;
-  border: none;
-  cursor: pointer;
-  color: #777; /* Softer color */
-  padding: 5px; /* Minimal padding */
-  transition: color 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .closeButton:hover {
-  color: #333;
+  cursor: pointer;
 }
 
 .closeIcon {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+  color: white;
+  
 }
 
+
+
 .searchBar {
-  display: flex;
-  margin-bottom: 20px;
-  border: 1px solid #ddd; /* Simple border */
-  border-radius: 4px;
-  overflow: hidden;
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 
 .searchBar input {
-  flex-grow: 1;
-  padding: 10px 12px;
-  border: none;
-  font-size: 0.95em;
+  margin: 0 5px;
+  background: none;
+  border: none; 
+  border-bottom: solid white 2px;
+  padding: 0 0.7rem;
+  font-size: larger;
+  font-weight: thin;
   outline: none;
-  color: #333;
 }
 
 .searchBar input::placeholder {
-  color: #aaa;
+  font-family: "Monserrat";
+}
+
+.searchBar input::focus {
+  border: none;
 }
 
 .searchButton {
-  background-color: #f0f0f0; /* Light gray button */
-  color: #555;
-  border: none;
-  padding: 10px 12px;
-  cursor: pointer;
-  font-size: 0.9em;
-  font-weight: 500;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-family: "Monserrat";
+  background-color: #085F63;
+  border: none; 
+  border-radius: 10px;
+  padding: 0 4px;
+  color: white;
   display: flex;
   align-items: center;
-  gap: 5px; /* Small gap for icon and text */
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: larger;
+
 }
 
 .searchButton:hover {
-  background-color: #e0e0e0;
-  color: #333;
+  cursor: pointer;
+  background-color: #0f7176;
 }
 
 .searchIcon {
-  width: 16px; /* Smaller icon */
-  height: 16px;
-  fill: currentColor;
+  
 }
 
 /* Alias list styles */
 
 .aliasList {
-  max-height: 200px; /* Slightly less height */
-  overflow-y: auto;
-  border: 1px solid #eee; /* Lighter border */
-  border-radius: 4px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  ;
 }
+/* scrollbar */
+/*To give the track a yellowish color*/
+::-webkit-scrollbar-track {
+background: transparent;
+
+}
+
+/*Shrinking the scrollbar*/
+::-webkit-scrollbar {
+  width: 15px;
+  
+}
+
+/*Giving the thumb a gradient*/
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background: #085F63;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+
 
 .aliasItem {
-  padding: 12px 15px; /* Consistent padding */
-  cursor: pointer;
-  border-bottom: 1px solid #f5f5f5; /* Very light separator */
-  font-size: 0.95em;
+  background-color: #A4DFDB;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-size: larger;
   font-weight: bold;
-  color: #444;
-  transition: background-color 0.2s ease;
+  margin-right: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.aliasItem:last-child {
-  border-bottom: none;
-}
+
 
 .aliasItem:hover {
-  background-color: #f0f0f0; /* Simple light gray on hover */
+  cursor: pointer;
+  background-color: #bcf3f0;
 }
 
+/* TODO: prove this and style it */
 .noResults {
-  padding: 15px;
-  text-align: center;
-  color: #888;
-  font-style: italic;
-  font-size: 0.9em;
+
 }
 
 .aliasAccountNumber {
     font-weight: bold;
-    color: #919191;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: medium;
 }

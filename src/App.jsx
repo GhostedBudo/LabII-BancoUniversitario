@@ -20,6 +20,7 @@ import Overview from "./components/OnlineBank/Overview/Overview";
 import Contacts from "./components/OnlineBank/Contacts/Contacts";
 import ContactsList from "./components/OnlineBank/Contacts/Contacts-list";
 import Transfer from "./components/OnlineBank/Transfer/Transfer";
+import TransferReport from "./components/OnlineBank/Transfer/TransferReport";
 
 
 
@@ -48,7 +49,7 @@ function App() {
 
         {/* Banca en linea */}
         <Route path="user" element={<BankLayout />}>
-          
+
           <Route index
             element={
               <PrivateRoute>
@@ -60,30 +61,42 @@ function App() {
             element={
               <PrivateRoute>
                 <Movement />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
 
-            <Route path="contacts"
+          <Route path="contacts"
             element={
               <PrivateRoute>
                 <Contacts />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
 
-            <Route path="contacts-list"
+          <Route path="contacts-list"
             element={
               <PrivateRoute>
                 <ContactsList />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
 
 
-          <Route path="Transfer"
-            element={
+          <Route path="transfer">
+
+            <Route index element={
               <PrivateRoute>
                 <Transfer />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
+
+            <Route
+              path=":transferId"
+              element = {
+                <PrivateRoute>
+                <TransferReport />
+              </PrivateRoute>
+              }
+             />
+
+          </Route>
 
 
 
