@@ -6,13 +6,15 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import correoimg from "../../../assets/img/icons8-usuario.png";
 import contraseniaimg from "../../../assets/img/icons8-contraseña.png";
+import { Eye, EyeOff } from 'react-feather'; // 👈 íconos de React Feather
 
 const Login = () => {
-  const { login, getJwtToken } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // 👈 estado para mostrar/ocultar
   const [errors, setErrors] = useState({});
   const [error, setError] = useState('');
 
@@ -44,7 +46,7 @@ const Login = () => {
 
         if (response.ok) {
           login(data.data.jwt);
-          toast.success('Login succesful');
+          toast.success('Login exitoso');
           navigate('/user');
         } else {
           validationErrors.login = data.message;
@@ -66,7 +68,6 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
           <div className={styles["input-group"]}>
-            
             <label>Correo Electrónico</label>
             <div className={styles["input-wrapper"]}>
               <img src={correoimg} alt="Correo" className={styles["input-icon"]} />
@@ -85,11 +86,17 @@ const Login = () => {
             <div className={styles["input-wrapper"]}>
               <img src={contraseniaimg} alt="Contraseña" className={styles["input-icon"]} />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Ingresar Contraseña"
               />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ cursor: 'pointer', marginLeft: '8px' }}
+              >
+                {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
+              </span>
             </div>
             {errors.password && <p className={styles.error}>{errors.password}</p>}
           </div>

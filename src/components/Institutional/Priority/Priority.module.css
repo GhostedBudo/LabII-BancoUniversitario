@@ -111,6 +111,8 @@
 
 .cardUniv button:hover {
   cursor: pointer;
+  background-color: #49beb7;
+  color: #085f63;
 }
 
 .cardUniv p {
