@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useOutletContext, useNavigate, Form } from 'react-router-dom';
+import { useOutletContext, redirect, Form, useNavigate } from 'react-router-dom';
 import styles from './Transfer.module.css';
 import AliasSearchModal from './AliasSearchModal';
 import toast from 'react-hot-toast';
@@ -12,9 +12,11 @@ import sendIcon from "../../../assets/img/icons8-enviar.png"
 // TODO: report of transfer, with the tx id in the url
 const Transfer = () => {
   const { getJwtToken } = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const { userData } = useOutletContext(); // Get userData from BankLayout
   const [contacts, setContacts] = useState([]);
+  const [contactId, setContactId] = useState('')
+  const [contactAlias, setContactAlias] = useState('')
   const [accountNumber, setAccountNumber] = useState('');
   const [amount, setAmount] = useState(0);
   const [displayAmount, setDisplayAmount] = useState('');
@@ -38,9 +40,12 @@ const Transfer = () => {
       if (response.ok) {
         console.log(data);
         const contactsList = data.data.map(contact => ({
-          name: contact.alias,
+          alias: contact.alias,
           accountNumber: contact.account_number,
+          contactId: contact.id
         }))
+
+
         console.log(contactsList);
         setContacts(contactsList || []);
       } else {
@@ -124,9 +129,21 @@ const Transfer = () => {
       if (response.ok) {
         const data = await response.json();
         toast.success(data.message || 'Transfer successful!');
-        console.log('Transfer data:', data);
+        const transferDetails = {
+            contactAccountNumber: data.data.account_number, 
+            alias: contactAlias, 
+            fromAccount: fromAccount, 
+            description: data.data.description, 
+            amount: data.data.amount, 
+            timestamp: data.data.created_at,
+            reference: data.data.id
+          }
+
+          console.log("Transfer Details before nav", transferDetails)
         // navigate to transfer details
-        navigate(`${data.data.id}`)
+        navigate(`${data.data.id}`, {
+          state: transferDetails
+        })
       }
     } catch (error) {
       console.error('Error during transfer:', error);
@@ -139,8 +156,10 @@ const Transfer = () => {
     setDisplayAmount('');
   };
 
-  const handleAliasSelect = (aliasAccountNumber) => {
+  const handleAliasSelect = (aliasAccountNumber, contactAlias) => {
     setAccountNumber(aliasAccountNumber);
+    setContactAlias(contactAlias); 
+    setContactId(contactId)
     setIsModalOpen(false);
   };
 
@@ -153,7 +172,7 @@ const Transfer = () => {
       </header>
       <div className={styles.transferFormContainer}>
         {/* Formulario de react router para cargar la data a la siguiente pantalla */}
-        <Form method='post' onSubmit={handleTransfer}>
+        <form method='post' onSubmit={handleTransfer}>
           <div className={styles.formGroup}>
             <label htmlFor="fromAccount">Desde mi cuenta</label>
             <input
@@ -226,7 +245,7 @@ const Transfer = () => {
               <img src={sendIcon} alt="Transferir dinero" width={'30px'} />
             </button>
           </div>
-        </Form>
+        </form>
 
         {isModalOpen && (
           <AliasSearchModal

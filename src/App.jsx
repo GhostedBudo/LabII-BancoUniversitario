@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./components/Routing/PrivateRoute";
 
 import "./index.css";

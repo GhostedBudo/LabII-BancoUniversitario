@@ -4,16 +4,10 @@ import searchIcon from '../../../assets/img/icons8-búsqueda.png'
 
 const AliasSearchModal = ({ onClose, onSelectAlias, data }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const aliases = data || [
-    { name: 'Jorge Chiquin', accountNumber: '1234567890' },
-    { name: 'Alondra León', accountNumber: '0987654321' },
-    { name: 'Hanuman Sánchez', accountNumber: '1122334455' },
-    { name: 'Maria Garcia', accountNumber: '5566778899' },
-    { name: 'Pedro Martinez', accountNumber: '9988776655' },
-  ] ;
+  const aliases = data || [] ;
 
-  const filteredAliases = aliases.filter(alias =>
-    alias.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredAliases = aliases.filter(contact =>
+    contact.alias.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
     // Lógica simple para cerrar el modal al hacer clic fuera del contenido
@@ -47,15 +41,15 @@ const AliasSearchModal = ({ onClose, onSelectAlias, data }) => {
         </div>
         <div className={styles.aliasList}>
           {filteredAliases.length > 0 ? (
-            filteredAliases.map((alias) => (
+            filteredAliases.map((contact) => (
               <div
-                key={alias.accountNumber}
+                key={contact.accountNumber}
                 className={styles.aliasItem}
-                onClick={() => onSelectAlias(alias.accountNumber)}
+                onClick={() => onSelectAlias(contact.accountNumber, contact.alias)}
               >
-                {alias.name}
+                {contact.alias}
                  <span className={styles.aliasAccountNumber}>
-                  {alias.accountNumber}
+                  {contact.accountNumber}
                 </span>
               </div>
       
