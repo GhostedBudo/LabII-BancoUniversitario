@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useOutletContext,  } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import Clock from '../../../utils/components/Clock';
 import styles from './Overview.module.css'
 import ToggleableText from '../../../utils/components/ToggleableText';
 import useAuth from '../../../hooks/useAuth';
-import { fetchUser } from '../../../utils/fetchings';
 
 const Overview = () => {
 
@@ -14,7 +12,7 @@ const Overview = () => {
     const fetchUser = async () => {
       try {
         // Fetch user data
-        const token = getJwtToken(); 
+        const token = getJwtToken();
         const userResponse = await fetch('/api/v1/client/user/whoami', {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -38,14 +36,14 @@ const Overview = () => {
         console.log(user)
         // Update state together
         setUserData(user)
-        
+
       } catch (error) {
         toast.error('Error fetching data')
         // console.error("Error fetching data:", error);
-      } 
+      }
     }
 
-    fetchUser(); 
+    fetchUser();
 
   }, [])
 
@@ -62,12 +60,12 @@ const Overview = () => {
         <div className={styles.label}>
           <span>Producto / Nro. de producto</span>
           <span>Disponible</span>
-          
+
         </div>
         <div className={styles.content}>
 
-          <ToggleableText colorEye={'gray'} text={userData?.user?.account_number ?? 'Loading...'}/>
-          
+          <ToggleableText colorEye={'gray'} text={userData?.user?.account_number ?? 'Loading...'} />
+
           {/* <span>{`Cuenta de Ahorro ${user?.account_number ?? 'Loading...'}`}</span> */}
           <span>{`Bs. ${userData?.balance?.balance ?? 'Loading...'}`}</span>
         </div>

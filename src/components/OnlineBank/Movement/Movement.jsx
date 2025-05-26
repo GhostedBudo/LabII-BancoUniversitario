@@ -12,7 +12,7 @@ const Movement = () => {
   const { getJwtToken } = useAuth();
   const [userData, setUserData] = useState({});
   const [movementsData, setMovementsData] = useState([]);
-  
+
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [multiplier, setMultiplier] = useState(0);
@@ -46,7 +46,7 @@ const Movement = () => {
         // console.log(user);
         // Update state together
         setUserData(user)
-       
+
 
 
       } catch (error) {

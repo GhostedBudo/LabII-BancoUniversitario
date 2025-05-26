@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Routes, Route, createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./components/Routing/PrivateRoute";
 
@@ -7,10 +7,7 @@ import "./index.css";
 import InstitutionalLayout from "./components/Routing/layouts/InstitutionalLayout";
 import AuthLayout from "./components/Routing/layouts/AuthLayout";
 import BankLayout from "./components/Routing/layouts/BankLayout";
-
-
 import ScrollToAnchor from "./utils/components/ScrollToAnchor";
-
 import MoreInfo from "./components/Institutional/MoreInfo/MoreInfo";
 import Institutional from "./components/Institutional/Institutional";
 import Login from "./components/OnlineBank/Login/Login";
@@ -78,12 +75,12 @@ function App() {
                 <ContactsList />
               </PrivateRoute>
             } />
-            
+
           <Route path="updatePassword"
             element={
               <PrivateRoute>
                 <UpdatePassword />
-                </PrivateRoute>
+              </PrivateRoute>
             } />
 
 
@@ -97,17 +94,14 @@ function App() {
 
             <Route
               path=":transferId"
-              element = {
+              element={
                 <PrivateRoute>
-                <TransferReport />
-              </PrivateRoute>
+                  <TransferReport />
+                </PrivateRoute>
               }
-             />
+            />
 
           </Route>
-
-
-
         </Route>
 
       </Routes>
