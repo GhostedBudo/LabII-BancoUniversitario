@@ -85,11 +85,11 @@ const Signup = () => {
                     // console.log('Registro exitoso:', data);
                     navigate('/login');
                 } else {
-                    toast.error('Fallo el registro')
+                    toast.error('Error', data.error)
                     // console.error('Fallo en el registro:', data.message);
                 }
             } catch (error) {
-                toast.error('Error de red')
+                toast.error(error.message)
                 // console.error('Error de red:', error);
             }
         }
@@ -99,6 +99,9 @@ const Signup = () => {
         <div className={styles["signup-container"]}>
             <div className={styles["form-section"]}>
                 <h3>Registro</h3>
+
+                <div>
+
                 <form onSubmit={handleSubmit}>
                     <div className={styles["input-group"]}>
                         <label>Nombre</label>
@@ -220,6 +223,7 @@ const Signup = () => {
 
                     <button type="submit" className={styles["btn-login"]}>Registrarse</button>
                 </form>
+                </div>
 
                 <p className={styles["register-text"]}>
                     ¿Ya tienes cuenta?

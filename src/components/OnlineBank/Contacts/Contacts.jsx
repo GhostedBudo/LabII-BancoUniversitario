@@ -58,7 +58,7 @@ const Contacts = () => {
       setHasNextPage((nextData.data || []).length > 0);
 
     } catch (error) {
-      toast.error('Error cargando contactos');
+      toast.error(error.message);
       setContacts([]);
       setHasNextPage(false);
     }
@@ -113,7 +113,7 @@ const Contacts = () => {
         toast.error(error?.message || 'Error eliminando el contacto');
       }
     } catch (error) {
-      toast.error('Error en la conexión al eliminar el contacto');
+      toast.error(error.message);
     } finally {
       setContactToDelete(null);
     }
