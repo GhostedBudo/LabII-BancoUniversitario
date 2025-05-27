@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import addUser from "../../../assets/img/icons8-agregar-usuario.png";
 import editUser from "../../../assets/img/icons8-modificar.png";
 import deleteUser from "../../../assets/img/icons8-eliminar.png";
-import lupa from "../../../assets/img/icons8-búsqueda.png";
+import lupa from "../../../assets/img/icons8-búsquedaOscuro.png";
 
 let debounceTimer;
 
@@ -137,9 +137,8 @@ const Contacts = () => {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar por alias..."
+            placeholder="🔍︎ Buscar por alias..."
           />
-          <img src={lupa} alt="Buscar" />
         </div>
 
         <select

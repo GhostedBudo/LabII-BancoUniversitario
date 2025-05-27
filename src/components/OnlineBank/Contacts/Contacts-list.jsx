@@ -4,6 +4,8 @@ import useAuth from '../../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Clock from '../../../utils/components/Clock';
+import iconX from '../../../assets/img/icons8-cancelar.png';
+import iconUpdate from '../../../assets/img/icons8-actualizar.png';
 
 const ContactsList = () => {
   const { getJwtToken } = useAuth();
@@ -135,10 +137,12 @@ const ContactsList = () => {
 
         <div className={styles.contactFormButtons}>
           <button type="button" className={styles.contactFormButton} onClick={() => navigate(-1)}>
+            <img src={iconX} alt="" className={styles.iconCancel} />
             Cancelar
           </button>
           
           <button type="submit" className={styles.contactFormButton} disabled={loading}>
+            <img src={iconUpdate} alt="" className={styles.iconUpd} />
             {loading ? 'Guardando...' : 'Guardar'}
           </button>
         </div>
