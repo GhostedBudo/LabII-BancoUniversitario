@@ -105,6 +105,12 @@
   align-items: center;
 }
 
+.searchBar input::placeholder{
+  font-weight: normal;
+  color: black;
+  opacity: 0.6;
+}
+
 .contactRow > div,
 .contactHeader > span {
   flex: 1;
@@ -151,12 +157,21 @@
   background-color: #49BEB7;
   color: #085f63;
   border: none;
-  border-radius: 4px;
-  padding: 0.3em 0.8em;
+  border-radius: 2rem;
+  padding: 0.3em 0.9em;
   font-size: 0.8em;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.actionButtons button {
+  font-family: inherit;
+}
+
+.movementsContainer button{
+  font-family: inherit;
 }
 
 .rowActions button:hover {
@@ -180,9 +195,9 @@
 }
 
 .pagesList button {
-  background-color: #49BEB7;
+  background-color: #e0fafa;
+  border: 1px solid #20a5ae;
   color: #085f63;
-  border: none;
   border-radius: 4px;
   padding: 0.3em 0.8em;
   font-size: 0.8em;

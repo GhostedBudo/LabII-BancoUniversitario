@@ -1,11 +1,5 @@
 .transferFormContainer {
-  margin: 0 25%;
-}
-
-.container {
-  
-
-
+  margin: 8% 25%;
 }
 
 .header {
@@ -23,8 +17,7 @@
 }
 
 .formGroup {
-
-  padding: 1rem; 
+  padding: 0.8rem; 
   grid-template-columns: 1fr auto;
   align-items: center;
     
@@ -32,20 +25,24 @@
 
   .formGroup > label {
     color: #085F63;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 900;
   }
 
   .formInput, .disabledInput {
-    padding: 1rem 0.1rem;
+    padding: 0.3rem 0.1rem;
     width: 100%;
     background: transparent;
     border: none;
     border-bottom: 1px solid #085F63;
     display: grid;
-    font-size: 1.3rem;
-    
-    
+    font-size: 1.1rem;
+    margin-top: 0.8rem;
+
+  }
+
+  .formInput::placeholder{
+    font-weight: 500;
   }
 
   .inputWithButton {
@@ -73,16 +70,14 @@
     grid-template-columns: 1fr 1fr;
     margin: 1rem 25%;
     gap: 10px;
-
-
   }
 
   .actionButton {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     background-color: #49BEB7;
     border-radius: 100px;
     border: none; 
-    font-family: "Monserrat";
+    font-family: inherit;
     font-size: 1.2em;
     font-weight: 600;
     color: #085F63;
@@ -91,7 +86,6 @@
     justify-content: center;
     gap: 10px;
 
-    
   }
 
   .actionButton:hover {
@@ -99,12 +93,12 @@
     color: white;
     cursor: pointer;
   }
+  
   .iconButton {
-
     border: none; 
     border-radius: 10px;
     background-color: #085F63;
-    padding: 1em;
+    padding: 0.7em;
   }
 
   .iconButton img {

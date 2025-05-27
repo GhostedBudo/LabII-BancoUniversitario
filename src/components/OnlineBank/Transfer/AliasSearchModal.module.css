@@ -15,7 +15,7 @@
 
 .modalContent {
   border: none;
-  background-color: #49BEB7;
+  background-color: #78e2db;
   border-radius: 10px;
   min-width: 50%; 
   height: 50vh;
@@ -24,8 +24,6 @@
   padding: 1.2em;
   gap: 0.5em;
   font-family: "Monserrat";
-  
-  
 }
 
 .closeButton {
@@ -92,9 +90,6 @@
   background-color: #0f7176;
 }
 
-.searchIcon {
-  
-}
 
 /* Alias list styles */
 
@@ -131,7 +126,8 @@ background: transparent;
 
 
 .aliasItem {
-  background-color: #A4DFDB;
+  background-color: #ebfffe;
+  opacity: 0.9;
   border-radius: 3px;
   padding: 0.5rem 1rem;
   font-size: larger;

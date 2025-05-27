@@ -174,7 +174,7 @@ const Transfer = () => {
                 id="toAccount"
                 value={accountNumber}
                 onChange={(e) => setAccountNumber(e.target.value)}
-                placeholder="Número de cuenta"
+                placeholder="Ingresar Número de cuenta"
                 className={`${styles.formInput}`}
               />
               <button
@@ -210,7 +210,7 @@ const Transfer = () => {
               id="concept"
               value={concept}
               onChange={(e) => setConcept(e.target.value)}
-              placeholder="Ingresa..."
+              placeholder="Ingresar concepto..."
               className={styles.formInput}
             />
           </div>

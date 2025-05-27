@@ -206,9 +206,9 @@ select {
 }
 
 .pagesList button {
-    background-color: #49BEB7;
-    color: #085F63;
-    border: none;
+    background-color: #e0fafa;
+    border: 1px solid #20a5ae;
+    color: #085f63;
     border-radius: 4px;
     padding: 0.3em 0.8em;
     font-size: 0.8em;
