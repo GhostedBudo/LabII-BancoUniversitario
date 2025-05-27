@@ -46,7 +46,7 @@ const Movement = () => {
           balance: balanceJson.data
         }
         // console.log(user);
-        // Update state together
+
         setUserData(user)
 
 
@@ -90,7 +90,7 @@ const Movement = () => {
 
 
       } catch (error) {
-        toast.error('Error cargando movimientos');
+        toast.error(error.message || 'Error cargando movimientos');
         setMovementsData([]);
         setHasNextPage(false);
       }
@@ -164,17 +164,9 @@ const Movement = () => {
 
                 </div>
                 <div className={styles.cardAmount}>
-  <span>Disponible:</span>{" "}
-  {userData?.balance?.balance !== undefined && userData?.balance?.balance !== null
-    ? `Bs. ${formatValue({
-        value: String(userData.balance.balance),
-        groupSeparator: ',',
-        decimalSeparator: '.',
-        decimalScale: 2,
-        fixedDecimalLength: 2
-      })}`
-    : 'Loading...'}
-</div>
+                  <span>Disponible:</span>{" "}
+                  { `Bs. ${userData?.balance?.balance.toLocaleString('es-VE')}` || 'Loading...'}
+                </div>
 
 
 

@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 const HeaderOnlineBank = () => {
-  const {logout, getJwtToken } = useAuth(); 
+  const {logout} = useAuth(); 
   const navigate  = useNavigate(); 
 
   function handleClick() {
-      // console.log("Saliendo");
+      
       logout(); 
-      // console.log(getJwtToken()); 
+    
       navigate('/login'); 
 
   }

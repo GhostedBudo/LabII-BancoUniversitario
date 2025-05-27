@@ -17,15 +17,7 @@ const MovementEntry = ({ entry }) => {
       <div>{entry.reference}</div>
       <div>{entry.description}</div>
       <div className={amountStyle}>
-        {isHeader
-          ? entry.amount
-          : `${entry.amount < 0 ? '-' : ''}${formatValue({
-              value: String(Math.abs(entry.amount)),
-              groupSeparator: ',',
-              decimalSeparator: '.',
-              decimalScale: 2,
-              fixedDecimalLength: 2
-            })} Bs`}
+        {`${entry.amount.toLocaleString('ve-ES')} Bs`}
       </div>
     </div>
   );

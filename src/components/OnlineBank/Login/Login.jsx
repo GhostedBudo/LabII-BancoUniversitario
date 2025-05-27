@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import correoimg from "../../../assets/img/icons8-usuario.png";
 import contraseniaimg from "../../../assets/img/icons8-contraseña.png";
-import { Eye, EyeOff } from 'react-feather'; // 👈 íconos de React Feather
+import { Eye, EyeOff } from 'react-feather'; 
 
 const Login = () => {
   const { login } = useAuth();
@@ -14,7 +14,7 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // 👈 estado para mostrar/ocultar
+  const [showPassword, setShowPassword] = useState(false); 
   const [errors, setErrors] = useState({});
   const [error, setError] = useState('');
 
