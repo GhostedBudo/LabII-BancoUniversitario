@@ -3,7 +3,7 @@ import styles from './MovementEntry.module.css';
 import { formatValue } from 'react-currency-input-field';
 
 const MovementEntry = ({ entry }) => {
-  const isHeader = typeof entry.amount !== 'number';
+  const isHeader = typeof entry.amount !== 'number'; // esto es para detectar la primera fila de la tabla y formatearla debidamente, ya que as cabeceras de la tabla tambien son entradas a la tabla, y con esto colocamos la linea separadora
 
   const amountStyle = !isHeader
     ? entry.amount >= 0
@@ -17,7 +17,7 @@ const MovementEntry = ({ entry }) => {
       <div>{entry.reference}</div>
       <div>{entry.description}</div>
       <div className={amountStyle}>
-        {`${entry.amount.toLocaleString('ve-ES')} Bs`}
+        {`${entry.amount.toLocaleString('es-VE')} Bs`}
       </div>
     </div>
   );

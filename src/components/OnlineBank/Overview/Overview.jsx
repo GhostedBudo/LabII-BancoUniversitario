@@ -3,7 +3,7 @@ import Clock from '../../../utils/components/Clock';
 import styles from './Overview.module.css'
 import ToggleableText from '../../../utils/components/ToggleableText';
 import useAuth from '../../../hooks/useAuth';
-import { formatValue } from 'react-currency-input-field';
+
 
 
 const Overview = () => {
@@ -35,12 +35,12 @@ const Overview = () => {
           user: userJson.data,
           balance: balanceJson.data
         }
-        // console.log(user)
+        console.log(user)
         // Update state together
         setUserData(user)
 
       } catch (error) {
-        toast.error('Error fetching data')
+        toast.error(error.message)
         // console.error("Error fetching data:", error);
       }
     }
@@ -70,13 +70,7 @@ const Overview = () => {
 
          <span>
   {userData?.balance?.balance != null
-    ? `Bs. ${formatValue({
-        value: String(userData.balance.balance),
-        groupSeparator: ',',
-        decimalSeparator: '.',
-        decimalScale: 2,
-        fixedDecimalLength: 2
-      })}`
+    ? `Bs. ${userData?.balance?.balance.toLocaleString('es-VE', { decimal: true})}`
     : 'Loading...'}
 </span>
 

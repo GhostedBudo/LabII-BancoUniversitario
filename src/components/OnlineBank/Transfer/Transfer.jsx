@@ -22,6 +22,8 @@ const Transfer = () => {
   const [concept, setConcept] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+  //Userdata
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -44,6 +46,7 @@ const Transfer = () => {
     fetchUser();
   }, []);
 
+  //Contacts
   useEffect(() => {
     const fetchContacts = async () => {
       const token = getJwtToken();
@@ -62,7 +65,7 @@ const Transfer = () => {
         }));
         setContacts(contactsList || []);
       } else {
-        toast.error('Error fetching contacts');
+        toast.error(data.error);
       }
     }
     if (isModalOpen) {
@@ -89,7 +92,7 @@ const Transfer = () => {
     }
     
     // parseamos el string formateado a número
-    const numericAmount = parseFloat(amount);
+    const numericAmount = parseFloat(amount.replace(',', '.'));
     
     if (isNaN(numericAmount) || numericAmount <= 0) {
       toast.error('El monto debe ser mayor a cero.');
@@ -131,8 +134,8 @@ const Transfer = () => {
         toast.error(errorData.message || 'Error en la transferencia');
       }
     } catch (error) {
-      console.error('Error during transfer:', error);
-      toast.error('An error occurred while processing the transfer.');
+      
+      toast.error(error.message);
     }
     
     setAccountNumber('');

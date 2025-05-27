@@ -85,11 +85,11 @@ const Signup = () => {
                     // console.log('Registro exitoso:', data);
                     navigate('/login');
                 } else {
-                    toast.error('Fallo el registro')
+                    toast.error('Error', data.error)
                     // console.error('Fallo en el registro:', data.message);
                 }
             } catch (error) {
-                toast.error('Error de red')
+                toast.error(error.message)
                 // console.error('Error de red:', error);
             }
         }
